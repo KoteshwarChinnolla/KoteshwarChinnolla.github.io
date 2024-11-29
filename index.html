@@ -822,7 +822,7 @@
 
 
 
-    @media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
     .chat-logs {
             height:60vh;
         }
@@ -872,6 +872,136 @@
         clear: both;
         margin-bottom: 70px;
     }
+
+    /* Base styles remain the same */
+
+@media only screen and (max-width: 1200px) {
+    #chat-circle {
+        bottom: 80px;
+        right: 20px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+    }
+    #chat-image {
+        width: 100px;
+        height: 100px;
+    }
+    .chat-box {
+        width: 400px;
+        height: 600px;
+    }
+    .chat-box-header {
+        width: 400px;
+    }
+    #chat-input {
+        width: 400px;
+    }
+    .chat-box-body {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #chat-circle {
+        bottom: 60px;
+        right: 15px;
+        width: 90px;
+        height: 90px;
+        padding: 15px;
+    }
+    #chat-image {
+        width: 90px;
+        height: 90px;
+    }
+    .chat-box {
+        width: 350px;
+        height: 500px;
+    }
+    .chat-box-header {
+        width: 350px;
+        font-size: 16px;
+    }
+    #chat-input {
+        width: 350px;
+        font-size: 18px;
+    }
+    .chat-box-body {
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #chat-circle {
+        bottom: 40px;
+        right: 10px;
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+    }
+    #chat-image {
+        width: 70px;
+        height: 70px;
+    }
+    .chat-box {
+        width: 300px;
+        height: 450px;
+    }
+    .chat-box-header {
+        width: 300px;
+        font-size: 14px;
+        padding: 10px;
+    }
+    #chat-input {
+        width: 300px;
+        font-size: 16px;
+    }
+    .chat-box-body {
+        width: 300px;
+    }
+    .chat-logs {
+        height: 50vh;
+    }
+    .cm-msg-text {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #chat-circle {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+    #chat-image {
+        width: 60px;
+        height: 60px;
+    }
+    .chat-box {
+        width: 250px;
+        height: 400px;
+    }
+    .chat-box-header {
+        width: 250px;
+        font-size: 12px;
+    }
+    #chat-input {
+        width: 250px;
+        font-size: 14px;
+    }
+    .chat-box-body {
+        width: 250px;
+    }
+    .chat-logs {
+        height: 40vh;
+    }
+    .cm-msg-text {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
 </style>
 <script>
     $(function() {
