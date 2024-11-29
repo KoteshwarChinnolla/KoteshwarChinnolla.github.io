@@ -526,35 +526,38 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="contactform" action="https://249ca2wwuf.execute-api.us-east-1.amazonaws.com/dev/" method="post" class="php-email-form">
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" id="email" class="form-control" name="email" placeholder="Your Email" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" id="subject" class="form-control" name="subject" placeholder="Subject" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <textarea class="form-control" id="message" name="message" rows="6" placeholder="Message" required=""></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
+                  <!-- <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div> -->
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit" onclick="submitb()">Send Message</button>
                 </div>
 
               </div>
             </form>
+            <div id="successMessage" style="color: green; margin-top: 10px; display: none;">
+              Form submitted successfully!
+            </div>
           </div><!-- End Contact Form -->
 
         </div>
@@ -1023,6 +1026,29 @@
 
 </style>
 <script>
+//     function submitb() {
+//     // Submit the form
+//     document.getElementById('contactform').submit();
+
+//     // Display a success message
+//     const successMessage = document.createElement('div');
+//     successMessage.textContent = 'Form submitted successfully!';
+//     successMessage.style.color = 'green';
+//     successMessage.style.marginTop = '10px';
+
+//     // Append the message after the form
+//     const form = document.getElementById('contactform');
+//     form.parentNode.insertBefore(successMessage, form.nextSibling);
+// }
+function submitb() {
+    // Submit the form
+    document.getElementById('contactform').submit();
+
+    // Notify the user of success
+    setTimeout(() => {
+        alert('Form submitted successfully!');
+    }, 1000); // Add a delay to ensure the form submission is processed
+}
     $(function() {
     var previous_state="";
     var INDEX = 0; 
