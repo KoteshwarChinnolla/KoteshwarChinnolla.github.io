@@ -72,10 +72,10 @@
         
         <div class="chat-box">
           <div class="chat-box-header">
-            <div class="koti_s">LLM Chatbot</div>
+            <div class="koti_s">KOTI'S BOT</div>
             <span class="chat-box-toggle"><h5>❌</h5></span>
             <br>
-            <div class="text_hearder">SIMPLE LLM CHATBOT FROM AMAZON SAGEMAKER</div>
+            <div class="text_hearder">SIMPLE LLM CHATBOT FINETUNED ON MY DATA</div>
 
           </div>
           <div class="chat-box-body">
@@ -378,8 +378,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
-        <p>this are some of the projects i have worked on throughout my 4 years of Btech</p>
+        <h2>Services</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -395,9 +395,9 @@
                 <i class="bi bi-activity"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>A* Algorithm Based Autonomous navigation vehicle</h3>
+                <h3>Nesciunt Mete</h3>
               </a>
-              <p>Navigation of vehicle using A* algorithm for path planning and a Lidar sensor to detect obstacles and map the environment</p>
+              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -410,9 +410,9 @@
                 <i class="bi bi-broadcast"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Prodect demand prediction</h3>
+                <h3>Eosle Commodi</h3>
               </a>
-              <p>this is a real time project, predicts the demand of the prodects for the future. helps in growth of the business</p>
+              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -425,13 +425,13 @@
                 <i class="bi bi-easel"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>A portfolio chatbot</h3>
+                <h3>Ledo Markt</h3>
               </a>
-              <p> which is trained on my data to give answers to queries regarding my projects, research, study, achievements etc.. in my way </p>
+              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
             </div>
           </div><!-- End Service Item -->
 
-          <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item item-red position-relative">
               <div class="icon">
                 <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -445,9 +445,9 @@
               <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
               <a href="#" class="stretched-link"></a>
             </div>
-          </div>End Service Item -->
+          </div><!-- End Service Item -->
 
-          <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-item item-indigo position-relative">
               <div class="icon">
                 <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -461,9 +461,9 @@
               <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
               <a href="#" class="stretched-link"></a>
             </div>
-          </div>End Service Item -->
+          </div><!-- End Service Item -->
 
-          <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item item-pink position-relative">
               <div class="icon">
                 <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -477,7 +477,7 @@
               <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
               <a href="#" class="stretched-link"></a>
             </div>
-          </div>End Service Item -->
+          </div><!-- End Service Item -->
 
         </div>
 
@@ -875,7 +875,7 @@
 </style>
 <script>
     $(function() {
-    var previous_state="";
+    var t="";
     var INDEX = 0; 
     $("#chat-submit").click(function(e) {
         e.preventDefault();
@@ -883,22 +883,11 @@
         if(msg.trim() == ''){
         return false;
         }
-        generate_message(msg, "self");
-        fetch("http://127.0.0.1:5000/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ message: previous_state+"/n"+msg+"/n answar in less then 20 words"}),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            generate_message(data.reply, "user");
-            previous_state+=" "+data.reply;
-        })
-        .catch((error) => {
-            generate_message("Error: Unable to connect.", "user");
-        });
+        generate_message(msg, 'self');
+        setTimeout(function() {
+        t+=" "+msg;   
+        generate_message(t, 'user');
+        }, 1000)
     })
     
     function generate_message(msg, type) {
