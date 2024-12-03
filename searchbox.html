@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Box with Suggestions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-box" placeholder="Search..." oninput="showSuggestions()">
+        <div id="suggestion-box" class="suggestion-box"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.search-container {
+    position: relative;
+    width: 300px;
+}
+
+#search-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.suggestion-box {
+    position: absolute;
+    top: -120px; /* Adjust height to appear above the text box */
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 100px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.suggestion-box div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-box div:hover {
+    background-color: #f0f0f0;
+}
+
+</style>
+<script>
+    const suggestions = [
+    "apple", "application", "apartment", 
+    "banana", "basket", "blueberry", 
+    "cat", "caterpillar", "cactus", 
+    "dog", "dolphin", "dragonfruit"
+];
+
+const searchBox = document.getElementById('search-box');
+const suggestionBox = document.getElementById('suggestion-box');
+
+function showSuggestions() {
+    const query = searchBox.value.toLowerCase();
+    suggestionBox.innerHTML = '';
+    
+    if (query) {
+        const filteredSuggestions = suggestions.filter(item =>
+            item.toLowerCase().startsWith(query)
+        );
+        
+        if (filteredSuggestions.length > 0) {
+            suggestionBox.style.display = 'block';
+            filteredSuggestions.forEach(suggestion => {
+                const div = document.createElement('div');
+                div.textContent = suggestion;
+                div.onclick = () => {
+                    searchBox.value = suggestion;
+                    suggestionBox.style.display = 'none';
+                };
+                suggestionBox.appendChild(div);
+            });
+        } else {
+            suggestionBox.style.display = 'none';
+        }
+    } else {
+        suggestionBox.style.display = 'none';
+    }
+}
+
+// Close suggestion box if clicked outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) {
+        suggestionBox.style.display = 'none';
+    }
+});
+
+</script>
