@@ -1096,61 +1096,61 @@
       height: 70px;
     }
 
-    .chat-box {
-      width: 300px;
-      padding-bottom: 300px;
-      height: 450px;
-    }
-
-    .scroll-top.active {
-      visibility: visible;
-      opacity: 1;
-      right: 20px;
-      bottom: 15px;
-    }
-
-    .koti_s {
-      margin-top: 5px;
-      margin-left: 1px;
-      font-size: 25px;
-    }
-
-    .text_hearder {
-      font-size: 10px;
-    }
-
-    .chat-submit {
-      bottom: -80px;
-    }
-
-    .chat-box-header {
-      width: 300px;
-      height: 70px;
-      font-size: 14px;
-      padding: 10px;
-    }
-
-    #chat-input {
-      width: 300px;
-      font-size: 16px;
-    }
-
-    .chat-box-body {
-      width: 300px;
-    }
-
-    .chat-logs {
-      height: 50vh;
-    }
-
-    .cm-msg-text {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
+  .chat-box {
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 0;
   }
 
-  @media only screen and (max-width: 320px) {
-    #chat-circle {
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    right: 20px;
+    bottom: 15px;
+  }
+
+  .koti_s {
+    margin-top: 5px;
+    margin-left: 1px;
+    font-size: 25px;
+  }
+
+  .text_hearder {
+    font-size: 10px;
+  }
+
+  .chat-submit {
+    bottom: 10px;
+  }
+
+  .chat-box-header {
+    width: 100%;
+    height: 70px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #chat-input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .chat-box-body {
+    width: 100%;
+  }
+
+  .chat-logs {
+    height: calc(100vh - 70px - 50px); /* Adjust for header and footer */
+  }
+
+  .cm-msg-text {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #chat-circle {
       width: 60px;
       height: 60px;
       padding: 8px;
@@ -1161,51 +1161,24 @@
       height: 60px;
     }
 
-    .chat-box {
-      width: 250px;
-      height: 400px;
-    }
+  .chat-box {
+    width: 100vw;
+    height: 100vh;
+  }
 
-    .chat-box-header {
-      width: 250px;
-      height: 2px;
-      font-size: 12px;
-    }
+  .chat-box-header {
+    width: 100%;
+    height: 60px;
+    font-size: 12px;
+    padding: 5px;
+  }
 
-    #chat-input {
-      width: 250px;
-      font-size: 14px;
-    }
-
-    .chat-box-body {
-      width: 250px;
-    }
-
-    .chat-logs {
-      height: 40vh;
-    }
-
-    .cm-msg-text {
-      font-size: 12px;
-      padding: 6px 12px;
-    }
+  #chat-input {
+    width: 100%;
+    font-size: 14px;
   }
 </style>
 <script>
-  //     function submitb() {
-  //     // Submit the form
-  //     document.getElementById('contactform').submit();
-
-  //     // Display a success message
-  //     const successMessage = document.createElement('div');
-  //     successMessage.textContent = 'Form submitted successfully!';
-  //     successMessage.style.color = 'green';
-  //     successMessage.style.marginTop = '10px';
-
-  //     // Append the message after the form
-  //     const form = document.getElementById('contactform');
-  //     form.parentNode.insertBefore(successMessage, form.nextSibling);
-  // }
   function submitb() {
     // Submit the form
     document.getElementById('contactform').submit();
