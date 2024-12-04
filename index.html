@@ -121,7 +121,7 @@
               <a href="https://www.linkedin.com/in/koteshwar-chinnolla-2065b4253"><i class="bi bi-linkedin"></i></a>
             </div>
             <div class="button-group">
-              <a href="#know-more" class="btn know-more-btn">Know More</a>
+              <a href="#about" class="btn know-more-btn">know more</a>
               <a href="testblog.html" class="btn blogs-btn">Blogs</a>
             </div>
           </div>
@@ -675,7 +675,7 @@
 }
 
 .btn {
-  padding: 10px 50px;
+  padding: 8px 50px;
   border-radius: 30px;
   font-size: 16px;
   font-weight: bold;
@@ -687,6 +687,18 @@
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.507); /* Initial shadow */
+}
+@media only screen and (max-width: 500px) {
+    .btn {
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        text-align: left;
+        display: block; /* Or whatever display property fits your needs */
+        white-space: nowrap;
+        /* overflow: hidden; */
+        text-overflow: ellipsis;
+    }
 }
 
 .know-more-btn {
