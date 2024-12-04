@@ -1266,6 +1266,11 @@ section,
   font-weight: 700;
   margin-bottom: 20px;
 }
+.portfolio-details .portfolio-description img {
+  padding :30px 30px 30px 30px;
+  height: 50%;
+  width: 50%;
+}
 
 .portfolio-details .portfolio-description p {
   padding: 0;
@@ -1280,7 +1285,7 @@ section,
 
 .portfolio-details .portfolio-description .testimonial-item .testimonial-img {
   width: 90px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   border: 6px solid var(--background-color);
   float: left;
   margin: 0 10px 0 0;

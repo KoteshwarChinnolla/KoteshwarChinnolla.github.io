@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>Blogs</span>
+        </div>
+        <h1>Blogs</h1>
+    </header>
+
+    <main>
+        <section class="portfolio-details">
+            <div class="container">
+                <div class="main-content">
+                    <div class="portfolio-description">
+                        <h2>This is an example of portfolio details</h2>
+                        <p>Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia.</p>
+                        <p>Amet consequatur qui dolore veniam voluptatem voluptatem sit.</p>
+                        <blockquote>
+                            <p>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis.</p>
+                            <cite>Sara Wilsson, Designer</cite>
+                        </blockquote>
+                        <div class="image-container">
+                            <img src="assets/img/k1.jpg" alt="img1">
+                            <img src="assets/img/k1.jpg" alt="img2">
+                        </div>
+                        <p>Sunt voluptatum sapiente facilis quo odio aut ipsum repellat debitis.</p>
+                        <div class="image-container">
+                            <img src="assets/img/k1.jpg" alt="img1">
+                            <img src="assets/img/k1.jpg" alt="img2">
+                        </div>
+                        <p>Sunt voluptatum sapiente facilis quo odio aut ipsum repellat debitis.</p>
+                    </div>
+                </div>
+                <aside class="portfolio-info">
+                    <h3>Project Information</h3>
+                    <ul>
+                        <li><strong>Category:</strong> Web Design</li>
+                        <li><strong>Client:</strong> ASU Company</li>
+                        <li><strong>Project Date:</strong> 01 March, 2020</li>
+                        <li><strong>URL:</strong> <a href="#">www.example.com</a></li>
+                    </ul>
+                    <a href="#" class="visit-button">Visit Website</a>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="suggestion-box">
+                        <h4>Leave a Suggestion</h4>
+                        <textarea placeholder="Enter your suggestions here..."></textarea>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#top" class="scroll-top">Top</a>
+    </footer>
+</body>
+</html>
+<style>
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    background-color: #f9f9f9;
+    color: #444;
+}
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center-align the images */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    width: 300px; /* Set a fixed width for consistency */
+    display: block;
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for effect */
+}
+
+
+/* Header */
+header {
+    /* text-align: center; */
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #6c757d;
+}
+
+.breadcrumbs a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Portfolio Section */
+.portfolio-details {
+    padding: 50px 20px;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 4;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* max-width: 800px; */
+    overflow-y: auto;
+    max-height: 80vh; /* Adjust height as needed */
+}
+
+.portfolio-description h2 {
+    margin-top: 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.portfolio-description p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+blockquote {
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid #007bff;
+    background: #e9ecef;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Sidebar Info */
+.portfolio-info {
+    /* flex: 1; */
+    position: sticky;
+    top: 100px; /* Adjust based on header height */
+    align-self: flex-start;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    height: 100%;
+}
+
+.portfolio-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.portfolio-info ul li {
+    margin-bottom: 15px;
+}
+
+.portfolio-info ul li strong {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+}
+
+/* Suggestion Box */
+.suggestion-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-box h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.suggestion-box textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.suggestion-box textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.suggestion-box .submit-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.suggestion-box .submit-button:hover {
+    background: #0056b3;
+}
+
+
+.visit-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    color: #fff;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.visit-button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 15px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.scroll-top:hover {
+    background: #0056b3;
+}
+</style>

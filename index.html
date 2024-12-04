@@ -107,27 +107,28 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section light-background">
-
-      <img src="assets/img/koti11.jpg" alt="">
-
+      <img src="assets/img/koti11.jpg" alt="Hero Image">
+    
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <h2>Chinnolla Koteshwar</h2>
-            <h4>I appreciate <span class="typed"
-                data-typed-items=" your time and effert to get to know me. thank you !! :)"></span><span
-                class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></h4>
+            <h4>I appreciate <span class="typed" data-typed-items=" your time and effert to get to know me. thank you !! :)"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></h4>
             <div class="social-links">
               <a href="https://x.com/ChinnollaKotes1"><i class="bi bi-twitter-x"></i></a>
               <a href="https://www.facebook.com/chinnolla.koteshwar"><i class="bi bi-facebook"></i></a>
               <a href="https://www.instagram.com/_koteshwar__/"><i class="bi bi-instagram"></i></a>
               <a href="https://www.linkedin.com/in/koteshwar-chinnolla-2065b4253"><i class="bi bi-linkedin"></i></a>
             </div>
+            <div class="button-group">
+              <a href="#know-more" class="btn know-more-btn">Know More</a>
+              <a href="testblog.html" class="btn blogs-btn">Blogs</a>
+            </div>
           </div>
         </div>
       </div>
-
-    </section><!-- /Hero Section -->
+    </section>
+    <!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -666,6 +667,46 @@
 
 </html>
 <style>
+  .button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+  gap: 40px; /* Space between buttons */
+}
+
+.btn {
+  padding: 10px 50px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.507); /* Initial shadow */
+}
+
+.know-more-btn {
+  background-color: #b9cbdd00; /* Blue color */
+}
+
+.know-more-btn:hover {
+  background-color: #49adff; /* Darker blue */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+.blogs-btn {
+  background-color: #029ac0; /* Green color */
+}
+
+.blogs-btn:hover {
+  background-color: #4cdb6b; /* Darker green */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
   #chat-circle {
     position: fixed;
     z-index: 9999;
