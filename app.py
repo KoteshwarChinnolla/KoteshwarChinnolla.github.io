@@ -6,7 +6,7 @@ import uvicorn
 app = FastAPI()
 
 app.add_middleware(
-    CORSMiddleware,
+    CORSMiddleware,#0563bb90
     allow_origins=["*"],  # Replace "*" with specific allowed origins in production
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods, including OPTIONS
