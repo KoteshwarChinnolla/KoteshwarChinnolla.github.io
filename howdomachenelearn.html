@@ -14,22 +14,28 @@
         </div>
         <h1>How Do Machine Learn ?</h1>
         <p>In this blog, let's understand the machine learning workflow, the different steps to be taken to build a machine learning medel from scratch, and the different approaches to perform that specific step. </p>
-
     </header>
-
     <main>
         <section class="portfolio-details">
             <div class="container">
+                <aside class="portfolio-info1">
+                    <hedding>Contents</hedding>
+                    <h4 href="#machenelearning">Machenne Learning</h4>
+                    <h4 href="#machenelearningworkflow">Machenne Learning work flow</h4>
+                    <h4 href="#dataengineering">Data Engineering</h4>
+                    <h4 href="#modeldevelopment">Model development</h4>
+                    <h4 href="#deployment">Deployment</h4>
+                </aside>
                 <div class="main-content">
                     <div class="portfolio-description">
-                        <h2>Machene learning</h2>
+                        <h2 id="machenelearning">Machene learning</h2>
                         <p>Machine learning is a branch of Artificial Intelligence, where a machine learns without explicitly programmed,  machine learning concerns the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without explicit instructions.</p>
                         <p>Machine learning is a set of algorithms. It involves using algorithms to identify hidden patterns in datasets, enabling predictions on new data. </p>
-                            <blockquote>
+                        <blockquote>
                             <p>a computer’s ability to learn without being explicitly programmed.</p>
                             <cite>by computer scientist Arthur Samuel</cite>
                         </blockquote>
-                        <h2>Machine Learning Workflow</h2>
+                        <h2 id="machenelearningworkflow">Machine Learning Workflow</h2>
                         <p>For a human the learning basically is reading, understating and answering. These are the three simple steps we as a human follow. Similarly, to make a machine learn, we make the machine to follow the same three simple steps. In machine terms those are collecting data, processing data and making predictions out of it.</p>
                         <p>To make a machine learn from our data, the data needs to be in a machine-understandable way so our first step is data preprocessing, after making the data into machine machine-understandable format we need to treat the data to the machine. For perfect training, we required a perfect model so our next step is to select a perfect model. Now machine is giving the desired results then we have to deploy our model in a real-time environment this is where deployment comes into the picture.</p>
                         <div class="image-container">
@@ -47,9 +53,30 @@
                             <li>Deployment</li>
                         </ul>
                         <br>
-                        <h2>Data Engineering</h2>
-                        <p>.</p>
-                        <p>.</p>
+                        <h2 id="dataengineering">Data Engineering</h2>
+                        <blockquote>
+                            <p>Data pre-processing increases the quality of the data thus making it fit to be analyzed. It minimizes errors, variations, and duplication, hence enhancing the possibility of getting the right results. </p>
+                            <cite>.</cite>
+                        </blockquote>
+                        <p>As raw data it is noisey, biased, inclomplete, unstructured, and missing . so processing raw data may throe errors, such that it is most importent to pre processt the data. poor data can lead to incurrect prediction, lower accurecy etc.. maintaining the data quality is most importent to train any model.</p>
+                        <p>Why data pre processing is so importent ? lets understant with an example , concider we are haveing a students details of attendence percentage of previous 8 years. so our task is to predict the attendence of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can bethe preprocessing steps that can be performed on tht perticular data to have a perfect prediction? so, first we have to fill up the missing data(who joied after few years) then to remove the students who are not in the school right now this are necessary steps. Then we neeeded to convert the names into a machene understanding for mat such as biaty numbers , numarical numbers etc.. this are necessary to makr error less data processing. inclomlete data always give errors.  </p>
+                        <hedding>some of the preprocerssing techniques include</hedding>
+                        
+                        <ul>
+                            <li>Cleaning</li>
+                            <br>
+                            <li>Data Augmentation</li>
+                            <br>
+                            <li>Dimensionality Reduction</li>
+                            <br>
+                            <li>Feature Engineering</li>
+                            <br>
+                            <li>Normalizing</li>
+                            <br>
+                            <li>Encoding</li>
+                            <br>
+                            <li>Scaling</li>
+                        </ul>
                         <p>.</p>
                         <p>.</p>
                         <p>.</p>
@@ -66,6 +93,7 @@
                     </div>
                 </div>
                 <aside class="portfolio-info">
+
                     <h3>Project Information</h3>
                     <ul>
                         <li><strong>Name:</strong>How do machene learn</li>
@@ -223,6 +251,22 @@ blockquote cite {
 }
 
 /* Sidebar Info */
+.portfolio-info1 {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop View: Position on the left */
+@media (max-width: 500px) {
+    .portfolio-info1 {
+        display: none;
+    }
+}
 .portfolio-info {
     /* flex: 1; */
     position: sticky;
