@@ -15,17 +15,22 @@
         <h1>How Do Machine Learn ?</h1>
         <p>In this blog, let's understand the machine learning workflow, the different steps to be taken to build a machine learning medel from scratch, and the different approaches to perform that specific step. </p>
     </header>
+    <nav1>
+
+        <label for="touch"><span1>Contents</span1></label>               
+        <input type="checkbox" id="touch"> 
+      
+        <ul class="slide">
+          <li><a href="#machenelearning">Machenne Learnin</a></li> 
+          <li><a href="#machenelearningworkflow">Machenne Learning work flow</a></li>
+          <li><a href="#dataengineering">Data Engineering</a></li>
+          <li><a href="#modeldevelopment">Model development</a></li>
+        </ul>
+      
+      </nav1> 
     <main>
         <section class="portfolio-details">
             <div class="container">
-                <!-- <aside class="portfolio-info1">
-                    <hedding>Contents</hedding>
-                    <p href="#machenelearning">Machenne Learning</p>
-                    <p href="#machenelearningworkflow">Machenne Learning work flow</p>
-                    <p href="#dataengineering">Data Engineering</p>
-                    <p href="#modeldevelopment">Model development</p>
-                    <p href="#deployment">Deployment</p>
-                </aside> -->
                 <div class="main-content">
                     <div class="portfolio-description">
                         <h2 id="machenelearning">Machene learning</h2>
@@ -113,14 +118,9 @@
                     </div>
                 </div>
                 <aside class="portfolio-info">
-                    <hedding>Contents</hedding>
-                    <p href="#machenelearning">Machenne Learning</p>
-                    <p href="#machenelearningworkflow">Machenne Learning work flow</p>
-                    <p href="#dataengineering">Data Engineering</p>
-                    <p href="#modeldevelopment">Model development</p>
-                    <p href="#deployment">Deployment</p>
-                    <br>
                     <hedding>Project Information</hedding>
+                    <br>
+                    <br>
                     <ul>
                         <li><strong>Name:</strong>How do machene learn</li>
                         <li><strong>writer:</strong>Chinnolla Koteshwar</li>
@@ -160,12 +160,53 @@ hedding {
     text-align: left;
     font-size: 22px;
     font-weight: bold;
-    border-bottom: 2px solid #0400ff;
+    border-bottom: 2px solid #484853;
 }
 
 ps{
     font-size: 10px;
 }
+
+li a {text-decoration : none; color : #3e444a;}
+
+
+nav1 {
+  width : 100%; 
+  /* height: 10px; */
+  background: rgb(99, 91, 70);
+  /* margin : 40px auto;  */
+}
+
+span1 {
+  padding : 20px;
+  background : #007bff; 
+  color : rgb(252, 238, 205);
+  font-size : 1.2em;
+  font-variant : small-caps;
+  cursor : pointer;
+  display: block;
+}
+
+span1::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+
+.slide {
+  clear:both;
+  width:100%;
+  height:0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+
+.slide li {padding : 30px; color: rgba(181, 136, 31, 0);}
+
+#touch {position: absolute; opacity: 0; height: 0px;}    
+
+#touch:checked + .slide {height: 300px;} 
 .image-container {
     display: flex;
     flex-wrap: wrap;
