@@ -64,7 +64,13 @@
                             <cite>.</cite>
                         </blockquote>
                         <p>As raw data it is noisey, biased, inclomplete, unstructured, and missing . so processing raw data may throe errors, such that it is most importent to pre processt the data. poor data can lead to incurrect prediction, lower accurecy etc.. maintaining the data quality is most importent to train any model.</p>
-                        <p>Why data pre processing is so importent ? lets understant with an example , concider we are haveing a students details of attendence percentage of previous 8 years. so our task is to predict the attendence of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can bethe preprocessing steps that can be performed on tht perticular data to have a perfect prediction? so, first we have to fill up the missing data(who joied after few years) then to remove the students who are not in the school right now this are necessary steps. Then we neeeded to convert the names into a machene understanding for mat such as biaty numbers , numarical numbers etc.. this are necessary to makr error less data processing. inclomlete data always give errors.  </p>
+                        <div class="dropdown">
+                            <div class="dropdown-title">Example</div>
+                            <div class="dropdown-content">
+                                <p>Why data pre processing is so importent ? lets understant with an example , concider we are haveing a students details of attendence percentage of previous 8 years. so our task is to predict the attendence of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can bethe preprocessing steps that can be performed on tht perticular data to have a perfect prediction? so, first we have to fill up the missing data(who joied after few years) then to remove the students who are not in the school right now this are necessary steps. Then we neeeded to convert the names into a machene understanding for mat such as biaty numbers , numarical numbers etc.. this are necessary to makr error less data processing. inclomlete data always give errors.</p>
+                            </div>
+                        </div>  
+                        <!-- <p>Why data pre processing is so importent ? lets understant with an example , concider we are haveing a students details of attendence percentage of previous 8 years. so our task is to predict the attendence of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can bethe preprocessing steps that can be performed on tht perticular data to have a perfect prediction? so, first we have to fill up the missing data(who joied after few years) then to remove the students who are not in the school right now this are necessary steps. Then we neeeded to convert the names into a machene understanding for mat such as biaty numbers , numarical numbers etc.. this are necessary to makr error less data processing. inclomlete data always give errors.  </p> -->
                         <hedding>some of the preprocerssing techniques include</hedding>
                         
                         <ul>
@@ -96,17 +102,18 @@
                         </ul>
                         <h4>Handling outlayuers</h4>
                         <p>outlayers are somthing that deviats significantly from the rest of the data. wichb changes the cource oof the output</p>
-                        <nav1><lable for="touch"><span1>example</span1></lable>
-                            <input type="checkbox" id="touch">
-                            <ul class="slide">
-                                <li><a href="#outlayers">presence opf outlayers cause the prediction to be less accurate, lets understant with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, concider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviatied from 2.5 to 26.2 the reason beaing the vale 100 wich is acting as a outlayer</a></li>
-                            </ul>
-                        </nav1>
-                        <p>presence opf outlayers cause the prediction to be less accurate, lets understant with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, concider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviatied from 2.5 to 26.2 the reason beaing the vale 100 wich is acting as a outlayer</p>
+                        <div class="dropdown">
+                            <div class="dropdown-title">Example</div>
+                            <div class="dropdown-content">
+                                <p>presence opf outlayers cause the prediction to be less accurate, lets understant with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, concider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviatied from 2.5 to 26.2 the reason beaing the vale 100 wich is acting as a outlayer</p>
+                            </div>
+                        </div>  
+                        <!-- <p>presence opf outlayers cause the prediction to be less accurate, lets understant with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, concider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviatied from 2.5 to 26.2 the reason beaing the vale 100 wich is acting as a outlayer</p> -->
                         <div class="image-container">
                             <img src="assets/img/DataScience/MacheneLearningWorkFlow/outlayers 2.gif" alt="fig 1">
                             <img src="assets/img/DataScience/MacheneLearningWorkFlow/boxplot.png" alt="fig 2">
                         </div>
+                                             
                         <p>.</p>
                         <p>.</p>
                         <h2>Model development</h2>
@@ -171,46 +178,113 @@ ps{
     font-size: 10px;
 }
 
-li a {text-decoration : none; color : #3e444a;}
-
+li a {
+    text-decoration: none;
+    color: #3e444a;
+}
 
 nav1 {
-  width : 100%; 
-  /* height: 10px; */
-  background: rgb(99, 91, 70);
-  /* margin : 40px auto;  */
+    width: 100%;
+    background: rgb(99, 91, 70);
 }
 
 span1 {
-  padding : 15px;
-  background : #4e555c; 
-  color : rgb(252, 238, 205);
-  font-size : 1.2em;
-  font-variant : small-caps;
-  cursor : pointer;
-  display: block;
+    padding: 15px;
+    background: #4e555c;
+    color: rgb(252, 238, 205);
+    font-size: 1.2em;
+    font-variant: small-caps;
+    cursor: pointer;
+    display: block;
 }
 
 span1::after {
-  float: right;
-  right: 10%;
-  content: "+";
+    float: right;
+    right: 10%;
+    content: "+";
 }
 
 .slide {
-  clear:both;
-  width:100%;
-  height:0px;
-  overflow: hidden;
-  text-align: center;
-  transition: height .4s ease;
+    clear: both;
+    width: 100%;
+    max-height: 0px; /* Start with no height */
+    overflow: hidden; /* Hide content when closed */
+    text-align: center;
+    transition: max-height 0.4s ease;
 }
-/* .slide ul {list-style : none; padding : 0; margin : 0;} */
-.slide li {padding : 15px; color: rgba(87, 80, 65, 0);}
 
-#touch {position: absolute; opacity: 0; height: 0px;}    
+.slide li {
+    padding: 15px;
 
-#touch:checked + .slide {height: 200px;} 
+    color: rgba(87, 80, 65, 0);
+}
+
+/* Hidden checkbox for toggle */
+#touch {
+    position: absolute;
+    opacity: 0;
+    height: 0px;
+}
+
+/* When checkbox is checked, allow dropdown with scroll */
+#touch:checked + .slide {
+    max-height: 200px; /* Adjust maximum visible height */
+    overflow-y: auto; /* Enables scrolling if content exceeds max-height */
+}
+
+/* Dropdown container styling */
+.dropdown {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: rgb(99, 91, 70);
+}
+
+/* Title styling */
+.dropdown-title {
+    padding: 15px;
+    background: #4e555c;
+    color: rgb(252, 238, 205);
+    font-size: 1.2em;
+    font-variant: small-caps;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add a "+" symbol */
+.dropdown-title::after {
+    content: "+";
+    transition: transform 0.3s ease;
+}
+
+/* Rotate "+" symbol when active */
+.dropdown.active .dropdown-title::after {
+    transform: rotate(45deg);
+}
+
+/* Content section */
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #f5f5f5;
+    padding: 0 15px;
+    color: #333;
+}
+
+/* Content section visible when active */
+.dropdown.active .dropdown-content {
+    max-height: 200px; /* Adjust based on content */
+    padding: 15px;
+    overflow-y: auto;
+}
+
+
 .image-container {
     display: flex;
     flex-wrap: wrap;
@@ -458,3 +532,23 @@ blockquote cite {
     background: #0056b3;
 }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const title = dropdown.querySelector(".dropdown-title");
+
+        title.addEventListener("click", () => {
+            // Toggle active class for the clicked dropdown
+            dropdown.classList.toggle("active");
+
+            // Optionally close other dropdowns (uncomment below)
+            // dropdowns.forEach(d => {
+            //     if (d !== dropdown) d.classList.remove("active");
+            // });
+        });
+    });
+});
+
+</script>
