@@ -15,19 +15,17 @@
         <h1>How Do Machine Learn ?</h1>
         <p>In this blog, let's understand the machine learning workflow, the different steps to be taken to build a machine learning medel from scratch, and the different approaches to perform that specific step. </p>
     </header>
-    <nav1>
-
-        <label for="touch"><span1>Contents</span1></label>               
-        <input type="checkbox" id="touch"> 
-      
-        <ul class="slide">
-          <li><a href="#machenelearning">Machenne Learnin</a></li> 
-          <li><a href="#machenelearningworkflow">Machenne Learning work flow</a></li>
-          <li><a href="#dataengineering">Data Engineering</a></li>
-          <li><a href="#modeldevelopment">Model development</a></li>
-        </ul>
-      
-      </nav1> 
+    <div class="dropdown">
+        <div class="dropdown-title">Example</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="#machenelearning">Machenne Learnin</a></li> 
+                <li><a href="#machenelearningworkflow">Machenne Learning work flow</a></li>
+                <li><a href="#dataengineering">Data Engineering</a></li>
+                <li><a href="#modeldevelopment">Model development</a></li>
+              </ul>        
+            </div>
+    </div> 
     <main>
         <section class="portfolio-details">
             <div class="container">
@@ -183,55 +181,6 @@ li a {
     color: #3e444a;
 }
 
-nav1 {
-    width: 100%;
-    background: rgb(99, 91, 70);
-}
-
-span1 {
-    padding: 15px;
-    background: #4e555c;
-    color: rgb(252, 238, 205);
-    font-size: 1.2em;
-    font-variant: small-caps;
-    cursor: pointer;
-    display: block;
-}
-
-span1::after {
-    float: right;
-    right: 10%;
-    content: "+";
-}
-
-.slide {
-    clear: both;
-    width: 100%;
-    max-height: 0px; /* Start with no height */
-    overflow: hidden; /* Hide content when closed */
-    text-align: center;
-    transition: max-height 0.4s ease;
-}
-
-.slide li {
-    padding: 15px;
-
-    color: rgba(87, 80, 65, 0);
-}
-
-/* Hidden checkbox for toggle */
-#touch {
-    position: absolute;
-    opacity: 0;
-    height: 0px;
-}
-
-/* When checkbox is checked, allow dropdown with scroll */
-#touch:checked + .slide {
-    max-height: 200px; /* Adjust maximum visible height */
-    overflow-y: auto; /* Enables scrolling if content exceeds max-height */
-}
-
 /* Dropdown container styling */
 .dropdown {
     width: 100%;
@@ -282,6 +231,22 @@ span1::after {
     max-height: 200px; /* Adjust based on content */
     padding: 15px;
     overflow-y: auto;
+}
+
+.dropdown-content li {
+    padding: 15px;
+    color: rgba(87, 80, 65, 1); /* Adjust opacity for visibility */
+    text-align: center;
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li:hover {
+    background-color: #9fbfd6; /* Change background color on hover */
+    color: #a26165; /* Change text color on hover */
+    cursor: pointer; /* Makes it clear the item is interactive */
 }
 
 
