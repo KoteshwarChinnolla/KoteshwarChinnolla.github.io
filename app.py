@@ -1,10 +1,16 @@
 from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from starlette.requests import Request
+
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain.llms.bedrock import Bedrock
 import uvicorn
 app = FastAPI()
-
+templates = Jinja2Templates(directory=".")
 app.add_middleware(
     CORSMiddleware,#0563bb90
     allow_origins=["*"],  # Replace "*" with specific allowed origins in production
@@ -49,8 +55,8 @@ async def chat(chat_request: ChatRequest):
 
 # Health check endpoint
 @app.get("/")
-def read_root():
-    return {"message": "Chatbot API is running"}
+async def read_root(request: Request):
+    return {"message": "Hello, World!"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=5000)
