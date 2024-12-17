@@ -65,7 +65,12 @@
                         <div class="dropdown">
                             <div class="dropdown-title">Example</div>
                             <div class="dropdown-content">
-                                <p>Why data pre processing is so important ? lets understand with an example , consider we are having a students details of attendance percentage of previous 8 years. so our task is to predict the attendance of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can be the preprocessing steps that can be performed on the particular data to have a perfect prediction? so, first we have to fill up the missing data(who joined after few years) then to remove the students who are not in the school right now this are necessary steps. Then we needed to convert the names into a machine understanding format such as binary numbers , numerical numbers etc.. this are necessary to mark error less data processing. incomplete data always give errors.</p>
+                                <p>Why data pre processing is so important ? lets understand with an example , consider our task is to predict the attendance percentage of student by analyzing the previous 8 years.</p>
+                                <strong>case 1:</strong><p>let say some students discontinued the school, some of them might skip the school for first few years.</p>
+                                <strong>case 2:</strong><p>some data entry's are meaning less, over 100%.</p>
+                                <strong>case 3:</strong><p>some data entry's are in the string format where it need to be int.</p>
+                                <strong>case 4:</strong><p>we are having the data in sentences. where machine only understand binary or numerical data.</p>
+                                <p>perfect prediction always demands perfect data, what are the issues with this data , case 1 data is Missing, case 2 data contains outlier, case 3 data is invalid, case 4 data is in sentence format, preprocessing is necessary to handle all cases</p>
                             </div>
                         </div>  
                         <!-- <p>Why data pre processing is so impotent ? lets understand with an example , consider we are having a students details of attendance percentage of previous 8 years. so our task is to predict the attendance of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can be the preprocessing steps that can be performed on that particular data to have a perfect prediction? so, first we have to fill up the missing data(who joined after few years) then to remove the students who are not in the school right now this are necessary steps. Then we needed to convert the names into a machine understanding for mat such as bitty numbers , numerical numbers etc.. this are necessary to mark error less data processing. incomplete data always give errors.  </p> -->
@@ -87,39 +92,87 @@
                             <li>Scaling</li>
                         </ul>
                         <br>
-                        <h3>Cleaning</h3>
+                        <h2>Cleaning</h2>
                         <p>Data cleaning is a processing of filling up missing data, removing outliers or duplication and so on.</p>
-                        <h4>Missing data</h4>
+                        <h3>Missing data</h3>
                         <p>Handling with missing data can be done in different methods we can fill up the missing data with mean, median or mode or removing whole record or using machine learning algorithms to fill out those values</p>
                         <ul>
-                            <li>mean median mode</li>
+                            <li>mean/median/mode of entire data to fill up missing data</li>
                             <br>
                             <li>removing whole record</li>
                             <br>
                             <li>using machine learning algorithms to fill out missing data</li>
                         </ul>
-                        <h4>Handling outliers</h4>
-                        <p>outlayers are something that deviates significantly from the rest of the data. which changes the course oof the output</p>
+                        <h3>Handling outliers</h3>
+                        <p>outliers are something that deviates significantly from the rest of the data. which changes the course oof the output</p>
                         <div class="dropdown">
                             <div class="dropdown-title">Example</div>
                             <div class="dropdown-content">
-                                <p>presence of out layers cause the prediction to be less accurate, lets understand with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, consider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviated from 2.5 to 26.2 the reason being the vale 100 which is acting as a outlayer</p>
+                                <p>presence of out layers cause the prediction to be less accurate, lets understand with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, consider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviated from 2.5 to 26.2 the reason being the vale 100 which is acting as a outliers</p>
                             </div>
                         </div>  
                         <div class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/out layers 2.gif" alt="fig 1">
-                                <p class="image-description">out layers</p>
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/outlayers 2.jpg" alt="fig 1">
+                                <p class="image-description">fig 1 : Scatter plot</p>
                             </div>
                             <div class="image-item">
                                 <img src="assets/img/DataScience/MacheneLearningWorkFlow/boxplot.png" alt="fig 2">
-                                <p class="image-description">Box plot</p>
+                                <p class="image-description">fig 2 : Box plot</p>
+                            </div>
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/outliers_2.png" alt="fig 3">
+                                <p class="image-description">fig 3 : Z score</p>
+                            </div>
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/Boxplot_vs_PDF.png" alt="fig 4">
+                                <p class="image-description">fig 4 : Box plot vs PDF</p>
                             </div>
                         </div>
-                        <p>
-                                             
-                        <p>.</p>
-                        <p>.</p>
+                        <h3>Scatter plot</h3>          
+                        <p>its a visual representation of the data(fig 1), where we can observe the distribution of the data and detect outliers, sk learn provides some of the libraries to detect the outliers in the scatter plot</p>
+                        <p style="color: red">from sklearn.neighbors import LocalOutlierFactor</p>
+                        <p style="color: red">from sklearn.ensemble import IsolationForest</p>
+                        <h3>Box plot(IQR)</h3>
+                        <p>A boxplot is a standardized way of displaying the dataset based on the <a href="https://en.wikipedia.org/wiki/Five-number_summary">five-number summary :</a> the minimum, the maximum, the sample median, and the first and third quartiles. refer <a href="https://en.wikipedia.org/wiki/Box_plot">wiki</a></p>
+                        <p><strong>IQR(Inter Quartile Range) :</strong>It is the difference between first and third quatres. MIN and MAX are calculated based on IQR. we just remove the data points out side MIN and MAX( outliers). fig 2</p>
+                        <h3>Z score</h3>
+                        <p>Z score is a statistic that provides a measure of how many standard deviations a data point is away from the mean. statistically most 70% to 90% of the data is present at Mean(between +1 and -1 of standard deviation). so the points far from mean are considered as outliers and can be removed.</p>
+                        <p><strong></strong> Z-score normalization</strong> refers to the process of normalizing every value in a dataset such that the mean of all of the values is 0 and the standard deviation is 1</p>
+                        <strong>Z score = (value - mean)/standard deviation</strong>
+                        <p>Fig 3 shows the standard normal distribution of the data by z score normalization</p>
+                        <h3>Invalid data</h3>
+                        <p>Using data standardization, you can identify and convert data from varying formats into a uniform format. in some cases there might be junk values or invalid data in the dataset</p>
+                        <strong>This can be removed by : </strong> <p>you can apply standardization techniques to your data after you’ve collected it. This involves developing codes to convert your dirty data into consistent and valid formats.</p>
+                        <p>ex : String matching</p>
+                        <h4>References</h4>
+                        <a href="https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba">https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba</a>
+                        <br>
+                        <a href="https://en.wikipedia.org/wiki/Box_plot">https://en.wikipedia.org/wiki/Box_plot</a>
+                        <br>
+                        <a href="https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8">https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8</a>
+                        <br>
+                        <a href="hhttps://www.scribbr.com/methodology/data-cleansing">https://www.scribbr.com/methodology/data-cleansing/</a>
+                        <br>
+                        <br>
+                        <h2>Data Augmentation</h2>
+                        <p>Data augmentation is the process of artificially generating new data from existing data, primarily to train new machine learning (ML) models. ML models require large and varied datasets for initial training</p>
+                        <blockquote>
+                            <p>Data augmentation uses pre-existing data to create new data samples that can improve model optimization and generalizability.</p>
+                            <cite>IBM</cite>
+                        </blockquote>
+                        <h3>Why Data Augmentation</h3>
+                        <p>Machine Learning and Deep Learning Models relay on large data sets develop accurate models in various contexts. Data Augmentation helps filling out missing values and increase the data size by including variety of data. this helps in:</p>
+                        <ul>
+                            <li>improving model accuracy</li>
+                            <br>
+                            <li>Reduced data dependency</li>
+                            <br>
+                            <li>improving model robustness</li>
+                            <br>
+                            <li>Mitigate overfitting in training data</li>
+                        </ul>
+                        <h3>Types of Data Augmentation</h3>
                         <h2>Model development</h2>
                         <p>.</p>
                         <p>.</p>
@@ -259,8 +312,9 @@ li a {
 .image-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Space between items */
-    justify-content: center; /* Center-align the items */
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;/* Center-align the items */
 }
 
 .image-item {
