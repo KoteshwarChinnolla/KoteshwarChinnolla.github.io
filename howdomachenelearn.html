@@ -146,13 +146,10 @@
                         <strong>This can be removed by : </strong> <p>you can apply standardization techniques to your data after you’ve collected it. This involves developing codes to convert your dirty data into consistent and valid formats.</p>
                         <p>ex : String matching</p>
                         <h4>References</h4>
-                        <a href="https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba">https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba</a>
-                        <br>
-                        <a href="https://en.wikipedia.org/wiki/Box_plot">https://en.wikipedia.org/wiki/Box_plot</a>
-                        <br>
-                        <a href="https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8">https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8</a>
-                        <br>
-                        <a href="hhttps://www.scribbr.com/methodology/data-cleansing">https://www.scribbr.com/methodology/data-cleansing/</a>
+                        <p><a href="https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba">https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba</a></p>
+                        <p><a href="https://en.wikipedia.org/wiki/Box_plot">https://en.wikipedia.org/wiki/Box_plot</a></p>
+                        <p><a href="https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8">https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8</a></p>
+                        <p><a href="hhttps://www.scribbr.com/methodology/data-cleansing">https://www.scribbr.com/methodology/data-cleansing/</a></p>
                         <br>
                         <br>
                         <h2>Data Augmentation</h2>
@@ -164,19 +161,20 @@
                         <h3>Why Data Augmentation</h3>
                         <p>Machine Learning and Deep Learning Models relay on large data sets develop accurate models in various contexts. Data Augmentation helps filling out missing values and increase the data size by including variety of data. this helps in:</p>
                         <ul>
-                            <li>improving model accuracy</li>
+                            <li><p>improving model accuracy</p></li>
                             <li><p>Reduced data dependency (not being depending on larger data for training)</p></li>
                             <li><p>improving model robustness (Including data in such a way that it include all situations, such as noise and most unexpected situations to make model trained model strong)</p></li>
-                            <li>Mitigate overfitting in training data</li>
+                            <li><p>Mitigate overfitting in training data</p></li>
                         </ul>
                         <p>Data augmentation can be applied when the training data is too small, when there is overfitting in the datasets or if there is lot of missing variables in the datasets. the augumentation can be applies in different areas such as <strong>image Augmentation,Text data Augmentation and Audio Data augmentation </strong></p>
 
-                        <h2>Data augmentation techniques</h2>
-                        <h3>Image Augmentation</h3>
+                        <h3>Data augmentation techniques</h3>
+                        <h4>Image Augmentation</h4>
                         <ul>
                             <l><p><strong>Geometric Transformations</strong> - Scaling, Rotation, Translation, Shearing, Flipping, etc</p></l>
                             <l><p><strong>Color Transformations</strong> - Brightness, Contrast, Saturation, etc</p></l>
-                            <l><p><strong></strong>Quality Transformations</strong> - Blurring, Sharpening, Edge Detection</p></l>
+                            <l><p><strong>Quality Transformations</strong> - Blurring, Sharpening, Edge Detection</p></l>
+                            <l><p><strong>Arithmetic</strong> - Adding images in different ways(imposing one on anther, adding it side by side, etcc..)</p></l>
                         </ul>
                         <div class="image-container">
                             <div class="image-item">
@@ -200,6 +198,25 @@
                                 <p class="image-description"></p>
                             </div>
                         </div>
+                        <p> all the images over there are just created by using Data augmentation (multiple images using single image), Visit <a href="https://github.com/aleju/imgaug">GitHub repo</a> for some intreating Data augmentation techniques</p>
+                        <p>python libraries for data augmentation</p>
+                        <ul>
+                            <li><p><strong>TenserFlow/Keras</strong> - Tf.image, Keras preprocessing layers, Keras ImageDataGenerator, keras.Sequential</p></li>
+                            <li><p><strong>PyTorch/MxNet</strong> - torchvision.transfroms, mxnet.gluon.data.vision.transforms</p></li>
+                            <li><p><strong>Scikit-Learn</strong> - ImageDataGenerator</p></li>
+                            <li><p><strong>Augmentor</strong></p></li>
+                            <li><p><strong>Albumentations</strong></p></li>
+                            <li><p><strong>OpenCV</strong><a href="https://medium.com/analytics-vidhya/data-augmentation-techniques-using-opencv-657bcb9cc30b" style="color: #0056b3;"></a></p></li>
+                            <li><p><strong>AutoAugment (DeepAugment)</strong> <a href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">GitHub repo</a></p></li>
+                            <li><p><strong>Imgaug</strong> - <a href="https://github.com/aleju/imgaug" style="color: #0056b3;">GitHub repo</a></p></li>
+                        </ul>
+                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
+                        <p><a href="http://ai.stanford.edu/blog/data-augmentation/" style="color: #0056b3;">http://ai.stanford.edu/blog/data-augmentation/</a></p>
+                        <p><a href="https://www.datacamp.com/tutorial/complete-guide-data-augmentation" style="color: #0056b3;">https://www.datacamp.com/tutorial/complete-guide-data-augmentation</a></p>
+                        <p><a href="https://github.com/aleju/imgaug" style="color: #0056b3;">https://github.com/aleju/imgaug</a></a></p>
+                        <p><a href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">https://github.com/barisozmen/deepaugment</a></a></p>
+                        <p><a href="https://github.com/keras-team/keras-preprocessing" style="color: #0056b3;">https://github.com/keras-team/keras-preprocessing</a></a></p>
+                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
                         <p></p>
                         <h2>Model development</h2>
                         <p>.</p>
@@ -256,16 +273,37 @@ hedding {
     text-align: left;
     font-size: 22px;
     font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
     /* border-bottom: 2px solid #484853; */
 }
 
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
 ps{
     font-size: 10px;
 }
 
+
+
 li a {
     text-decoration: none;
     color: #3e444a;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .gif-fixed-width {
@@ -561,7 +599,7 @@ blockquote cite {
 }
 
 .suggestion-box .submit-button:hover {
-    background: #0056b3;
+    background: #afaa09;
 }
 
 
@@ -579,7 +617,7 @@ blockquote cite {
 }
 
 .visit-button:hover {
-    background: #0056b3;
+    background: #afb518;
 }
 
 /* Footer */
