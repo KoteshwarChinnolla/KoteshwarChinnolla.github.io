@@ -1401,7 +1401,7 @@
         .then((response) => response.json())
             .then((data) => {
                 generate_message("thank you, you can proceed with the chat now !!", "user");
-                /* previous_state += " " + data.reply; // Update conversation state */
+                previous_state += "my name is "+msg + data.reply; // Update conversation state
             })
             .catch((error) => {
                 generate_message("error", "user");
