@@ -80,7 +80,7 @@
             <h5>❌</h5>
           </span>
           <br>
-          <div class="text_hearder">I AM YOUR COMPANION FROM AWS BEDROCK</div>
+          <div class="text_hearder">YOUR COMPANION</div>
 
         </div>
         <div class="chat-box-body">
@@ -838,8 +838,9 @@
     /* Transparent text to show the gradient */
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     /* Add depth with shadow */
-    margin-top: 10px;
+    /* margin-top: 10px; */
     margin-left: 15px;
+    /* padding-bottom: -10px; */
     /* Position it nicely */
     line-height: 1;
     /* Adjust line spacing */
@@ -849,7 +850,7 @@
   .text_hearder {
     text-align: center;
     font-size: 18px;
-    margin-top: -25px;
+    margin-top: -20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-top: 10px;
   }
@@ -863,7 +864,7 @@
   }
 
   .chat-box-header {
-    background: #092057ec;
+    background: #035d9d;
     height: 70px;
     width: 350px;
     /* border-radius: 25px; */
@@ -1011,7 +1012,7 @@
 
   @media only screen and (max-width: 500px) {
     .chat-logs {
-      height: 60vh;
+      height: 68vh;
     }
   }
 
@@ -1201,7 +1202,7 @@
   }
 
   .chat-logs {
-    height: calc(92vh - 70px - 50px); /* Adjust for header and footer */
+    height: 68vh; /* Adjust for header and footer */
   }
 
   .cm-msg-text {
@@ -1246,34 +1247,61 @@
 
     // Notify the user of success
     setTimeout(() => {
-      alert('Form submitted successfully!');
-    }, 1000); // Add a delay to ensure the form submission is processed
+      alert('Submitted successfully!');
+    }, 100);
   }
   $(function () {
     var previous_state = "";
     var INDEX = 0;
+    generate_message("This chatbot is yet to fine tune. until then use it like a GPT model 📩", "user");
+    setTimeout(() => {
+    generate_message("Your good name?", "user");
+    }, 3000);
     $("#chat-submit").click(function (e) {
       e.preventDefault();
       var msg = $("#chat-input").val();
       if (msg.trim() == '') {
         return false;
       }
-      generate_message(msg, "self");
-      fetch("https://jiz9z2i8kh.execute-api.us-east-1.amazonaws.com/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: previous_state + "/n" + msg + "/n answar in less then 20 words" }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          generate_message(data.reply, "user");
-          previous_state += " " + data.reply;
+      if(INDEX==2 ){
+        generate_message(INDEX+msg, "self");
+        fetch("https://249ca2wwuf.execute-api.us-east-1.amazonaws.com/dev/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ chatbot_vis: msg }),
         })
-        .catch((error) => {
-          generate_message("Error: Unable to connect.", "user");
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success:", data); // Handle the response from Lambda
+        })
+        .catch(error => {
+            console.error("Error:", error); // Handle any errors
         });
+      setTimeout(() => {
+        generate_message("thank you, How can i help you ?","user");
+        }, 2000);
+      
+    }
+      else{
+        generate_message(INDEX+msg, "self");
+        fetch("https://jiz9z2i8kh.execute-api.us-east-1.amazonaws.com/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: previous_state + "/n" + msg + "/n answar in less then 20 words" }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            generate_message(data.reply, "user");
+            previous_state += " " + data.reply;
+          })
+          .catch((error) => {
+            generate_message("Error: Unable to connect.", "user");
+          });
+      }
     })
 
     function generate_message(msg, type) {

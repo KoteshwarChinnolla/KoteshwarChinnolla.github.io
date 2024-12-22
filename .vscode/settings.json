@@ -5,8 +5,7 @@
     "spellright.documentTypes": [
         "markdown",
         "latex",
-        "plaintext",
-        "html"
+        "plaintext"
     ],
     "cSpell.words": [
         "nessewery",
