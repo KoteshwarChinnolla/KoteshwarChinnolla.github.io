@@ -1545,7 +1545,7 @@ img {
   width: 100%;
   height: 20%;
   background-color: #00ccff;
-  box-shadow: 0 10px 10px 5px #f2ff3e;
+  /* box-shadow: 0 10px 10px 5px #f2ff3e6e; */
 }
 
 .ag-timeline-card_box {
@@ -1580,8 +1580,14 @@ img {
 }
 .js-ag-active .ag-timeline-card_point {
   color: #1d1d1b;
-  background-color: #fff151;
-  box-shadow: 0 0 10px 5px #fefff392;
+  background-color: #00d0ff;
+  z-index: 9999;
+  box-shadow: 0 0 20px 8px rgba(238, 255, 110, 0.567),
+      /* Bright blue outer glow */
+      0 0 30px 15px rgba(240, 255, 37, 0.433),
+      /* Soft pink inner glow */
+      0 0 10px 5px rgba(255, 255, 34, 0.548);
+    /* Light pink ambient glow */
 }
 .ag-timeline-card_meta-box {
   display: inline-block;
@@ -1724,6 +1730,7 @@ img {
   .ag-timeline-card_point {
     height: 40px;
     line-height: 40px;
+    font-size: 10px;
     width: 40px;
   }
   .ag-timeline-card_item {
