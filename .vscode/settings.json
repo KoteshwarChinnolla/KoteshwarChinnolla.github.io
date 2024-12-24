@@ -8,9 +8,13 @@
         "plaintext"
     ],
     "cSpell.words": [
+        "Langchain",
         "nessewery",
         "oberfittig",
         "outlayers",
         "perticular"
-    ]
+    ],
+    "cSpell.enabledFileTypes": {
+        "html": false
+    }
 }
