@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="breadcrumbs">
-            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span>How Do Machine Learn</span>
+            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span>Chatbot</span>
         </div>
         <h1>YOUR COMPANION - an AI chatbot</h1>
         <p>In this blog,  Let's understand how i built the chatbot and deployed it into AWS cloud</p>
@@ -21,6 +21,7 @@
         <div class="dropdown-title">Contents</div>
         <div class="dropdown-content">
             <ul>
+                <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#Langchain&AmazonTitan">Langchain and Amazon Titan</a></li> 
                 <li><a href="#machenelearningworkflow">Pretraind model</a></li>
                 <li><a href="#dataengineering">Data Engineering</a></li>
@@ -54,7 +55,7 @@
                         </ul>
                         <a href="https://github.com/langchain-ai/langchain"><p style="color: #0056b3;">Have a look at this for more information</p></a>
                         <h4>Role of langchain</h4>
-                        <p>As Lanchain simplifies accesing llm's, such that i am using lang chain to access <strong>Bedrocks</strong>. Bedrocks is a service provided by AWS wher we host and fond pretrained LLm's. we are using Amazon Titan LLM for this project. for a over view Langchin allows you to access LLM/s present in the Bedrocks so we are choosing Amazon Titan.</p>
+                        <p>As Lanchain simplifies accesing llm's, such that i am using langchain to access <strong style="color: #bdddff;"><a href="https://aws.amazon.com/bedrock/">Bedrocks</a></strong> . Bedrocks is a service provided by AWS where we host and find pretrained LLM's. we are using <strong style="color: #0056b3;"><a href="https://aws.amazon.com/bedrock/amazon-models/titan/">Amazon Titan</a></strong> as our LLM for this project. AmazonTitan is a popular LLM which is Trained on wide range of data, we can use it as out GPT. For a over view Langchin allows you to access LLM/s present in the Bedrocks so we are choosing Amazon Titan.</p>
 
                         <div class="code-box" id="codeBox">
                             <button class="copy-btn" onclick="copyCode()">Copy</button>
