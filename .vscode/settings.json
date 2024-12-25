@@ -17,5 +17,13 @@
     ],
     "cSpell.enabledFileTypes": {
         "html": false
+    },
+    "cSpell.customDictionaries": {
+        "custom-dictionary-workspace": {
+            "name": "custom-dictionary-workspace",
+            "path": "${workspaceFolder:templates}/.cspell/custom-dictionary-workspace.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
     }
 }

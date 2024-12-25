@@ -53,24 +53,38 @@
                             <li><p>Agents</p></li>
                             <li><p>chains</p></li>
                         </ul>
-                        <a href="https://github.com/langchain-ai/langchain"><p style="color: #0056b3;">Have a look at this for more information</p></a>
+                        <a href="https://github.com/langchain-ai/langchain"><p style="color: #007bff;">Have a look at this for more information</p></a>
                         <h4>Role of langchain</h4>
-                        <p>As Lanchain simplifies accesing llm's, such that i am using langchain to access <strong style="color: #bdddff;"><a href="https://aws.amazon.com/bedrock/">Bedrocks</a></strong> . Bedrocks is a service provided by AWS where we host and find pretrained LLM's. we are using <strong style="color: #0056b3;"><a href="https://aws.amazon.com/bedrock/amazon-models/titan/">Amazon Titan</a></strong> as our LLM for this project. AmazonTitan is a popular LLM which is Trained on wide range of data, we can use it as out GPT. For a over view Langchin allows you to access LLM/s present in the Bedrocks so we are choosing Amazon Titan.</p>
+                        <p>As Lanchain simplifies accesing llm's, such that i am using langchain to access <strong style="color: #007bff;"><a href="https://aws.amazon.com/bedrock/">Bedrocks</a></strong> . Bedrocks is a service provided by AWS where we host and find pretrained LLM's. we are using <strong style="color: #007bff;"><a href="https://aws.amazon.com/bedrock/amazon-models/titan/">Amazon Titan</a></strong> as our LLM for this project. AmazonTitan is a popular LLM which is Trained on wide range of data, we can use it as out GPT. For a over view Langchin allows you to access LLM/s present in the Bedrocks so we are choosing Amazon Titan.</p>
 
-                        <div class="code-box" id="codeBox">
-                            <button class="copy-btn" onclick="copyCode()">Copy</button>
-                            
-<pre><code  class="language-python">custom_llm = BedrockLLM(
-    credentials_profile_name="bedrock-admin",
-    provider="AmazonTitan",
-    model_id="<Custom model ARN>",  # ARN like 'arn:aws:bedrock:...' obtained via provisioning the custom model
-    model_kwargs={"temperature": 1},
-    streaming=True,
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+<pre><code  class="language-python">from langchain.llms.bedrock import Bedrock
+
+model = Bedrock(
+    credentials_profile_name="default",  # AWS credentials profile
+    region_name="us-east-1",
+    model_id="amazon.titan-text-premier-v1:0",  # Amazon Bedrock model
+    model_kwargs={
+        "temperature": 0.9,
+    },
 )
-response = custom_llm.invoke(input="What is the recipe of mayonnaise?")</code>
-</pre>
-                            </div>
-                        <br><p>.</p>
+response = custom_llm.invoke(input="What is the recipe of mayonnaise?")
+print(responce)
+</code></pre></div>
+                        <p>Som people might not have AWS account and find it vary difficult to access Bedrocks. so we can also use <a href="https://huggingface.co/blog/langchain"><strong style="color: #007bff;">Huggingface & Langchain</strong></a> intigration this is more simpler approach or we canalso impliment Some of the populer LLMs like OpenAi and Lalma directly from langchiain. vist <a></a> directly from here <a href="https://github.com/langchain-ai/langchain/tree/master/docs/docs/integrations/llms"><strong style="color: #007bff;">Langchain Intigrations</strong></a></p>
+                        <p>Make sure you visit <a href="https://github.com/langchain-ai/langchain/tree/master/docs/docs/integrations/llms" style="font-size: 25px; color: #007bff;">Here</a>. every integration is documented</p>
+                        <p>**Before you run the code AWS credentials needs to be connected, the reason behand <strong>credentials_profile_name=default</strong> is the credentials are already stored in a default profile and to do that follow <a href="https://medium.com/@simonazhangzy/connect-vs-code-to-aws-87e274e5cd4" style="color: #007bff; font-size: 20px;">this steps</a> this can also help you if you what to access more bedrocks models</p>
+                        <p><strong> model_id="amazon.titan-text-premier-v1:0"</strong> i am using Amazon Titan but you can use any other LLMs. you just need to change the model_ID and a list of different model ids are available in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html" style="font-size: 20px; color: #007bff;">Here</a> you can chose from pool of different LLMs.</p>
+                        <p>model_kwargs are Hyper parameters for the model. where we can able adjust the temperature, max_tokens, min_tokens.stop_sequence etc..</p>
+                        <h2>FAST API</h2>
+                        <blockquote>
+                            <p>FastAPI is a modern, high-performance web framework for building APIs with Python 3.7+ based on standard Python type hints</p>
+                            <cite>FastAPI</cite>
+                        </blockquote>
+                        <p>as we seen earlier we are using LangChain and Titan integration get the responses to our prompts which are sent using python. But for any Realtime projects it has to be sent through an webpage but though webpage we cant directly access this all code manually. as webpage uses HTML/CSS and we use python for communication. this is where <SS>API</SS> comes into picture. API's can be accessed through any platforms such as HTML/JS/react to post and get the information. API is not a code it is a link that can be accessed easily.</p>
+                        <p>I am using FastAPI for building an API for the Langchain & Bedrocks integration. if we give the input as a prompt to the API then it will give us back the output. this pigmentation is done using <SS>Fast API</SS>.</p>
+                        <p><SS>Fast API</SS> gives you lot of flexibility to build high performing API's in user most easy implementation techniques for production environments. </p>
+                        
                     </div>
                 </div>
                 <aside class="portfolio-info">

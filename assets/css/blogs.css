@@ -37,25 +37,44 @@ p{
 ps{
     font-size: 10px;
 }
+SS{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+al{
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 
 .code-box {
-    width: 90%; /* Makes it responsive by default */
+    width: 95%; /* Makes it responsive by default */
     max-width: 700px; /* Limits the maximum width */
     height: fit-content; /* Adjust height to fit the content */
     left: 5%; /* Center-align it on the page */
     position: relative;
     background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
     color: rgb(252, 238, 205);
-    border:3px solid #004373; 
-    color: #dcdcdc;
+    border: 3px solid #004373; 
     border-radius: 8px;
     font-family: "Courier New", Courier, monospace;
     white-space: pre-wrap;
     overflow-x: auto; /* Horizontal scrolling for small screens */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.463);
-    /* padding: 20px; Adds padding for better spacing */
+    padding: 15px; /* Adds padding for better spacing */
     margin: 20px auto; /* Adds spacing and centers vertically */
+}
+
+pre {
+    background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+    /* color: rgb(252, 238, 205); */
+    border: 3px solid #004373; 
+    margin: 0; /* Removes default margin from pre */
+    padding: 0; /* Removes default padding from pre */
+    white-space: pre-wrap; /* Ensures proper wrapping */
 }
 
 .copy-btn {
@@ -74,6 +93,7 @@ ps{
 .copy-btn:hover {
     background-color: #005a9e;
 }
+
 
 /* Media Queries for smaller devices */
 @media (max-width: 768px) {
@@ -101,7 +121,6 @@ ps{
         padding: 3px 6px; /* Compact padding for smaller screens */
     }
 }
-
 
 li a {
     text-decoration: none;
