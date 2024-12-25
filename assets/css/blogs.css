@@ -1,0 +1,448 @@
+
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    background-color: #f9f9f9;
+    color: #444;
+}
+hedding {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    /* border-bottom: 2px solid #484853; */
+}
+
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+p{
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+ps{
+    font-size: 10px;
+}
+
+
+.code-box {
+    width: 90%; /* Makes it responsive by default */
+    max-width: 700px; /* Limits the maximum width */
+    height: fit-content; /* Adjust height to fit the content */
+    left: 5%; /* Center-align it on the page */
+    position: relative;
+    background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+    color: rgb(252, 238, 205);
+    border:3px solid #004373; 
+    color: #dcdcdc;
+    border-radius: 8px;
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+    overflow-x: auto; /* Horizontal scrolling for small screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.463);
+    /* padding: 20px; Adds padding for better spacing */
+    margin: 20px auto; /* Adds spacing and centers vertically */
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background-color: #005a9e;
+}
+
+/* Media Queries for smaller devices */
+@media (max-width: 768px) {
+    .code-box {
+        width: 95%; /* Take up more screen space */
+        left: 0; /* Center-align */
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    .copy-btn {
+        font-size: 10px; /* Smaller button text */
+        padding: 4px 8px; /* Smaller button size */
+    }
+}
+
+@media (max-width: 480px) {
+    .code-box {
+        width: 100%; /* Full width for very small devices */
+        left: 0; /* No left margin */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .copy-btn {
+        font-size: 9px; /* Adjust button size further */
+        padding: 3px 6px; /* Compact padding for smaller screens */
+    }
+}
+
+
+li a {
+    text-decoration: none;
+    color: #3e444a;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.gif-fixed-width {
+    width: 100%; /* Set the fixed width */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+    display: block; /* Ensure the GIF is treated as a block element */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
+}
+
+/* Dropdown container styling */
+.dropdown {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: rgb(99, 91, 70);
+}
+
+/* Title styling */
+.dropdown-title {
+    padding: 15px;
+    background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+    color: rgb(252, 238, 205);
+    border:3px solid #004373;  
+    font-size: 1.2em;
+    font-variant: small-caps;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add a "+" symbol */
+.dropdown-title::after {
+    content: "+";
+    transition: transform 0.3s ease;
+}
+
+/* Rotate "+" symbol when active */
+.dropdown.active .dropdown-title::after {
+    transform: rotate(45deg);
+}
+
+/* Content section */
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #f5f5f5;
+    padding: 0 15px;
+    color: #333;
+}
+
+/* Content section visible when active */
+.dropdown.active .dropdown-content {
+    max-height: 200px; /* Adjust based on content */
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.dropdown-content li {
+    padding: 15px;
+    color: rgba(87, 80, 65, 1); /* Adjust opacity for visibility */
+    text-align: center;
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li:hover {
+    background-color: #9fbfd6; /* Change background color on hover */
+    color: #a26165; /* Change text color on hover */
+    cursor: pointer; /* Makes it clear the item is interactive */
+}
+
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;/* Center-align the items */
+}
+
+.image-item {
+    text-align: center; /* Center-align the text below each image */
+    max-width: auto; /* Optional: Limit the width of each image-item */
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.image-description {
+    margin-top: 8px; /* Space between the image and its description */
+    font-size: 14px; /* Description text size */
+    color: #555; /* Description text color */
+    line-height: 1.4; /* Line spacing for better readability */
+}
+
+
+
+/* Header */
+header {
+    /* text-align: center; */
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+header p{
+    font-size: 16px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    font-style: italic;
+
+}   
+
+.breadcrumbs {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #6c757d;
+}
+
+.breadcrumbs a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Portfolio Section */
+.portfolio-details {
+    padding: 50px 20px;
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 4;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* max-width: 800px; */
+    overflow-y: auto;
+    max-height: 80vh; /* Adjust height as needed */
+}
+
+.portfolio-description h2 {
+    margin-top: 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.portfolio-description p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+blockquote {
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid #007bff;
+    background: #e9ecef;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Sidebar Info */
+.portfolio-info1 {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop View: Position on the left */
+@media (max-width: 500px) {
+    .portfolio-info1 {
+        display: none;
+    }
+}
+.portfolio-info {
+    /* flex: 1; */
+    position: relative;
+    top: 100px; /* Adjust based on header height */
+    align-self: flex-start;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    height: 100%;
+}
+
+.portfolio-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.portfolio-info ul li {
+    margin-bottom: 15px;
+}
+
+.portfolio-info ul li strong {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+}
+
+/* Suggestion Box */
+.suggestion-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-box p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.suggestion-box textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.suggestion-box textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.suggestion-box .submit-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.suggestion-box .submit-button:hover {
+    background: #afaa09;
+}
+
+
+.visit-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    color: #fff;
+    background: #007bff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.visit-button:hover {
+    background: #afb518;
+}
+
+/* Footer */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 10px;
+    background: #ffffff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.scroll-top:hover {
+    background: #0056b3;
+}
