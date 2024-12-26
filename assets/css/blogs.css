@@ -235,12 +235,22 @@ li a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.374); /* Shadow effect */
 }
 
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    .image-item video {
+        max-width: 70vw; /* Set the video width to the viewport width */
+        border-radius: 0; /* Remove rounded corners for better fit */
+        box-shadow: none; /* Remove shadow to save space */
+    }
+}
+
 .image-description {
     margin-top: 8px; /* Space between the image and its description */
     font-size: 14px; /* Description text size */
     color: #555; /* Description text color */
     line-height: 1.4; /* Line spacing for better readability */
 }
+
 
 
 
