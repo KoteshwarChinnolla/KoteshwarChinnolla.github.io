@@ -99,7 +99,7 @@ pre {
 /* Media Queries for smaller devices */
 @media (max-width: 768px) {
     .code-box {
-        width: 95%; /* Take up more screen space */
+        width: 80vw; /* Take up more screen space */
         left: 0; /* Center-align */
         font-size: 14px; /* Adjust font size for readability */
     }
