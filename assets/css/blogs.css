@@ -38,12 +38,13 @@ ps{
     font-size: 10px;
 }
 SS{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    font-style: oblique;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 al{
-    font-size: 18px;
+    font-size: 16px;
     color: #007bff;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -224,7 +225,14 @@ li a {
     height: auto;
     display: block;
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.314); /* Shadow effect */
+}
+.image-item video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.374); /* Shadow effect */
 }
 
 .image-description {

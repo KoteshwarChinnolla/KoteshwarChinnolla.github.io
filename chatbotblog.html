@@ -76,6 +76,7 @@ print(responce)
                         <p>**Before you run the code AWS credentials needs to be connected, the reason behand <strong>credentials_profile_name=default</strong> is the credentials are already stored in a default profile and to do that follow <a href="https://medium.com/@simonazhangzy/connect-vs-code-to-aws-87e274e5cd4" style="color: #007bff; font-size: 20px;">this steps</a> this can also help you if you what to access more bedrocks models</p>
                         <p><strong> model_id="amazon.titan-text-premier-v1:0"</strong> i am using Amazon Titan but you can use any other LLMs. you just need to change the model_ID and a list of different model ids are available in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html" style="font-size: 20px; color: #007bff;">Here</a> you can chose from pool of different LLMs.</p>
                         <p>model_kwargs are Hyper parameters for the model. where we can able adjust the temperature, max_tokens, min_tokens.stop_sequence etc..</p>
+                        <p><SS>custom_llm.invoke(input="What is the recipe of mayonnaise?")</SS> you can change the input as you want to get the response accordingly.</p>
                         <h2>FAST API</h2>
                         <blockquote>
                             <p>FastAPI is a modern, high-performance web framework for building APIs with Python 3.7+ based on standard Python type hints</p>
@@ -146,6 +147,20 @@ async def read_root(request: Request):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=5000) </code></pre></div>
+                        <p><SS>demo_chatbot</SS> is a function used to access the <SS>AmazonTitan</SS> model. which is previously explained already</p>
+                        <p> as you run the code and your server is running on  <SS>http://127.0.0.1:5000/</SS> and it is the home address of your server, but your chat bot is actually running on <SS>http://127.0.0.1:5000/chat</SS> where you can post the request and get the response. because as you look at the code the function demo_chatbot() is being called in the route <SS>@app.post("/chat")</SS> and this route is handling the POST request.</p>
+                        <p><ss>app.add_middleware</ss> this is one of the most important step when you are using the API for real time deployment. because it allows all the origins, methods and headers. it basically allows you to make cross-origin requests.</p>
+                        <p><SS>ChatRequest(BaseModel)</SS> pydantic is one of the Special library that is used to validate the data that is being sent to the API. that means it make sure that the data is in the correct format. in our case it has to be string.</p>
+                        <p><SS>async def</SS> if you would like to know the difference the difference between def and async def , its vary simple async def parallelly process the requests you make and def serially process the requests. understand it with an - <al href="https://fastapi.tiangolo.com/async/"> interesting example </al>. and rest is just behave as a function witch return the model response by calling demo_chatbot</p>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <video controls>
+                                    <source src="assets/img/chatbotblog/fastapi.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p class="image-description">Follow the steps</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <aside class="portfolio-info">
