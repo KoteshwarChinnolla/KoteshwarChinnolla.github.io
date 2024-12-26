@@ -113,7 +113,7 @@ pre {
     .code-box {
         width: 100%; /* Full width for very small devices */
         left: 0; /* No left margin */
-        padding: 15px; /* Reduce padding */
+        padding: 10px; /* Reduce padding */
     }
 
     .copy-btn {
