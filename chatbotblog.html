@@ -151,7 +151,7 @@ if __name__ == "__main__":
                         <p> as you run the code and your server is running on  <SS>http://127.0.0.1:5000/</SS> and it is the home address of your server, but your chat bot is actually running on <SS>http://127.0.0.1:5000/chat</SS> where you can post the request and get the response. because as you look at the code the function demo_chatbot() is being called in the route <SS>@app.post("/chat")</SS> and this route is handling the POST request.</p>
                         <p><ss>app.add_middleware</ss> this is one of the most important step when you are using the API for real time deployment. because it allows all the origins, methods and headers. it basically allows you to make cross-origin requests.</p>
                         <p><SS>ChatRequest(BaseModel)</SS> pydantic is one of the Special library that is used to validate the data that is being sent to the API. that means it make sure that the data is in the correct format. in our case it has to be string.</p>
-                        <p><SS>async def</SS> if you would like to know the difference the difference between def and async def , its vary simple async def parallelly process the requests you make and def serially process the requests. understand it with an - <al href="https://fastapi.tiangolo.com/async/"> interesting example </al>. and rest is just behave as a function witch return the model response by calling demo_chatbot</p>
+                        <p><SS>async def</SS> if you would like to know the difference the difference between def and async def , its vary simple async def parallelly process the requests you make and def serially process the requests. understand it with an - <a href="https://fastapi.tiangolo.com/async/"><al> interesting example</al> </a>. and rest is just behave as a function witch return the model response by calling demo_chatbot</p>
                         <div class="image-container">
                             <div class="image-item">
                                 <video controls>
@@ -172,6 +172,93 @@ print(response.content)
 </code></pre></div>
                         <p>If You could get a response, that means your Fast API is working fine and you built an API for your local system. you could not share the link/IP you got by running the python code. because it is your local computer IP address. just you can access because it is running on your local system. to make it access by public computer it needs to be running on the cloud. to do this we need to dockerize the fast api file and deploy it on the cloud and make it run always. so that every one can access it.</p>
                         <h2 id="Docker">Docker Image & Container</h2>
+                        <blockquote>
+                            <p>Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. </p>
+                            <cite>Wikipedia</cite>
+                        </blockquote>
+                        <br>
+                        <p>lets simplify it, so as i said you when you are running a python code it gives you the output according to what ever function your python code is written for , it might be regarding a machine learning library(sciket learn), or a numpy, pandas for data processing. so how this is done, fist if you want to use a machine learning library you need to install it on to your machine then write a python code to give the input and get the output. that is how you can perform functions on your machine. But when it comes to real time deployment you are not only representing it on your machine but also public machines, but we dont know if the public machine has that particular library installed. so it is our task to make sure that every one could get the results. this is when docker comes into picture, docker provides you a virtual machine (os, this is the machine that is hosted on the cloud) where you can install all the requirements and the instructions to get the outputs when they give the input. you just need to ask the Virtual Machine that is hosted on the cloud.</p>
+                        <p><SS>What are this instructions ?</SS> Instructions are basically the commands you are writing on a dockerFile. that include to use this particular base image (in our case python), to install some set of library's, to run some code and lot more .</p>
+                        <a href="https://docs.docker.com/reference/dockerfile/">All Instructions</a>
+                        <p><ss>Docker file</ss> is a text file that contains instructions to build an image. Instructs are what all include and what all operations to perform.</p>
+                        <a href="https://blog.devopscommunity.in/dockerfile-simplified-how-to-make-your-own-dockerfile">Dockier File format</al></a>
+                        <p><SS>Docker Image</SS> is a template that contains the instructions to build a container. we build a image through the instructions. image contain all the installed packages all the files to be executed.</p>
+                        <p><SS>Container</SS> is a running instance of a docker image. it will do what all our python code needs to be done.</p>
+                        <SS>Make sure your files are arranged in this way</SS>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                        <pre><code  class="language-python">project-root/
+    ├── app/
+    │   └── app.py
+    ├── Aws/
+    │   ├── config.json
+    │   ├── credentials.json
+    ├── requirements.txt
+    ├── .dockerignore
+    └── Dockerfile  
+                            </code></pre></div>
+                            <p>requirements.txt can be etracted by running <SS>pip freeze > requirements.txt</SS> command in your project directory</p>
+                            <center><SS style="color: #007bff;">Requirements.txt</SS><SS> --    for this project this are all you need to be install</SS></center>
+                            <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                                <pre><code  class="language-python">fastapi==0.95.1
+uvicorn[standard]==0.22.0
+pydantic==1.10.2
+langchain[community]==0.0.196
+boto3==1.28.57
+botocore==1.31.57</code></pre></div>
+                            <center><h3 style="color: #007bff;">.dockerignore</h3>-<SS>this are some thing that has to be ignore while creating the image</SS></center>
+                            <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                                <pre><code  class="language-python">__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3</code></pre></div>
+                            <p>What ever the now the fast api code is written it will be stored in app.py. and one change need to make <SS>"replace host="127.0.0.1" with host="0.0.0.0""</SS> as we need to deploy it for production environment. 0.0.0.0 is the public IP address which allow traffic from any IP address.</p>
+
+                            <center><h3 style="color: #007bff;">Dockerfile</h3></center>
+                            <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python"># Use a base Python image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Set the working directory inside the container
+WORKDIR /code
+
+# Copy the requirements file into the container
+COPY requirements.txt .
+
+# Install project dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code into the container
+COPY . .
+
+COPY .aws /root/.aws
+# Expose the port your FastAPI app will run on
+EXPOSE 5000
+
+# Command to run your FastAPI app with uvicorn
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "5000"]</code></pre></div>
+                        <p><SS>FROM python:3.8-slim</SS> This command sets the foundation for the build. python:3.8-slim is a lightweight version of the Python 3.8 image, optimized for size and speed. Using this slim image reduces the overall size of your Docker image, leading to quicker downloads and less surface area for security vulnerabilities. This is particularly useful for a Python-based application where you might not need the full standard Python image.</p>
+                        <p><SS>ENV PYTHONUNBUFFERED 1</SS> This command sets the environment variable PYTHONUNBUFFERED to 1. This is often used in Docker containers to ensure that Python's output is not buffered, which can lead to unexpected behavior.</p>
+                        <p><SS>WORKDIR /code</SS> now code is our current working directory, what ever we copy will go into folder code</p>
+                        <p><SS>COPY requirements.txt .</SS> copy the requirements file into the current working directory</p>
+                        <p><SS>RUN pip install --no-cache-dir -r requirements.txt</SS> install the dependencies from the requirements file. --no-cache-dir is used to avoid caching the dependencies in the container. -r is used to specify the requirements file path.</p>
+                        <p><SS>COPY . .</SS> copy the rest of the application code into the current working directory</p>
+                        <p><SS>COPY .aws /root/.aws</SS> copy the aws credentials into the containers root directory( which is environment variable)</p>
+                        <p><SS>EXPOSE 5000</SS> expose the port 5000 which is used by the FastAPI app</p>
+                        <p><SS>CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "5000"]</SS> command to run your FastAPI app with uvicorn</p>
+                        <p>Install Docker Desktop if you don't have it. make sure you open the docker application to make the engine work</p>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">docker build -t "name of your choice" .</code></pre></div>
+                            <p>. represents the current directory where the Dockerfile is located</p>
+                            <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                                <pre><code  class="language-python">docker container run --name "name container" -d -p 5000:5000 "image name"</code></pre></div>
+                            <p>port needs to be same as what you specified in your docker file</p>
+                            <SS>if you open docker desktop you will see your container running, this is the indication of successful deployment of docker image. this can be used for production environment.</SS>
                     </div>
                 </div>
                 <aside class="portfolio-info">
