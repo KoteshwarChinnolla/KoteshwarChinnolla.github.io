@@ -39,12 +39,13 @@ ps{
 }
 SS{
     font-size: 16px;
+    line-height: 25px;
     font-weight: bold;
     font-style: oblique;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 al{
-    font-size: 16px;
+    font-size: 20px;
     color: #007bff;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -59,7 +60,7 @@ al{
     position: relative;
     background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
     color: rgb(252, 238, 205);
-    border: 3px solid #004373; 
+    border: 3px solid #00d5ffa4; 
     border-radius: 8px;
     font-family: "Courier New", Courier, monospace;
     white-space: pre-wrap;
@@ -72,7 +73,7 @@ al{
 pre {
     background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
     /* color: rgb(252, 238, 205); */
-    border: 3px solid #004373; 
+    border: 3px solid #0070c0; 
     margin: 0; /* Removes default margin from pre */
     padding: 0; /* Removes default padding from pre */
     white-space: pre-wrap; /* Ensures proper wrapping */

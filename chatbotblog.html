@@ -259,6 +259,67 @@ CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "5000"]</code></pr
                                 <pre><code  class="language-python">docker container run --name "name container" -d -p 5000:5000 "image name"</code></pre></div>
                             <p>port needs to be same as what you specified in your docker file</p>
                             <SS>if you open docker desktop you will see your container running, this is the indication of successful deployment of docker image. this can be used for production environment.</SS>
+                            <br>
+                            <br>
+                        <h2>EC2 deployment</h2>
+                        <blockquote>
+                            <p>Amazon Elastic Compute Cloud (EC2) is a part of Amazon's cloud-computing platform, Amazon Web Services (AWS), that allows users to rent virtual computers on which to run their own computer applications. </p>
+                            <cite>Wikipedia</cite>
+                        </blockquote>
+                        <p>Understand the term Virtual Machine, it is kind of Computer that is running on cloud with the operating system( Linex, Ubuntu, Windows wtc..) we want to use, amount of storage(500MB, 1GB) we required, kind of memory(8GB,16GB CPU,GPU) we want and lot more. and we can rent those virtual machines. this is what AWS EC2 provides. EC2 allows us to run a virtual machine with required configurations on the cloud. In our case VM is used for running Docker container which we just created.</p>
+                        <al>steps to deploy on EC2</al>
+                            <p><SS>Host your docker image</SS> : This can be made through Docker Hub or by uploading it to Amazon ECR (Elastic Container Registry). I recomend Docker Hub because it is free and easy to use and it doesn't charge you anything for your one private instance.</p>
+                            <p> Pushing your image into the dockerHub, you need to login to dockerHub and then push the image. <SS>Cret a private repository <a href="https://hub.docker.com/repository/create?">Here</a></SS> then push the image. <a href="https://dev.to/s3cloudhub/push-docker-images-to-docker-hub-directly-using-cli-a-complete-guide-2ep0">Follow this instructions.</a></p>
+                            <p> then you can view your image in dockerHub <a href="https://hub.docker.com/repositories/">Here</a></p>
+                            <p><SS>Then creating EC2 Instance</SS> : You need to create an EC2 instance and run the container on it. To do this first of all, allocate the resources for your instance. this includes..</p>
+                            <SS>Choose AMI -- Amazon Linux</SS>
+                            <br>
+                            <SS>Choose Instance Type -- t2.micro</SS>
+                            <br>
+                            <SS>Key pairs -- creat and store it safely</SS>
+                            <br>
+                            <SS>Networking( creating security group) -- allow all the traffic (SSH, HTTP,HTTPS)</SS>
+                            <br>
+                            <SS>Add Storage - default</SS>
+                            <br>
+                            <SS>Review</SS>
+                            <br>
+                            <SS>Launch Instance</SS>
+                            <br>
+                            <p><a href="https://dev.to/s3cloudhub/push-docker-images-to-docker-hub-directly-using-cli-a-complete-guide-2ep0">Follow this instructions</a></p>
+                        <p> done - now your instance is up and running in few minutes</p>
+                        <p> now connecting the instance then installing the docker on the instance, then running the pulling out the docker from the dockerHub then running the container on the instance.</p>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/chatbotblog/connect docker.png" alt="fig 1">
+                                <p class="image-description">fig 1 : connect</p>
+                            </div>
+                            <div class="image-item">
+                                <img src="assets/img/chatbotblog/connect docker 2.png" alt="fig 1">
+                                <p class="image-description">fig 2 : connect to the instance</p>
+                            </div>
+                        </div>
+                       <center> <al>Now installing the docker on the instance</al></center>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker</code></pre></div>
+                        <center><al>Login to your docker to pull the image</al></center>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">docker login</code></pre></div>
+                        <center><al>Pull the docker Image from the dockerHub</al></center>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">docker pull "repo_name":latest</code></pre></div>
+                        <center><al>This command will make docker container run always until the instance is running</al></center>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">docker run -d -p 5000:5000 --restart always "repo_name":latest</code></pre></div>
+                        <center><al>Check the status of the container</al></center>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">docker ps</code></pre></div>
+                        <p> key Importence is that the port needs to be same as what you specified in your docker file, the security group you need to allow all the traffics form your device,HTTP and HTTPS. 0.0.0.0 indicates that you are allowing traffic form the internet. now your container is running on the instance (this is same as the fast API running on your device) but only difference is by allowing internet to view it.</p>
+                        <p> now navigate to instance summery and copy the public IP address of the instance just open it on your browser with <SS>http://public_IP:5000</SS></p>
+                        
                     </div>
                 </div>
                 <aside class="portfolio-info">
