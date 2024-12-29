@@ -319,6 +319,16 @@ sudo systemctl enable docker</code></pre></div>
                             <pre><code  class="language-python">docker ps</code></pre></div>
                         <p> key Importence is that the port needs to be same as what you specified in your docker file, the security group you need to allow all the traffics form your device,HTTP and HTTPS. 0.0.0.0 indicates that you are allowing traffic form the internet. now your container is running on the instance (this is same as the fast API running on your device) but only difference is by allowing internet to view it.</p>
                         <p> now navigate to instance summery and copy the public IP address of the instance just open it on your browser with <SS>http://public_IP:5000</SS></p>
+                        <h2>API Gateway</h2>
+                        <p>Now we have a container running on the instance with an link <SS>http://public_IP:5000</SS> this link doesn't work when we try to use it on the internet. because it is of "HTTP" based and also when we provide this link to the public internet it means that you are exposing you EC2 instance to the public. it is some time harmful for your instance. so to avoid this and make a safe and secure access to your instance we use API gateway.</p>
+                        <blockquote>
+                            <p>API Gateway serves as a centralized entry point for managing and routing requests from clients to the appropriate microservices or backend services within a system.</p>
+                            <cite></cite>
+                        </blockquote>
+                        <p><al>API Gateway</al> : API Gateway is a web service that acts as a proxy between your application and the internet. It allows you to secure your API endpoints by allowing only authorized users to access them.</p>
+                        <p> now here we are connecting API gateway with EC2 instance. but for a higher load application we need to connect Application load balancer with EC2 instance and then create a API gateway for it (best practice).<a href="https://medium.com/@milesjordan/securing-an-ec2-load-balancer-behind-api-gateway-on-aws-d8d1715eae1f">You can follow this steps to do that</a></p>
+                        <p>Also wen you try to use the EC2 public IP as your endpoint, this cant be accessed by the public internet. <SS>How can we create a API gateway for our EC2 Instance?</SS></p>
+                        <a href="https://codethief.io/aws-connect-api-gateway-to-ec2/"> <al>You can follow this steps</al></a>
                         
                     </div>
                 </div>
