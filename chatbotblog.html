@@ -21,11 +21,12 @@
         <div class="dropdown-title">Contents</div>
         <div class="dropdown-content">
             <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#Langchain&AmazonTitan">Langchain and Amazon Titan</a></li> 
-                <li><a href="#fastAPI">Fast API</a></li>
-                <li><a href="#Docker">Docker Image and container</a></li>
-                <li><a href="#modeldevelopment">Model development</a></li>
+                <a href="#introduction"><li>Introduction</li></a>
+                <a href="#Langchain&AmazonTitan"><li>Langchain and Amazon Titan</li> </a>
+                <a href="#fastAPI"><li>Fast API</li></a>
+                <a href="#Docker"><li>Docker</li></a>
+                <a href="#EC2deployment"><li>Ec2 Deployment</li></a>
+                <a href="#APIGateway"><li>API GateWay</li></a>
               </ul>        
             </div>
     </div> 
@@ -261,7 +262,7 @@ CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "5000"]</code></pr
                             <SS>if you open docker desktop you will see your container running, this is the indication of successful deployment of docker image. this can be used for production environment.</SS>
                             <br>
                             <br>
-                        <h2>EC2 deployment</h2>
+                        <h2 id="EC2deployment">EC2 deployment</h2>
                         <blockquote>
                             <p>Amazon Elastic Compute Cloud (EC2) is a part of Amazon's cloud-computing platform, Amazon Web Services (AWS), that allows users to rent virtual computers on which to run their own computer applications. </p>
                             <cite>Wikipedia</cite>
@@ -319,7 +320,7 @@ sudo systemctl enable docker</code></pre></div>
                             <pre><code  class="language-python">docker ps</code></pre></div>
                         <p> key Importence is that the port needs to be same as what you specified in your docker file, the security group you need to allow all the traffics form your device,HTTP and HTTPS. 0.0.0.0 indicates that you are allowing traffic form the internet. now your container is running on the instance (this is same as the fast API running on your device) but only difference is by allowing internet to view it.</p>
                         <p> now navigate to instance summery and copy the public IP address of the instance just open it on your browser with <SS>http://public_IP:5000</SS></p>
-                        <h2>API Gateway</h2>
+                        <h2 id="APIGateway">API Gateway</h2>
                         <p>Now we have a container running on the instance with an link <SS>http://public_IP:5000</SS> this link doesn't work when we try to use it on the internet. because it is of "HTTP" based and also when we provide this link to the public internet it means that you are exposing you EC2 instance to the public. it is some time harmful for your instance. so to avoid this and make a safe and secure access to your instance we use API gateway.</p>
                         <blockquote>
                             <p>API Gateway serves as a centralized entry point for managing and routing requests from clients to the appropriate microservices or backend services within a system.</p>
