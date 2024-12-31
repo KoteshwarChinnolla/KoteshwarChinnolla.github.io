@@ -96,7 +96,7 @@
                         <br>
                         <h2>Cleaning</h2>
                         <p>Data cleaning is a processing of filling up missing data, removing outliers or duplication and so on.</p>
-                        <h3>Missing data</h3>
+                        <al>Missing data</al>
                         <p>Handling with missing data can be done in different methods we can fill up the missing data with mean, median or mode or removing whole record or using machine learning algorithms to fill out those values</p>
                         <ul>
                             <li>mean/median/mode of entire data to fill up missing data</li>
@@ -105,7 +105,7 @@
                             <br>
                             <li>using machine learning algorithms to fill out missing data</li>
                         </ul>
-                        <h3>Handling outliers</h3>
+                        <al>Handling outliers</al>
                         <p>outliers are something that deviates significantly from the rest of the data. which changes the course oof the output</p>
                         <div class="dropdown">
                             <div class="dropdown-title">Example</div>
@@ -131,19 +131,19 @@
                                 <p class="image-description">fig 4 : Box plot vs PDF</p>
                             </div>
                         </div>
-                        <h3>Scatter plot</h3>          
+                        <al>Scatter plot</al>          
                         <p>its a visual representation of the data(fig 1), where we can observe the distribution of the data and detect outliers, sk learn provides some of the libraries to detect the outliers in the scatter plot</p>
                         <p style="color: red">from sklearn.neighbors import LocalOutlierFactor</p>
                         <p style="color: red">from sklearn.ensemble import IsolationForest</p>
-                        <h3>Box plot(IQR)</h3>
+                        <al>Box plot(IQR)</al>
                         <p>A boxplot is a standardized way of displaying the dataset based on the <a href="https://en.wikipedia.org/wiki/Five-number_summary">five-number summary :</a> the minimum, the maximum, the sample median, and the first and third quartiles. refer <a href="https://en.wikipedia.org/wiki/Box_plot">wiki</a></p>
                         <p><strong>IQR(Inter Quartile Range) :</strong>It is the difference between first and third quatres. MIN and MAX are calculated based on IQR. we just remove the data points out side MIN and MAX( outliers). fig 2</p>
-                        <h3>Z score</h3>
+                        <al>Z score</al>
                         <p>Z score is a statistic that provides a measure of how many standard deviations a data point is away from the mean. statistically most 70% to 90% of the data is present at Mean(between +1 and -1 of standard deviation). so the points far from mean are considered as outliers and can be removed.</p>
                         <p><strong></strong> Z-score normalization</strong> refers to the process of normalizing every value in a dataset such that the mean of all of the values is 0 and the standard deviation is 1</p>
                         <strong>Z score = (value - mean)/standard deviation</strong>
                         <p>Fig 3 shows the standard normal distribution of the data by z score normalization</p>
-                        <h3>Invalid data</h3>
+                        <al>Invalid data</al>
                         <p>Using data standardization, you can identify and convert data from varying formats into a uniform format. in some cases there might be junk values or invalid data in the dataset</p>
                         <strong>This can be removed by : </strong> <p>you can apply standardization techniques to your data after you’ve collected it. This involves developing codes to convert your dirty data into consistent and valid formats.</p>
                         <p>ex : String matching</p>
@@ -171,7 +171,7 @@
                         <p>Data augmentation can be applied when the training data is too small, when there is overfitting in the datasets or if there is lot of missing variables in the datasets. the augumentation can be applies in different areas such as <strong>image Augmentation,Text data Augmentation and Audio Data augmentation </strong></p>
 
                         <h3>Data augmentation techniques</h3>
-                        <h4>Image Augmentation</h4>
+                        <al>Image Augmentation</al>
                         <ul>
                             <l><p><strong>Geometric Transformations</strong> - Scaling, Rotation, Translation, Shearing, Flipping, etc</p></l>
                             <l><p><strong>Color Transformations</strong> - Brightness, Contrast, Saturation, etc</p></l>
@@ -212,6 +212,9 @@
                             <li><p><strong>AutoAugment (DeepAugment)</strong> <a href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">GitHub repo</a></p></li>
                             <li><p><strong>Imgaug</strong> - <a href="https://github.com/aleju/imgaug" style="color: #0056b3;">GitHub repo</a></p></li>
                         </ul>
+                        <p>
+                            <a href="https://arxiv.org/pdf/1805.09501" style="color: #0056b3;">https://arxiv.org/pdf/1805.09501</a>
+                        </p>
                         <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
                         <p><a href="http://ai.stanford.edu/blog/data-augmentation/" style="color: #0056b3;">http://ai.stanford.edu/blog/data-augmentation/</a></p>
                         <p><a href="https://www.datacamp.com/tutorial/complete-guide-data-augmentation" style="color: #0056b3;">https://www.datacamp.com/tutorial/complete-guide-data-augmentation</a></p>
@@ -220,8 +223,25 @@
                         <p><a href="https://github.com/keras-team/keras-preprocessing" style="color: #0056b3;">https://github.com/keras-team/keras-preprocessing</a></a></p>
                         <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
                         <p></p>
-                        <h4>Text Augmentation</h4>
-                        <p>text augmentation is the process of artificially generating new text from existing text, primarily to train machine learning (ML) models or NLP models. Text </p>
+                        <al>Text Augmentation</al>
+                        <p>Text augmentation is the process of artificially generating new text from existing text, primarily to train machine learning (ML) models or NLP models. The fields like computer vision and natural language processing require large and varied datasets for initial training. Making the dataset more robust and generalizable improves the performance of the model. There are various text augmentation techniques that can be applied to improve the performance of the model. Majorly text augmentation input replacing , adding, removing, shuffling, etc. lets see some of the text augmentation techniques.</p>
+                        <SS>Most widely used text augmentation techniques are as follows</SS><br><br>
+                        <dev class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/textaug.png" alt="--image title--">
+                                <p class="p" class="image-description">fig 1 : Artificial Neural Network</p>
+                            </div>
+                        </dev>
+                        <SS>Word2vec-based augmentation</SS><p>-- (Semantic Similarity Augmentation) the word is replaced with the word with close value in the embeddings. this required a pretrained word embedding models or the data is big enough to build a embedding model. implemented by fasttext and word2vec</p>
+                        <SS>WordNet-based augmentation</SS><p>-- (Synonym replacement) this approach divides the sentence into verbs and nouns and replaces the nouns with their respective synonyms. the synonyms are generated using WordNet(a popular lexical database).</p>
+                        <SS>RTT-based augmentation</SS><p>(Round Trip Translation RTT) this approach takes a sentence and translates it into another language and then translates it back to the original language. this can be implemented using textaugment or google translate api.</p>
+                        <SS>Easy data augmentation (EDA)</SS><p>This include some of the operations such as Synonym replacement, random deletion,random insertion, random swap, etc                        </p>
+                        <SS>An easier data augmentation (AEDA)</SS><p>Random insertion of punctuations and special characters</p>
+                        <SS>Mixup augmentation</SS><p>The technique is quite systematically named. We are literally mixing up the features and their corresponding labels. we are creating new virtual dataset from the training data set by mixing up the features and their corresponding labels. the implementation is basically creating a NN model making it generate a new input and a new output labels.</p>
+                        <p><a href="https://keras.io/examples/vision/mixup/">MixUp</a></p>
+                        <p><a href="https://arxiv.org/pdf/1907.03752">Text Augmentation</a></p>
+                        <p><a href="https://pypi.org/project/textaugment/">PyPy textaugment</a></p>
+                        <p><a href="https://github.com/dsfsi/textaugment/tree/master">Implementation</a></p>
                         <h2>Model development</h2>
                         <p>.</p>
                         <p>.</p>
