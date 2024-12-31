@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details</title>
+    <link href="assets/img/OIP (1).jpeg" rel="icon">
+    <link href="assets/css/blogs.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> /Forward Propagation<span></span>
+        </div>
+        <h1>Forward Propagation in Neural Networks</h1>
+        <p>This Blog is about understanding of feed forward Neural Networks</p>
+    </header>
+    <div class="dropdown">
+        <div class="dropdown-title">Contents</div>
+        <div class="dropdown-content">
+            <ul>
+                <a href="#nn"><li>Neural Network</li></a>
+                <a href="#"><li></li> </a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+              </ul>        
+            </div>
+    </div> 
+    <!-- <br><pa> </pa><br> -->
+    <main>
+        <section class="portfolio-details">
+            <div class="container">
+                <div class="main-content">
+                    <div class="portfolio-description">
+                        <h2 id="nn">Neural Network</h2>
+                        <br><pa>Although a neural network is a black box which is very hard to decode what kind of patterns it is making to produce the high accuracy outputs. a neural network actually been inspired by the biological neural networks. where the flow of information is so complex to understand and explain. the accuracy of a neural network depends on the dimensions. more the dimensions more will be the accuracy. the dimensions are nothing but the number of hidden layers and number of nodes in each hidden layer. more the hidden layers better the system classifies the output. the lays in between the input and output layers are called hidden layers.  </pa><br>
+                        <br><pa> So a neural network is basically the connections of nodes. where this nodes are grouped as layers. this layers are classified as input layers, hidden layers and output layers. the nodes in a input layer represents input features and the nodes in output layer represent the predicted output. But the nodes in the hidden layers has some suppurate functionality where it is responsible for the mathematical operations such as Matrix multiplication and activation functions. Each node in the hidden layer is capable of generating outputs by this operations. the nodes in one layer are connected to the nodes in the other layer. this connections are assigned with certain values this are known as the weights. this weights involve in the Matrix multiplication. Each node is assigned with a bias value. Bias is added to the Matrix multiplication to get the output. this output is then passed through the activation function to produce the final output of that particular node. so output of previous layer acts as the input to the next layer. The output of the last layer is the final output. </pa><br>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/ANN/nn1.jpeg" alt="--image title--">
+                                <p class="p" class="image-description">fig 1 : Artificial Neural Network</p>
+                            </div>
+                        </div>
+                        <br><pa>Understanding higher dimensions of Neural Networks is very difficult. let us consider 4 layers. one Input , 2 Hidden and 1 output. Input with two features(nodes) and output with one feature(nodes). lets consider this as the base NN for further analysis.</pa><br>
+                        <br><pa> <ss>X1 , X2</ss> are the input features.</pa><br>
+                        <br><pa> <SS>W</SS> are the weights.</pa><br>
+                        <br><pa> <SS>b</SS> are the biases.</pa><br>
+                        <br><pa> <SS>f</SS> represents the activation function.</pa><br>
+                        <br><pa> <SS>∑</SS> is mathematical operations</pa><br>
+                        <br><pa> </pa><br>
+                        <pa> </pa>
+                    </div>
+                </div>
+                <aside class="portfolio-info">
+                    <hedding>Project Information</hedding>
+                    <br>
+                    <br>
+                    <ul>
+                        <li><strong>Name:</strong></li>
+                        <li><strong>writer:</strong>Chinnolla Koteshwar</li>
+                        <li><strong>Date:</strong> </li>
+                        <li><strong>URL:</strong> <a href="https://koteshwarchinnolla.github.io/portfolio-koteshwar/">koteshwar portfolio</a></li>
+                    </ul>
+                    <a href="index.html" class="visit-button">Visit Website</a>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="suggestion-box">
+                        <h3>Leave a Suggestion</h3>
+                        <textarea placeholder="Enter your suggestions here..."></textarea>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#top" class="scroll-top">🔝</a>
+    </footer>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script>
+    function copyCode() {
+        const codeBox = document.querySelector("#codeBox code");
+        const codeText = codeBox.innerText.trim(); // Get the code text
+        navigator.clipboard.writeText(codeText)
+            .then(() => alert("Code copied to clipboard!"))
+            .catch(err => alert("Failed to copy code: " + err));
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const title = dropdown.querySelector(".dropdown-title");
+
+        title.addEventListener("click", () => {
+            // Toggle active class for the clicked dropdown
+            dropdown.classList.toggle("active");
+
+            // Optionally close other dropdowns (uncomment below)
+            // dropdowns.forEach(d => {
+            //     if (d !== dropdown) d.classList.remove("active");
+            // });
+        });
+    });
+});
+
+</script>

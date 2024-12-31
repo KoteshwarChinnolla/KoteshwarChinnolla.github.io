@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details</title>
+    <link href="assets/img/OIP (1).jpeg" rel="icon">
+    <link href="assets/css/blogs.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span></span>
+        </div>
+        <h1></h1>
+        <p></p>
+    </header>
+    <div class="dropdown">
+        <div class="dropdown-title">Contents</div>
+        <div class="dropdown-content">
+            <ul>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li> </a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+              </ul>        
+            </div>
+    </div> 
+    <main>
+        <section class="portfolio-details">
+            <div class="container">
+                <div class="main-content">
+                    <div class="portfolio-description">
+                        <div class="dropdown">
+                            <div class="dropdown-title">--title--</div>
+                            <div class="dropdown-content">
+                                <p class="p">Enter information</p>       
+                                </div>
+                        </div> 
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python"></code>--code section--</pre></div>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <img src="--image url--" alt="--image title--">
+                                <p class="p" class="image-description">fig 1 : work flow</p>
+                            </div>
+                            <div class="image-item">
+                                <video controls>
+                                    <source src="--vidio url--" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p class="p" class="image-description">Follow the steps</p>
+                            </div>
+                        </div>
+                        <p class="p">--paragraph--</p>
+                        <al>blue hedding</al><br>
+                        <SS>Strong</SS>
+                        <blockquote>
+                            <p class="p">def</p>
+                            <cite>--written--</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                <aside class="portfolio-info">
+                    <hedding>Project Information</hedding>
+                    <br>
+                    <br>
+                    <ul>
+                        <li><strong>Name:</strong></li>
+                        <li><strong>writer:</strong>Chinnolla Koteshwar</li>
+                        <li><strong>Date:</strong> </li>
+                        <li><strong>URL:</strong> <a href="https://koteshwarchinnolla.github.io/portfolio-koteshwar/">koteshwar portfolio</a></li>
+                    </ul>
+                    <a href="index.html" class="visit-button">Visit Website</a>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="suggestion-box">
+                        <h3>Leave a Suggestion</h3>
+                        <textarea placeholder="Enter your suggestions here..."></textarea>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#top" class="scroll-top">🔝</a>
+    </footer>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script>
+    function copyCode() {
+        const codeBox = document.querySelector("#codeBox code");
+        const codeText = codeBox.innerText.trim(); // Get the code text
+        navigator.clipboard.writeText(codeText)
+            .then(() => alert("Code copied to clipboard!"))
+            .catch(err => alert("Failed to copy code: " + err));
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const title = dropdown.querySelector(".dropdown-title");
+
+        title.addEventListener("click", () => {
+            // Toggle active class for the clicked dropdown
+            dropdown.classList.toggle("active");
+
+            // Optionally close other dropdowns (uncomment below)
+            // dropdowns.forEach(d => {
+            //     if (d !== dropdown) d.classList.remove("active");
+            // });
+        });
+    });
+});
+
+</script>

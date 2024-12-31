@@ -30,22 +30,21 @@ h3{
 h4{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-p{
-    font-size: 12px;
+pa {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
     font-family: 'Times New Roman', Times, serif;
 }
-ps{
-    font-size: 10px;
-}
 SS{
-    font-size: 16px;
+    font-size: 18px;
     line-height: 25px;
     font-weight: bold;
     font-style: oblique;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 al{
-    font-size: 20px;
+    font-size: 22px;
     color: #007bff;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -223,6 +222,7 @@ li a {
 
 .image-item img {
     max-width: 100%;
+    /* text-align: center; */
     height: auto;
     display: block;
     border-radius: 8px; /* Rounded corners */
