@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolio Details</title>
-        <link href="assets/img/OIP (1).jpeg" rel="icon">
-        <link href="assets/css/blogs.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details</title>
+    <link href="assets/img/OIP (1).jpeg" rel="icon">
+    <link href="assets/css/blogs.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
     <header>
         <div class="breadcrumbs">
             <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span>How Do Machine Learn</span>
         </div>
         <h1>How Do Machine Learn ?</h1>
-        <p>In this blog, let's understand the machine learning workflow, the different steps to be taken to build a machine learning medal from scratch, and the different approaches to perform that specific step. </p>
+        <p>In this blog, let's understand the machine learning workflow, the different steps to be taken to build a
+            machine learning medal from scratch, and the different approaches to perform that specific step. </p>
     </header>
     <div class="dropdown">
         <div class="dropdown-title">Contents</div>
         <div class="dropdown-content">
             <ul>
-                <li><a href="#machenelearning">Machine Learning</a></li> 
+                <li><a href="#machenelearning">Machine Learning</a></li>
                 <li><a href="#machenelearningworkflow">Machine Learning work flow</a></li>
                 <li><a href="#dataengineering">Data Engineering</a></li>
                 <li><a href="#modeldevelopment">Model development</a></li>
-              </ul>        
-            </div>
-    </div> 
+            </ul>
+        </div>
+    </div>
     <main>
         <section class="portfolio-details">
             <div class="container">
                 <div class="main-content">
                     <div class="portfolio-description">
                         <h2 id="machenelearning">Machine learning</h2>
-                        <p>Machine learning is a branch of Artificial Intelligence, where a machine learns without explicitly programmed,  machine learning concerns the development and study of statistical algorithms that can learn from data and generalize to unseen data, and thus perform tasks without explicit instructions.</p>
-                        <p>Machine learning is a set of algorithms. It involves using algorithms to identify hidden patterns in datasets, enabling predictions on new data. </p>
+                        <p>Machine learning is a branch of Artificial Intelligence, where a machine learns without
+                            explicitly programmed, machine learning concerns the development and study of statistical
+                            algorithms that can learn from data and generalize to unseen data, and thus
+                            perform tasks without explicit instructions.</p>
+                        <p>Machine learning is a set of algorithms. It involves using algorithms to identify hidden
+                            patterns in datasets, enabling predictions on new data. </p>
                         <blockquote>
                             <p>a computer’s ability to learn without being explicitly programmed.</p>
                             <cite>by computer scientist Arthur Samuel</cite>
                         </blockquote>
                         <h2 id="machenelearningworkflow">Machine Learning Workflow</h2>
-                        <p>For a human the learning basically is reading, understating and answering. These are the three simple steps we as a human follow. Similarly, to make a machine learn, we make the machine to follow the same three simple steps. In machine terms those are collecting data, processing data and making predictions out of it.</p>
-                        <p>To make a machine learn from our data, the data needs to be in a machine-understandable way so our first step is data preprocessing, after making the data into machine machine-understandable format we need to treat the data to the machine. For perfect training, we required a perfect model so our next step is to select a perfect model. Now machine is giving the desired results then we have to deploy our model in a real-time environment this is where deployment comes into the picture.</p>
+                        <p>For a human the learning basically is reading, understating and answering. These are the
+                            three simple steps we as a human follow. Similarly, to make a machine learn, we make the
+                            machine to follow the same three simple steps. In machine terms those are collecting data,
+                            processing data and making predictions out of it.</p>
+                        <p>To make a machine learn from our data, the data needs to be in a machine-understandable way
+                            so our first step is data preprocessing, after making the data into machine
+                            machine-understandable format we need to treat the data to the machine. For perfect
+                            training, we required a perfect model so our next step is to select a perfect model. Now
+                            machine is giving the desired results then we have to deploy our model in a real-time
+                            environment this is where deployment comes into the picture.</p>
                         <div class="image-container">
-                            <img class="gif-fixed-width" src="assets/img/DataScience/machine-learning-1.gif" alt="Machine Learning GIF">
+                            <img class="gif-fixed-width" src="assets/img/DataScience/machine-learning-1.gif"
+                                alt="Machine Learning GIF">
                         </div>
                         <br>
                         <br>
@@ -60,24 +76,39 @@
                         <br>
                         <h2 id="dataengineering">Data Engineering</h2>
                         <blockquote>
-                            <p>Data pre-processing increases the quality of the data thus making it fit to be analyzed. It minimizes errors, variations, and duplication, hence enhancing the possibility of getting the right results. </p>
+                            <p>Data pre-processing increases the quality of the data thus making it fit to be analyzed.
+                                It minimizes errors, variations, and duplication, hence enhancing the possibility of
+                                getting the right results. </p>
                             <cite>.</cite>
                         </blockquote>
-                        <p>As raw data it is noisy, biased, incomplete, unstructured, and missing . so processing raw data may throe errors, such that it is most important to pre process the data. poor data can lead to incorrect prediction, lower accuracy etc.. maintaining the data quality is most impotent to train any model.</p>
+                        <p>As raw data it is noisy, biased, incomplete, unstructured, and missing . so processing raw
+                            data may throe errors, such that it is most important to pre process the data. poor data can
+                            lead to incorrect prediction, lower accuracy etc.. maintaining the data quality is most
+                            impotent to train any model.</p>
                         <div class="dropdown">
                             <div class="dropdown-title">Example</div>
                             <div class="dropdown-content">
-                                <p>Why data pre processing is so important ? lets understand with an example , consider our task is to predict the attendance percentage of student by analyzing the previous 8 years.</p>
-                                <strong>case 1:</strong><p>let say some students discontinued the school, some of them might skip the school for first few years.</p>
-                                <strong>case 2:</strong><p>some data entry's are meaning less, over 100%.</p>
-                                <strong>case 3:</strong><p>some data entry's are in the string format where it need to be int.</p>
-                                <strong>case 4:</strong><p>we are having the data in sentences. where machine only understand binary or numerical data.</p>
-                                <p>perfect prediction always demands perfect data, what are the issues with this data , case 1 data is Missing, case 2 data contains outlier, case 3 data is invalid, case 4 data is in sentence format, preprocessing is necessary to handle all cases</p>
+                                <p>Why data pre processing is so important ? lets understand with an example , consider
+                                    our task is to predict the attendance percentage of student by analyzing the
+                                    previous 8 years.</p>
+                                <strong>case 1:</strong>
+                                <p>let say some students discontinued the school, some of them might skip the school for
+                                    first few years.</p>
+                                <strong>case 2:</strong>
+                                <p>some data entry's are meaning less, over 100%.</p>
+                                <strong>case 3:</strong>
+                                <p>some data entry's are in the string format where it need to be int.</p>
+                                <strong>case 4:</strong>
+                                <p>we are having the data in sentences. where machine only understand binary or
+                                    numerical data.</p>
+                                <p>perfect prediction always demands perfect data, what are the issues with this data ,
+                                    case 1 data is Missing, case 2 data contains outlier, case 3 data is invalid, case 4
+                                    data is in sentence format, preprocessing is necessary to handle all cases</p>
                             </div>
-                        </div>  
+                        </div>
                         <!-- <p>Why data pre processing is so impotent ? lets understand with an example , consider we are having a students details of attendance percentage of previous 8 years. so our task is to predict the attendance of next year. so we have to collect the data from previous 8 years. let say some students discontinued the school, some of them might skip the school for first few years. so what can be the preprocessing steps that can be performed on that particular data to have a perfect prediction? so, first we have to fill up the missing data(who joined after few years) then to remove the students who are not in the school right now this are necessary steps. Then we needed to convert the names into a machine understanding for mat such as bitty numbers , numerical numbers etc.. this are necessary to mark error less data processing. incomplete data always give errors.  </p> -->
                         <hedding>some of the preprocessing techniques include</hedding>
-                        
+
                         <ul>
                             <li>Cleaning</li>
                             <br>
@@ -95,9 +126,12 @@
                         </ul>
                         <br>
                         <h2>Cleaning</h2>
-                        <p>Data cleaning is a processing of filling up missing data, removing outliers or duplication and so on.</p>
+                        <p>Data cleaning is a processing of filling up missing data, removing outliers or duplication
+                            and so on.</p>
                         <al>Missing data</al>
-                        <p>Handling with missing data can be done in different methods we can fill up the missing data with mean, median or mode or removing whole record or using machine learning algorithms to fill out those values</p>
+                        <p>Handling with missing data can be done in different methods we can fill up the missing data
+                            with mean, median or mode or removing whole record or using machine learning algorithms to
+                            fill out those values</p>
                         <ul>
                             <li>mean/median/mode of entire data to fill up missing data</li>
                             <br>
@@ -106,13 +140,17 @@
                             <li>using machine learning algorithms to fill out missing data</li>
                         </ul>
                         <al>Handling outliers</al>
-                        <p>outliers are something that deviates significantly from the rest of the data. which changes the course oof the output</p>
+                        <p>outliers are something that deviates significantly from the rest of the data. which changes
+                            the course oof the output</p>
                         <div class="dropdown">
                             <div class="dropdown-title">Example</div>
                             <div class="dropdown-content">
-                                <p>presence of out layers cause the prediction to be less accurate, lets understand with an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, consider we have [1,2,3,100] and the mean of this data is 26.5. so the mean is deviated from 2.5 to 26.2 the reason being the vale 100 which is acting as a outliers</p>
+                                <p>presence of out layers cause the prediction to be less accurate, lets understand with
+                                    an example we have 5 numbers [1,2,3,4] mean of this number is 2.3, consider we have
+                                    [1,2,3,100] and the mean of this data is 26.5. so the mean is deviated from 2.5 to
+                                    26.2 the reason being the vale 100 which is acting as a outliers</p>
                             </div>
-                        </div>  
+                        </div>
                         <div class="image-container">
                             <div class="image-item">
                                 <img src="assets/img/DataScience/MacheneLearningWorkFlow/outlayers 2.jpg" alt="fig 1">
@@ -127,56 +165,114 @@
                                 <p class="image-description">fig 3 : Z score</p>
                             </div>
                             <div class="image-item">
-                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/Boxplot_vs_PDF.png" alt="fig 4">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/Boxplot_vs_PDF.png"
+                                    alt="fig 4">
                                 <p class="image-description">fig 4 : Box plot vs PDF</p>
                             </div>
                         </div>
-                        <al>Scatter plot</al>          
-                        <p>its a visual representation of the data(fig 1), where we can observe the distribution of the data and detect outliers, sk learn provides some of the libraries to detect the outliers in the scatter plot</p>
+                        <al>Scatter plot</al>
+                        <p>its a visual representation of the data(fig 1), where we can observe the distribution of the
+                            data and detect outliers, sk learn provides some of the libraries to detect the outliers in
+                            the scatter plot</p>
                         <p style="color: red">from sklearn.neighbors import LocalOutlierFactor</p>
                         <p style="color: red">from sklearn.ensemble import IsolationForest</p>
                         <al>Box plot(IQR)</al>
-                        <p>A boxplot is a standardized way of displaying the dataset based on the <a href="https://en.wikipedia.org/wiki/Five-number_summary">five-number summary :</a> the minimum, the maximum, the sample median, and the first and third quartiles. refer <a href="https://en.wikipedia.org/wiki/Box_plot">wiki</a></p>
-                        <p><strong>IQR(Inter Quartile Range) :</strong>It is the difference between first and third quatres. MIN and MAX are calculated based on IQR. we just remove the data points out side MIN and MAX( outliers). fig 2</p>
+                        <p>A boxplot is a standardized way of displaying the dataset based on the <a
+                                href="https://en.wikipedia.org/wiki/Five-number_summary">five-number summary :</a> the
+                            minimum, the maximum, the sample median, and the first and third quartiles. refer <a
+                                href="https://en.wikipedia.org/wiki/Box_plot">wiki</a></p>
+                        <p><strong>IQR(Inter Quartile Range) :</strong>It is the difference between first and third
+                            quatres. MIN and MAX are calculated based on IQR. we just remove the data points out side
+                            MIN and MAX( outliers). fig 2</p>
                         <al>Z score</al>
-                        <p>Z score is a statistic that provides a measure of how many standard deviations a data point is away from the mean. statistically most 70% to 90% of the data is present at Mean(between +1 and -1 of standard deviation). so the points far from mean are considered as outliers and can be removed.</p>
-                        <p><strong></strong> Z-score normalization</strong> refers to the process of normalizing every value in a dataset such that the mean of all of the values is 0 and the standard deviation is 1</p>
+                        <p>Z score is a statistic that provides a measure of how many standard deviations a data point
+                            is away from the mean. statistically most 70% to 90% of the data is present at Mean(between
+                            +1 and -1 of standard deviation). so the points far from mean are considered as outliers and
+                            can be removed.</p>
+                        <p><strong></strong> Z-score normalization</strong> refers to the process of normalizing every
+                            value in a dataset such that the mean of all of the values is 0 and the standard deviation
+                            is 1</p>
                         <strong>Z score = (value - mean)/standard deviation</strong>
                         <p>Fig 3 shows the standard normal distribution of the data by z score normalization</p>
                         <al>Invalid data</al>
-                        <p>Using data standardization, you can identify and convert data from varying formats into a uniform format. in some cases there might be junk values or invalid data in the dataset</p>
-                        <strong>This can be removed by : </strong> <p>you can apply standardization techniques to your data after you’ve collected it. This involves developing codes to convert your dirty data into consistent and valid formats.</p>
+                        <p>Using data standardization, you can identify and convert data from varying formats into a
+                            uniform format. in some cases there might be junk values or invalid data in the dataset</p>
+                        <strong>This can be removed by : </strong>
+                        <p>you can apply standardization techniques to your data after you’ve collected it. This
+                            involves developing codes to convert your dirty data into consistent and valid formats.</p>
                         <p>ex : String matching</p>
                         <h4>References</h4>
-                        <p><a href="https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba">https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba</a></p>
-                        <p><a href="https://en.wikipedia.org/wiki/Box_plot">https://en.wikipedia.org/wiki/Box_plot</a></p>
-                        <p><a href="https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8">https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8</a></p>
-                        <p><a href="hhttps://www.scribbr.com/methodology/data-cleansing">https://www.scribbr.com/methodology/data-cleansing/</a></p>
+                        <p><a
+                                href="https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba">https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba</a>
+                        </p>
+                        <p><a href="https://en.wikipedia.org/wiki/Box_plot">https://en.wikipedia.org/wiki/Box_plot</a>
+                        </p>
+                        <p><a
+                                href="https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8">https://medium.com/@aashish.singh2k8/how-to-identify-and-remove-outliers-in-your-dataset-a-guide-for-data-scientists-57b07aea7fa8</a>
+                        </p>
+                        <p><a
+                                href="hhttps://www.scribbr.com/methodology/data-cleansing">https://www.scribbr.com/methodology/data-cleansing/</a>
+                        </p>
                         <br>
                         <br>
                         <h2>Data Augmentation</h2>
-                        <p>Data augmentation is the process of artificially generating new data from existing data, primarily to train new machine learning (ML) models. ML models require large and varied datasets for initial training</p>
+                        <p>Data augmentation is the process of artificially generating new data from existing data,
+                            primarily to train new machine learning (ML) models. ML models require large and varied
+                            datasets for initial training</p>
                         <blockquote>
-                            <p>Data augmentation uses pre-existing data to create new data samples that can improve model optimization and generalizability.</p>
+                            <p>Data augmentation uses pre-existing data to create new data samples that can improve
+                                model optimization and generalizability.</p>
                             <cite>IBM</cite>
                         </blockquote>
                         <h3>Why Data Augmentation</h3>
-                        <p>Machine Learning and Deep Learning Models relay on large data sets develop accurate models in various contexts. Data Augmentation helps filling out missing values and increase the data size by including variety of data. this helps in:</p>
+                        <p>Machine Learning and Deep Learning Models relay on large data sets develop accurate models in
+                            various contexts. Data Augmentation helps filling out missing values and increase the data
+                            size by including variety of data. this helps in:</p>
                         <ul>
-                            <li><p>improving model accuracy</p></li>
-                            <li><p>Reduced data dependency (not being depending on larger data for training)</p></li>
-                            <li><p>improving model robustness (Including data in such a way that it include all situations, such as noise and most unexpected situations to make model trained model strong)</p></li>
-                            <li><p>Mitigate overfitting in training data</p></li>
+                            <li>
+                                <p>improving model accuracy</p>
+                            </li>
+                            <li>
+                                <p>Reduced data dependency (not being depending on larger data for training)</p>
+                            </li>
+                            <li>
+                                <p>improving model robustness (Including data in such a way that it include all
+                                    situations, such as noise and most unexpected situations to make model trained model
+                                    strong)</p>
+                            </li>
+                            <li>
+                                <p>Mitigate overfitting in training data</p>
+                            </li>
                         </ul>
-                        <p>Data augmentation can be applied when the training data is too small, when there is overfitting in the datasets or if there is lot of missing variables in the datasets. the augumentation can be applies in different areas such as <strong>image Augmentation,Text data Augmentation and Audio Data augmentation </strong></p>
+                        <p>Data augmentation can be applied when the training data is too small, when there is
+                            overfitting in the datasets or if there is lot of missing variables in the datasets. the
+                            augumentation can be applies in different areas such as <strong>image Augmentation,Text data
+                                Augmentation and Audio Data augmentation </strong></p>
 
                         <h3>Data augmentation techniques</h3>
+                        <dev class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/DataAug.png"
+                                    alt="--image title--">
+                                <p class="p" class="image-description">Data Augmentation techniques</p>
+                            </div>
+                        </dev>
                         <al>Image Augmentation</al>
                         <ul>
-                            <l><p><strong>Geometric Transformations</strong> - Scaling, Rotation, Translation, Shearing, Flipping, etc</p></l>
-                            <l><p><strong>Color Transformations</strong> - Brightness, Contrast, Saturation, etc</p></l>
-                            <l><p><strong>Quality Transformations</strong> - Blurring, Sharpening, Edge Detection</p></l>
-                            <l><p><strong>Arithmetic</strong> - Adding images in different ways(imposing one on anther, adding it side by side, etcc..)</p></l>
+                            <l>
+                                <p><strong>Geometric Transformations</strong> - Scaling, Rotation, Translation,
+                                    Shearing, Flipping, etc</p>
+                            </l>
+                            <l>
+                                <p><strong>Color Transformations</strong> - Brightness, Contrast, Saturation, etc</p>
+                            </l>
+                            <l>
+                                <p><strong>Quality Transformations</strong> - Blurring, Sharpening, Edge Detection</p>
+                            </l>
+                            <l>
+                                <p><strong>Arithmetic</strong> - Adding images in different ways(imposing one on anther,
+                                    adding it side by side, etcc..)</p>
+                            </l>
                         </ul>
                         <div class="image-container">
                             <div class="image-item">
@@ -200,48 +296,170 @@
                                 <p class="image-description"></p>
                             </div>
                         </div>
-                        <p> all the images over there are just created by using Data augmentation (multiple images using single image), Visit <a href="https://github.com/aleju/imgaug">GitHub repo</a> for some intreating Data augmentation techniques</p>
+                        <p> all the images over there are just created by using Data augmentation (multiple images using
+                            single image), Visit <a href="https://github.com/aleju/imgaug">GitHub repo</a> for some
+                            intreating Data augmentation techniques</p>
                         <p>python libraries for data augmentation</p>
                         <ul>
-                            <li><p><strong>TenserFlow/Keras</strong> - Tf.image, Keras preprocessing layers, Keras ImageDataGenerator, keras.Sequential</p></li>
-                            <li><p><strong>PyTorch/MxNet</strong> - torchvision.transfroms, mxnet.gluon.data.vision.transforms</p></li>
-                            <li><p><strong>Scikit-Learn</strong> - ImageDataGenerator</p></li>
-                            <li><p><strong>Augmentor</strong></p></li>
-                            <li><p><strong>Albumentations</strong></p></li>
-                            <li><p><strong>OpenCV</strong><a href="https://medium.com/analytics-vidhya/data-augmentation-techniques-using-opencv-657bcb9cc30b" style="color: #0056b3;"></a></p></li>
-                            <li><p><strong>AutoAugment (DeepAugment)</strong> <a href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">GitHub repo</a></p></li>
-                            <li><p><strong>Imgaug</strong> - <a href="https://github.com/aleju/imgaug" style="color: #0056b3;">GitHub repo</a></p></li>
+                            <li>
+                                <p><strong>TenserFlow/Keras</strong> - Tf.image, Keras preprocessing layers, Keras
+                                    ImageDataGenerator, keras.Sequential</p>
+                            </li>
+                            <li>
+                                <p><strong>PyTorch/MxNet</strong> - torchvision.transfroms,
+                                    mxnet.gluon.data.vision.transforms</p>
+                            </li>
+                            <li>
+                                <p><strong>Scikit-Learn</strong> - ImageDataGenerator</p>
+                            </li>
+                            <li>
+                                <p><strong>Augmentor</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>Albumentations</strong></p>
+                            </li>
+                            <li>
+                                <p><strong>OpenCV</strong><a
+                                        href="https://medium.com/analytics-vidhya/data-augmentation-techniques-using-opencv-657bcb9cc30b"
+                                        style="color: #0056b3;"></a></p>
+                            </li>
+                            <li>
+                                <p><strong>AutoAugment (DeepAugment)</strong> <a
+                                        href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">GitHub
+                                        repo</a></p>
+                            </li>
+                            <li>
+                                <p><strong>Imgaug</strong> - <a href="https://github.com/aleju/imgaug"
+                                        style="color: #0056b3;">GitHub repo</a></p>
+                            </li>
                         </ul>
+                        <p><a href="https://github.com/NVlabs/DG-Net/tree/master">Image Augmentation all codes</a></p>
                         <p>
-                            <a href="https://arxiv.org/pdf/1805.09501" style="color: #0056b3;">https://arxiv.org/pdf/1805.09501</a>
+                            <a href="https://arxiv.org/pdf/1805.09501"
+                                style="color: #0056b3;">https://arxiv.org/pdf/1805.09501</a>
                         </p>
-                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
-                        <p><a href="http://ai.stanford.edu/blog/data-augmentation/" style="color: #0056b3;">http://ai.stanford.edu/blog/data-augmentation/</a></p>
-                        <p><a href="https://www.datacamp.com/tutorial/complete-guide-data-augmentation" style="color: #0056b3;">https://www.datacamp.com/tutorial/complete-guide-data-augmentation</a></p>
-                        <p><a href="https://github.com/aleju/imgaug" style="color: #0056b3;">https://github.com/aleju/imgaug</a></a></p>
-                        <p><a href="https://github.com/barisozmen/deepaugment" style="color: #0056b3;">https://github.com/barisozmen/deepaugment</a></a></p>
-                        <p><a href="https://github.com/keras-team/keras-preprocessing" style="color: #0056b3;">https://github.com/keras-team/keras-preprocessing</a></a></p>
-                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python" style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
+                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python"
+                                style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
+                        <p><a href="http://ai.stanford.edu/blog/data-augmentation/"
+                                style="color: #0056b3;">http://ai.stanford.edu/blog/data-augmentation/</a></p>
+                        <p><a href="https://www.datacamp.com/tutorial/complete-guide-data-augmentation"
+                                style="color: #0056b3;">https://www.datacamp.com/tutorial/complete-guide-data-augmentation</a>
+                        </p>
+                        <p><a href="https://github.com/aleju/imgaug"
+                                style="color: #0056b3;">https://github.com/aleju/imgaug</a></a></p>
+                        <p><a href="https://github.com/barisozmen/deepaugment"
+                                style="color: #0056b3;">https://github.com/barisozmen/deepaugment</a></a></p>
+                        <p><a href="https://github.com/keras-team/keras-preprocessing"
+                                style="color: #0056b3;">https://github.com/keras-team/keras-preprocessing</a></a></p>
+                        <p><a href="https://neptune.ai/blog/data-augmentation-in-python"
+                                style="color: #0056b3;">https://neptune.ai/blog/data-augmentation-in-python</a></p>
                         <p></p>
                         <al>Text Augmentation</al>
-                        <p>Text augmentation is the process of artificially generating new text from existing text, primarily to train machine learning (ML) models or NLP models. The fields like computer vision and natural language processing require large and varied datasets for initial training. Making the dataset more robust and generalizable improves the performance of the model. There are various text augmentation techniques that can be applied to improve the performance of the model. Majorly text augmentation input replacing , adding, removing, shuffling, etc. lets see some of the text augmentation techniques.</p>
+                        <p>Text augmentation is the process of artificially generating new text from existing text,
+                            primarily to train machine learning (ML) models or NLP models. The fields like computer
+                            vision and natural language processing require large and varied datasets for initial
+                            training. Making the dataset more robust and generalizable improves the performance of the
+                            model. There are various text augmentation techniques that can be applied to improve the
+                            performance of the model. Majorly text augmentation input replacing , adding, removing,
+                            shuffling, etc. lets see some of the text augmentation techniques.</p>
                         <SS>Most widely used text augmentation techniques are as follows</SS><br><br>
                         <dev class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/textaug.png" alt="--image title--">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/textaug.png"
+                                    alt="--image title--">
                                 <p class="p" class="image-description">fig 1 : Artificial Neural Network</p>
                             </div>
                         </dev>
-                        <SS>Word2vec-based augmentation</SS><p>-- (Semantic Similarity Augmentation) the word is replaced with the word with close value in the embeddings. this required a pretrained word embedding models or the data is big enough to build a embedding model. implemented by fasttext and word2vec</p>
-                        <SS>WordNet-based augmentation</SS><p>-- (Synonym replacement) this approach divides the sentence into verbs and nouns and replaces the nouns with their respective synonyms. the synonyms are generated using WordNet(a popular lexical database).</p>
-                        <SS>RTT-based augmentation</SS><p>(Round Trip Translation RTT) this approach takes a sentence and translates it into another language and then translates it back to the original language. this can be implemented using textaugment or google translate api.</p>
-                        <SS>Easy data augmentation (EDA)</SS><p>This include some of the operations such as Synonym replacement, random deletion,random insertion, random swap, etc                        </p>
-                        <SS>An easier data augmentation (AEDA)</SS><p>Random insertion of punctuations and special characters</p>
-                        <SS>Mixup augmentation</SS><p>The technique is quite systematically named. We are literally mixing up the features and their corresponding labels. we are creating new virtual dataset from the training data set by mixing up the features and their corresponding labels. the implementation is basically creating a NN model making it generate a new input and a new output labels.</p>
+                        <SS>Word2vec-based augmentation</SS>
+                        <p>-- (Semantic Similarity Augmentation) the word is replaced with the word with close value in
+                            the embeddings. this required a pretrained word embedding models or the data is big enough
+                            to build a embedding model. implemented by fasttext and word2vec</p>
+                        <SS>WordNet-based augmentation</SS>
+                        <p>-- (Synonym replacement) this approach divides the sentence into verbs and nouns and replaces
+                            the nouns with their respective synonyms. the synonyms are generated using WordNet(a popular
+                            lexical database).</p>
+                        <SS>RTT-based augmentation</SS>
+                        <p>(Round Trip Translation RTT) this approach takes a sentence and translates it into another
+                            language and then translates it back to the original language. this can be implemented using
+                            textaugment or google translate api.</p>
+                        <SS>Easy data augmentation (EDA)</SS>
+                        <p>This include some of the operations such as Synonym replacement, random deletion,random
+                            insertion, random swap, etc </p>
+                        <SS>An easier data augmentation (AEDA)</SS>
+                        <p>Random insertion of punctuations and special characters</p>
+                        <SS>Mixup augmentation</SS>
+                        <p>The technique is quite systematically named. We are literally mixing up the features and
+                            their corresponding labels. we are creating new virtual dataset from the training data set
+                            by mixing up the features and their corresponding labels. the implementation is basically
+                            creating a NN model making it generate a new input and a new output labels.</p>
+                        <p><a href="https://github.com/makcedward/nlpaug">nlpaug GitHub repo</a></p>
                         <p><a href="https://keras.io/examples/vision/mixup/">MixUp</a></p>
                         <p><a href="https://arxiv.org/pdf/1907.03752">Text Augmentation</a></p>
                         <p><a href="https://pypi.org/project/textaugment/">PyPy textaugment</a></p>
                         <p><a href="https://github.com/dsfsi/textaugment/tree/master">Implementation</a></p>
+                        <al>Audio Augmentation</al>
+                        <p>Audio recognition systems such as Google assistant, Alexa, Amazon Echo etc.. are developed on Audio data and detecting more complex audios is a challenge. as people are more interested into voice assistants it is more important to detect the audio form most complex environments such as noisy, low audio, multiple audios etc.. The systems only achieve this complex tasks by making it to train through such data sets. But collecting such datasets needs lot of human effort. Hence this is where data augmentation comes to rescue. By using this techniques we can build more robust and large datasets to make detection more accurate.</p>
+                        <SS>Audio Augmentation techniques</SS>
+                        <ul>
+                            <li>Noise injection</li>
+                            <li>Time shift</li>
+                            <li>Time stretching</li>
+                            <li>Random cropping</li>
+                            <li>Pitch scaling</li>
+                            <li>Dynamic range compression</li>
+                            <li>Simple gain</li>
+                            <li>Equalization</li>
+                            <li>Voice conversion (Speech)</li>
+                        </ul>
+                        <p>background noise</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Input sound</th>
+                                    <th>Transformed sound</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><audio controls="">
+                                            <source
+                                                src="assets/img/DataScience/MacheneLearningWorkFlow/AddBackgroundNoise_input.flac"
+                                                type="audio/flac">
+                                        </audio></td>
+                                    <td><audio controls="">
+                                            <source
+                                                src="assets/img/DataScience/MacheneLearningWorkFlow/AddBackgroundNoise_transformed.flac"
+                                                type="audio/flac">
+                                        </audio></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>background noise</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Input sound</th>
+                                    <th>Transformed sound</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><audio controls="">
+                                            <source
+                                                src="assets/img/DataScience/MacheneLearningWorkFlow/AddGaussianNoise_input.flac"
+                                                type="audio/flac">
+                                        </audio></td>
+                                    <td><audio controls="">
+                                            <source
+                                                src="assets/img/DataScience/MacheneLearningWorkFlow/AddGaussianNoise_transformed.flac"
+                                                type="audio/flac">
+                                        </audio></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><a href=https://iver56.github.io/audiomentations>Audio Augmentation</a></p>
+
+
                         <h2>Model development</h2>
                         <p>.</p>
                         <p>.</p>
@@ -262,7 +480,9 @@
                         <li><strong>Name:</strong>How do machine learn</li>
                         <li><strong>writer:</strong>Chinnolla Koteshwar</li>
                         <li><strong>Date:</strong> 07 December, 2024</li>
-                        <li><strong>URL:</strong> <a href="https://koteshwarchinnolla.github.io/portfolio-koteshwar/">koteshwar portfolio</a></li>
+                        <li><strong>URL:</strong> <a
+                                href="https://koteshwarchinnolla.github.io/portfolio-koteshwar/">koteshwar portfolio</a>
+                        </li>
                     </ul>
                     <a href="index.html" class="visit-button">Visit Website</a>
                     <br>
@@ -282,24 +502,25 @@
         <a href="#top" class="scroll-top">🔝</a>
     </footer>
 </body>
+
 </html>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const dropdowns = document.querySelectorAll(".dropdown");
+        const dropdowns = document.querySelectorAll(".dropdown");
 
-    dropdowns.forEach(dropdown => {
-        const title = dropdown.querySelector(".dropdown-title");
+        dropdowns.forEach(dropdown => {
+            const title = dropdown.querySelector(".dropdown-title");
 
-        title.addEventListener("click", () => {
-            // Toggle active class for the clicked dropdown
-            dropdown.classList.toggle("active");
+            title.addEventListener("click", () => {
+                // Toggle active class for the clicked dropdown
+                dropdown.classList.toggle("active");
 
-            // Optionally close other dropdowns (uncomment below)
-            // dropdowns.forEach(d => {
-            //     if (d !== dropdown) d.classList.remove("active");
-            // });
+                // Optionally close other dropdowns (uncomment below)
+                // dropdowns.forEach(d => {
+                //     if (d !== dropdown) d.classList.remove("active");
+                // });
+            });
         });
     });
-});
 
 </script>

@@ -8,6 +8,16 @@ body {
     background-color: #f9f9f9;
     color: #444;
 }
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+}
 hedding {
     text-align: left;
     font-size: 22px;
@@ -122,6 +132,12 @@ pre {
         padding: 3px 6px; /* Compact padding for smaller screens */
     }
 }
+li {
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 li a {
     text-decoration: none;
@@ -136,6 +152,7 @@ li a {
     border-radius: 8px; /* Optional: Add rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
 }
+
 
 /* Dropdown container styling */
 .dropdown {
