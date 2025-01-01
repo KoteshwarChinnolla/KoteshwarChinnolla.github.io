@@ -411,7 +411,7 @@
                             <li>Equalization</li>
                             <li>Voice conversion (Speech)</li>
                         </ul>
-                        <SS>Background noice</SS>
+                        <SS>Background noice</SS><br>
                         <div class="image-container">
                             <div class="image-item">
                                 <audio controls>
@@ -428,7 +428,7 @@
                                 <p class="image-description">Fig 1: Transformed</p>
                             </div>
                         </div>
-                        <SS>Gaussian noise</SS>
+                        <SS>Gaussian noise</SS><br>
                         <div class="image-container">
                             <div class="image-item">
                                 <audio controls>
@@ -445,11 +445,38 @@
                                 <p class="image-description">Fig 1: Transformed</p>
                             </div>
                         </div>
-                        <p><a href=https://iver56.github.io/audiomentations>audiomentations</a></p>
+                        <p><a href=https://iver56.github.io/audiomentations>audiomentations</a>-- this is a library provided by python</p>
                         <p><a href="https://www.tensorflow.org/io/tutorials/audio">TenserFlow</a></p>
                         <p><a href="https://pytorch.org/audio/2.0.1/tutorials/audio_data_augmentation_tutorial.html">PyTorch</a></p>
                         <p><a href="https://www.mathworks.com/help/audio/ref/audiodataaugmenter.html">Using MathLab</a></p>
-
+                        <al>Time Series Data Augmentation </al><br>
+                        <p>Time Series Data is basically known as sequence of data points over a period of time. We basically observe this kind of data in Stock market and IOT applications. Treating this data to be Augmented as the previous three techniques cause problem. Because previous every record is concorded as the individual data points. But we need to treat a sequence of data points as a single data point in timeseries. Time series data augmentation follows its suppurate techniques. Such as GAN(Generative Adversarial Network) and Autoencoders. </p>
+                        <p><SS>Traditional algorithms</SS> this techniques can tbe applied directly to time series data. instead we divide the entire data into a group of time stramps. then applying then applying to one of them or some of them and then adding it to original data set results in increase in size of data.. it can also be said that some of them does not support so being selective would be effective.</p>
+                        <ul>
+                            <li>time scaling window</li>
+                            <li>jittering</li>
+                            <li>Rotation</li>
+                            <li>Channel permutation</li>
+                            <li>wrapping</li>
+                        </ul>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/GAN.png" alt="fig 1">
+                                <p class="image-description">GAN(Generative Adversarial Network)</p>
+                            </div>    
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/AutoEncoder.png" alt="fig 1">
+                                <p class="image-description">Virtual autoencoder</p>
+                            </div>
+                        </div>
+                        <al>GAN(Generative Adversarial Network)</al>
+                        <p>Gan architecture is based on the computation between two Neural Networks known to be generator and discriminator. the generator is used to generate fake data and the discriminator is used to differentiate between real and fake data. the whole task is to fool the discriminator. in this way we have more data points. in case of time series data, we can use this technique to generate data points that are similar to the original data points for a particular period of time.</p>
+                        <al>Virtual autoencoder</al>
+                        <p>This is a Encoder and decoder architecture. Majorly used in unSupervised learning where there is no labels. So here we use the encoder to make the input datapoints into smaller dimensions and decoder to make it back to original. so here we are basically generating new data points by making it generate back the original data.</p>
+                        <p><a href="https://arxiv.org/pdf/2206.13508">Time series data augmentation</a></p>
+                        <p><a href="https://github.com/jsyoon0823/TimeGAN/tree/master?tab=readme-ov-file"> Code github repo</a></p>
+                        <p><a href="https://saturncloud.io/glossary/data-augmentation-with-generative-ai/">Gen AI Data Augmentation</a></p>
+                        <p><a href="https://aws.amazon.com/what-is/gan/">AWS GAN</a></p>
                         <h2>Model development</h2>
                         <p>.</p>
                         <p>.</p>
