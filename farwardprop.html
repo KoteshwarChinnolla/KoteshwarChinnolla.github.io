@@ -55,25 +55,14 @@
                         <pa> </pa>
                     </div>
                 </div>
-                <aside class="portfolio-info">
-                    <hedding>Project Information</hedding>
-                    <br>
-                    <br>
-                    <ul>
-                        <li><strong>Name:</strong></li>
-                        <li><strong>writer:</strong>Chinnolla Koteshwar</li>
-                        <li><strong>Date:</strong> </li>
-                        <li><strong>URL:</strong> <a href="https://koteshwarchinnolla.github.io/portfolio-koteshwar/">koteshwar portfolio</a></li>
-                    </ul>
-                    <a href="index.html" class="visit-button">Visit Website</a>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="suggestion-box">
-                        <h3>Leave a Suggestion</h3>
-                        <textarea placeholder="Enter your suggestions here..."></textarea>
-                        <button type="submit" class="submit-button">Submit</button>
-                    </div>
+                <aside class="comment-box">
+                    <div class="project-info">
+                    <h3>Leave a Suggestion</h3>
+                    <input type="hidden" id="blog-id" value="1">
+                    <input type="text" id="name-input" style="height: 40px; width: 95%; font-size: 20px; border: 1px solid #c4b2b2; border-radius: 4px; padding: 8px; margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 14px; " placeholder="Your Name" />
+                    <textarea id="suggestion-input" placeholder="Enter your comment here..."></textarea>
+                    <button type="submit" onclick="submitComment()">Submit</button>
+                    <ul id="comments-list" class="comments-list"></ul>
                 </aside>
             </div>
         </section>

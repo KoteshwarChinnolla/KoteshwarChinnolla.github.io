@@ -334,7 +334,7 @@ header p{
 
 .portfolio-description h2 {
     margin-top: 0;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: bold;
     color: #333;
     border-bottom: 2px solid #007bff;
@@ -343,7 +343,7 @@ header p{
 
 .portfolio-description p {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 20px;
     color: #555;
     line-height: 1.8;
 }
@@ -366,118 +366,111 @@ blockquote cite {
 }
 
 /* Sidebar Info */
-.portfolio-info1 {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    padding: 20px;
+.comment-box {
+    border: 1px solid #ccc;
     border-radius: 8px;
+    padding: 16px;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
-    max-width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Desktop View: Position on the left */
-@media (max-width: 500px) {
-    .portfolio-info1 {
-        display: none;
+    background-color: #f9f9f9;
+  }
+  /* @media (max-width: 1300px) {
+    .comment-box {
+      display: none;
     }
-}
-.portfolio-info {
-    /* flex: 1; */
-    position: relative;
-    top: 100px; /* Adjust based on header height */
-    align-self: flex-start;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+} */
+
+  .comment-box h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
     color: #333;
-    height: 100%;
-}
+  }
 
-.portfolio-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-.portfolio-info ul li {
-    margin-bottom: 15px;
-}
-
-.portfolio-info ul li strong {
-    display: inline-block;
-    width: 120px;
-    font-weight: bold;
-}
-
-/* Suggestion Box */
-.suggestion-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.suggestion-box p {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.suggestion-box textarea {
-    width: 90%;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    resize: vertical;
+  .comment-box textarea {
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: Arial, sans-serif;
     font-size: 14px;
-    font-family: 'Roboto', Arial, sans-serif;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .comment-box textarea:focus {
     outline: none;
-}
-
-.suggestion-box textarea:focus {
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+  }
 
-.suggestion-box .submit-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #007bff;
+  .comment-box button {
+    background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 4px;
     font-size: 14px;
-    transition: background 0.3s;
-}
+    cursor: pointer;
+  }
 
-.suggestion-box .submit-button:hover {
-    background: #afaa09;
-}
+  .comment-box button:hover {
+    background-color: #0056b3;
+  }
 
+  .project-info {
+    margin-bottom: 16px;
+  }
 
-.visit-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    color: #fff;
-    background: #007bff;
+  .project-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-info li {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+
+  .project-info a {
+    color: #007bff;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: background 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+  }
 
-.visit-button:hover {
-    background: #afb518;
-}
+  .project-info a:hover {
+    text-decoration: underline;
+  }
+
+  .visit-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .visit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .comments-list {
+    margin-top: 16px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .comments-list li {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+  }
 
 /* Footer */
 .scroll-top {
