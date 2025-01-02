@@ -288,10 +288,21 @@ header p{
 
 }   
 
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 .breadcrumbs {
     font-size: 14px;
     margin-top: 5px;
     color: #6c757d;
+}
+
+.breadcrumbs p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-style: italic;
 }
 
 .breadcrumbs a {
@@ -306,7 +317,7 @@ header p{
 /* Portfolio Section */
 .portfolio-details {
     padding: 50px 20px;
-    background-color: #f3f4f6;
+    background-color: #e9ebef;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -344,8 +355,16 @@ header p{
 .portfolio-description p {
     margin-bottom: 20px;
     font-size: 20px;
+    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     color: #555;
     line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio-description p {
+        font-size: 16px;
+    }
+    
 }
 
 blockquote {
@@ -367,7 +386,7 @@ blockquote cite {
 
 /* Sidebar Info */
 .comment-box {
-    border: 1px solid #ccc;
+    border: 1px solid #ffff8f;
     border-radius: 8px;
     padding: 16px;
     max-width: 400px;
