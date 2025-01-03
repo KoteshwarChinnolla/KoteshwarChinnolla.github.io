@@ -479,6 +479,24 @@
                         <p><a href="https://saturncloud.io/glossary/data-augmentation-with-generative-ai/">Gen AI Data Augmentation</a></p>
                         <p><a href="https://aws.amazon.com/what-is/gan/">AWS GAN</a></p>
                         <h2>Dimensionality reduction</h2>
+                        <P>Dimensionality reduction is a technique to reduce the number of feature in the dataset. Basically higher the number of feature slower the model will be and model leads to overfitting. the data fits well on the training data but fails to generalize well on new or testing data. The main aim of the Dimensionality reductions is get more information out of the entire data into fewer features and also to remove the features that has no/less effect on the model. We apply Dimensionality reduction to make model faster ,reduce complexity and improve performance.</P>
+                        <p>Dimensionality reduction is a technique which selects or extracts completely independent features that has the maximum impact on the model.</p>
+                        <p>Having more features results in high dimensional visualization which is hard to interpret and generalize. which may results in complex model formation</p>
+                        <p> For Dimensionality reduction there are two main approaches  <SS>Feature Extraction</SS>,<SS>Feature Selection</SS></p>
+                        <p><SS>Feature Extraction : </SS> It involves creating new features from original by combining or transforming exiting features. the ogle is to create a set of d feature form n features (d<=n) such that d features capture the essence of the n features</p>
+                        <p>Some of the feature extraction techniques are as follows<SS>Principal Component Analysis(PCA),Singular Value Decomposition(SVD),Linear Discriminant Analysis(LDA) etc..</SS></p>
+                        <p><SS>Feature Selection : </SS> It involves selecting a subset of features from the original set of features. the goal is to select a subset of features that are most relevant and can have the maximum information content</p>
+                        <p>Some of the feature selection techniques are <SS>Filter methods</SS>,<SS>Wrapper methods</SS>,<SS>Embedding method</SS></p>
+                        <div class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/DataScience/MacheneLearningWorkFlow/DR1.png" alt="fig 1">
+                                <p class="image-description">Dimensionality reduction</p>
+                            </div>    
+                        </div>
+                        <al>Principal component analysis (PCA)</al>
+                        <p>Principal component analysis is a Feature Extraction technique where Higher dimensional data is transformed into lower dimensional data with the most important information. here we are using covariance matrix to higher dimensional and getting eigen vector and racking the eigen values to select the eigen vectors with the highest eigen values. this is most effective reduction technique as it uses the covariance matrix which gives the correlation between the feature results in maximum information.</p>
+                        <p></p>
+                        <p></p>
                         <p></p>
                         <h2>Model development</h2>
                         <p></p>
@@ -494,7 +512,7 @@
                 </div>
                 <aside class="comment-box">
                     <div class="project-info">
-                    <al>Post your comment here</al><br><br>
+                    <al>Post your comment here</al><br><b r>
                     <SS>Your comments are most valuable.Please be responsible, everyone can view your comments 📩</SS><br><br>
                     <input type="hidden" id="blog-id" value="1">
                     <input type="text" id="name-input" style="height: 40px; width: 95%; font-size: 20px; border: 1px solid #c4b2b2; border-radius: 4px; padding: 8px; margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 14px; " placeholder="Your Name" />

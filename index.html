@@ -49,6 +49,9 @@
   <main class="main">
 
     <div id="body">
+      <dev id="chat-text1" class="chat-text1">Hello 👋</dev>
+      <audio id="notification-sound" src="assets/img/notification.mp3" preload="auto"></audio>
+
 
       <div id="chat-circle" class="btn btn-raised">
         <div id="chat-overlay"></div>
@@ -894,57 +897,106 @@
     padding: 0px;
     cursor: pointer;
     box-shadow: 0 0 20px 8px rgba(120, 100, 100, 0.752),
-      /* Bright blue outer glow */
-      0 0 30px 15px rgba(185, 170, 170, 0.681),
-      /* Soft pink inner glow */
-      0 0 10px 5px rgba(248, 210, 210, 0.615);
-    /* Light pink ambient glow */
-
-    /* Add transition for smooth hover effect */
+        0 0 30px 15px rgba(185, 170, 170, 0.681),
+        0 0 10px 5px rgba(248, 210, 210, 0.615);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
+    /* opacity: 0; Initially hidden */
+    transition: opacity 0.5s ease-in-out;
+}
 
-  /* Floating animation */
-  #chat-circle:hover {
+/* Hover Effect */
+#chat-circle:hover {
     transform: translateY(-10px);
-    /* Lifts the circle */
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.7);
-    /* Enhances shadow */
-  }
+}
 
-  /* Optional: Continuous floating effect */
-  @keyframes floating {
+/* Floating Animation */
+@keyframes floating {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-
     50% {
-      transform: translateY(-7px);
+        transform: translateY(-7px);
     }
-
     100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
+}
 
-  #chat-circle {
+#chat-circle {
     animation: floating 3s infinite;
-    /* Smooth float effect */
-  }
+}
 
-  #chat-image {
+/* Chat Image Styles */
+#chat-image {
     width: 120px;
-    /* Adjust size relative to the circle */
     height: 120px;
     object-fit: cover;
-    /* Ensures the image fits well within the circle */
     border-radius: 50%;
-    /* Keeps the image circular */
-  }
+}
+#chat-text1 {
+    position: fixed;
+    z-index: 99999;
+    bottom: 220px; /* Default position for large screens */
+    right: 140px; /* Default position for large screens */
+    font-size: 25px;
+    background-color: #ffffff50;
+    border: 2px solid #1e88e5;
+    color: #5b7fff;
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.597);
+    opacity: 1;
+    transition: opacity 0s step-end;
+}
+
+/* Media queries for responsiveness */
+
+/* Extra small screens (e.g., phones, less than 576px wide) */
+@media (max-width: 576px) {
+    #chat-text1 {
+        bottom: 150px; /* Adjusted for smaller screens */
+        right: 50px; /* Reduce right spacing */
+        font-size: 18px; /* Smaller font size */
+        padding: 8px 20px; /* Adjust padding */
+    }
+}
+
+/* Small screens (e.g., tablets, 576px to 768px wide) */
+@media (min-width: 576px) and (max-width: 768px) {
+    #chat-text1 {
+        bottom: 180px; /* Slightly adjusted for medium screens */
+        right: 80px; /* Moderate spacing */
+        font-size: 20px; /* Adjust font size */
+        padding: 8px 30px; /* Adjust padding */
+    }
+}
+
+/* Medium screens (e.g., desktops, 768px to 992px wide) */
+@media (min-width: 768px) and (max-width: 992px) {
+    #chat-text1 {
+        bottom: 200px; /* Slightly higher */
+        right: 100px; /* Moderate spacing */
+        font-size: 22px; /* Adjust font size */
+        padding: 10px 35px; /* Adjust padding */
+    }
+}
+
+/* Large screens (default styles for widths above 992px) */
+@media (min-width: 992px) {
+    #chat-text1 {
+        bottom: 220px; /* Default positioning */
+        right: 140px; /* Default spacing */
+        font-size: 25px; /* Default font size */
+        padding: 10px 40px; /* Default padding */
+    }
+}
+
 
   .btn#my-btn {
     background: white;
@@ -1531,3 +1583,31 @@
 
 
 </style>
+<script>
+  // Wait for the page to load completely
+  window.addEventListener('load', function () {
+      // Show the chat circle after 0.5 seconds
+      setTimeout(function () {
+          const chatCircle = document.getElementById('chat-text1');
+          chatCircle.style.opacity = '0'; // Make it visible
+      }, 0); // 500 milliseconds delay
+      setTimeout(function () {
+          const chatCircle = document.getElementById('chat-text1');
+          chatCircle.style.opacity = '1'; // Make it visible
+      }, 1500); // 500 milliseconds delay
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    // Delay to show the notification and play sound
+    setTimeout(() => {
+        const chatText = document.getElementById("chat-text1");
+        const audio = document.getElementById("notification-sound");
+
+        // Make the text visible
+        chatText.style.opacity = "100";
+
+        // Play the notification sound
+        audio.play().catch((error) => console.error("Sound playback error:", error));
+    }, 1500); // 1-second delay
+});
+
+</script>
