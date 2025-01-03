@@ -157,7 +157,7 @@ li a {
 /* Dropdown container styling */
 .dropdown {
     width: 100%;
-    margin: 20px 0;
+    /* margin: 20px 0; */
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -337,7 +337,6 @@ header h1 {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 94%;
     overflow-y: auto;
     max-height: 80vh; /* Adjust height as needed */
 }
@@ -389,7 +388,8 @@ blockquote cite {
     border: 1px solid #ffff8f;
     border-radius: 8px;
     padding: 16px;
-    max-width: 400px;
+    max-width: 350px;
+    max-height: 80vh;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     font-family: Arial, sans-serif;
@@ -397,7 +397,7 @@ blockquote cite {
 }
 
 /* Adjust layout for screens smaller than 1000px */
-@media (max-width: 1500px) {
+@media (max-width: 1400px) {
     .container {
         flex-direction: column; /* Stacks items vertically */
     }
