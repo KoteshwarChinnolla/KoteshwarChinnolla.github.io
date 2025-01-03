@@ -340,6 +340,11 @@ header h1 {
     overflow-y: auto;
     max-height: 80vh; /* Adjust height as needed */
 }
+@media (max-width: 400px) {
+    .main-content{
+        max-width: 73vw;
+    }
+}
 
 
 .portfolio-description h2 {
@@ -361,7 +366,10 @@ header h1 {
 
 @media screen and (max-width: 768px) {
     .portfolio-description p {
-        font-size: 16px;
+        font-size: 14px;
+    }
+    .portfolio-description h2 {
+        font-size: 24px;
     }
     
 }
