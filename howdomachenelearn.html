@@ -9,6 +9,7 @@
     <link href="assets/css/blogs.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <script src="assets/js/commentbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -494,7 +495,10 @@
                             </div>    
                         </div>
                         <al>Principal component analysis (PCA)</al>
-                        <p>Principal component analysis is a Feature Extraction technique where Higher dimensional data is transformed into lower dimensional data with the most important information. here we are using covariance matrix to higher dimensional and getting eigen vector and racking the eigen values to select the eigen vectors with the highest eigen values. this is most effective reduction technique as it uses the covariance matrix which gives the correlation between the feature results in maximum information.</p>
+                        <p>Principal component analysis is a Feature Extraction technique where Higher dimensional data is transformed into lower dimensional data with the most important information. here we are using covariance matrix to higher dimensional and getting eigen vector and racking the eigen values to select the eigen vectors . this is most effective reduction technique as it uses the covariance matrix which gives the correlation between the feature. </p>
+                        <p>Before we get started, we shall take a quick look at the difference between covariance and variance. Variance measures the variation of a single random variable (like the height of a person in a population), whereas covariance is a measure of how much two random variables vary together (like the height of a person and the weight of a person in a population). The formula for variance is given by</p>
+                        <p>$$\sigma^2_x = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$</p>
+    
                         <p></p>
                         <p></p>
                         <p></p>
@@ -512,7 +516,7 @@
                 </div>
                 <aside class="comment-box">
                     <div class="project-info">
-                    <al>Post your comment here</al><br><b r>
+                    <al>Post your comment here</al><br><br>
                     <SS>Your comments are most valuable.Please be responsible, everyone can view your comments 📩</SS><br><br>
                     <input type="hidden" id="blog-id" value="1">
                     <input type="text" id="name-input" style="height: 40px; width: 95%; font-size: 20px; border: 1px solid #c4b2b2; border-radius: 4px; padding: 8px; margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 14px; " placeholder="Your Name" />
