@@ -50,12 +50,12 @@
 
     <div id="body">
       <dev id="chat-text1" class="chat-text1">Hello 👋</dev>
-      <audio id="notification-sound" src="assets/img/notification.mp3" preload="auto"></audio>
+      <audio id="notification-sound" src="assets/img/notification.mp3" ></audio>
 
 
       <div id="chat-circle" class="btn btn-raised">
         <div id="chat-overlay"></div>
-        <img src="https://cdn.dribbble.com/users/722835/screenshots/4082720/media/e549e0e183d64f482d8b2886668402c5.gif"
+        <img src="assets/img/chatimagegif.gif"
           alt="Chat Icon" id="chat-image">
       </div>
 
@@ -1599,15 +1599,9 @@
   document.addEventListener("DOMContentLoaded", function () {
     // Delay to show the notification and play sound
     setTimeout(() => {
-        const chatText = document.getElementById("chat-text1");
-        const audio = document.getElementById("notification-sound");
-
-        // Make the text visible
-        chatText.style.opacity = "100";
-
-        // Play the notification sound
+        const audio = new Audio("assets/img/notification.mp3");
         audio.play().catch((error) => console.error("Sound playback error:", error));
-    }, 1500); // 1-second delay
+    }, 1500);
 });
 
 </script>

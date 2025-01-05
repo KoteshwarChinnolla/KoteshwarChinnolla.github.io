@@ -245,6 +245,23 @@ li a {
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.314); /* Shadow effect */
 }
+.image-item1 {
+    text-align: center; /* Center-align the text below each image */
+    max-width: auto; /* Optional: Limit the width of each image-item */
+}
+.image-item1 img {
+    max-width: 50%;
+    /* text-align: center; */
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.314); /* Shadow effect */
+}
+@media (max-width: 768px) {
+    .image-item1 img {
+        max-width: 100%;
+    }
+}
 .image-item video {
     max-width: 100%;
     height: auto;

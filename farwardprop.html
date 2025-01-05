@@ -7,6 +7,7 @@
     <link href="assets/img/OIP (1).jpeg" rel="icon">
     <link href="assets/css/blogs.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,14 +16,14 @@
             <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> /Forward Propagation<span></span>
         </div>
         <h1>Forward Propagation in Neural Networks</h1>
-        <p>This Blog is about understanding of feed forward Neural Networks</p>
+        <p>This Blog is about In-depth understanding about feed forward Neural Networks. This include all the visual and mathematical representations that make understanding much easier. lets go through everything that require to predict outcome much accurately. </p>
     </header>
     <div class="dropdown">
         <div class="dropdown-title">Contents</div>
         <div class="dropdown-content">
             <ul>
                 <a href="#nn"><li>Neural Network</li></a>
-                <a href="#"><li></li> </a>
+                <a href="#activation"><li>Activation function</li> </a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
@@ -41,19 +42,55 @@
                         <br><pa> So a neural network is basically the connections of nodes. where this nodes are grouped as layers. this layers are classified as input layers, hidden layers and output layers. the nodes in a input layer represents input features and the nodes in output layer represent the predicted output. But the nodes in the hidden layers has some suppurate functionality where it is responsible for the mathematical operations such as Matrix multiplication and activation functions. Each node in the hidden layer is capable of generating outputs by this operations. the nodes in one layer are connected to the nodes in the other layer. this connections are assigned with certain values this are known as the weights. this weights involve in the Matrix multiplication. Each node is assigned with a bias value. Bias is added to the Matrix multiplication to get the output. this output is then passed through the activation function to produce the final output of that particular node. so output of previous layer acts as the input to the next layer. The output of the last layer is the final output. </pa><br>
                         <div class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/ANN/nn1.jpeg" alt="--image title--">
+                                <img src="assets/img/ANN/NeuralN1.jpg" alt="--image title--">
                                 <p class="p" class="image-description">fig 1 : Artificial Neural Network</p>
                             </div>
                         </div>
                         <br><pa>Understanding higher dimensions of Neural Networks is very difficult. let us consider 4 layers. one Input , 2 Hidden and 1 output. Input with two features(nodes) and output with one feature(nodes). lets consider this as the base NN for further analysis.</pa><br>
-                        <br><pa> <ss>X1 , X2</ss> are the input features.</pa><br>
+                        <p>$$Z=f (WX+b)$$</p>
+                        <p>$$X=(X1,X2)$$</p>
+                        <p>$$W1=\begin{pmatrix}
+                            w_{11} & w_{12} & w_{13} \\
+                            w_{21} & w_{22} & w_{23}
+                            \end{pmatrix}$$</p>
+                        <p>$$W2=\begin{pmatrix}
+                            w_{11} & w_{12} & w_{13} \\
+                            w_{21} & w_{22} & w_{23}\\
+                            w_{31} & w_{32} & w_{33}
+                            \end{pmatrix}$$</p>
+                        <p>$$W3=\begin{pmatrix}
+                            w_{11} \\
+                            w_{21}\\
+                            w_{31}
+                            \end{pmatrix}$$</p>
+                        <br><pa> <ss>X1 , X2</ss> are the input features (x).</pa><br>
                         <br><pa> <SS>W</SS> are the weights.</pa><br>
                         <br><pa> <SS>b</SS> are the biases.</pa><br>
                         <br><pa> <SS>f</SS> represents the activation function.</pa><br>
                         <br><pa> <SS>∑</SS> is mathematical operations</pa><br>
-                        <br><pa> </pa><br>
-                        <pa> </pa>
-                    </div>
+                        <br><pa>So we came across alot of thers like <SS>Activation function, Weights, Biases</SS> These are some of the important concepts to understand in forward propagation</pa><br>
+                        
+                        <br><p><SS>Why we use weights? </SS> Weights are something that can be interrupted to get our desired output. you can also consider it as the set of values that can be multiplied to the input such that we can get our output. so we always try to change the weights until we get the perfect output. the final weights are used as the multiplicand to the new input to get the prediction result. As you can see in the frame one each node output can be calculated by multiplying that outputs to the weights. </p><br>
+                        <dev class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/ANN/nn2.jpg" alt="--image title--">
+                                <p class="p" class="image-description">fig 2 : Weights</p>
+                            </div>
+                        </dev>
+                        <br><p><SS>Why are Bias?</SS> as wights, Bias in some value that is added to the weighted matrix to shift the output left or right. the bias is also updated every time to get the desired output.</p>
+                        <h2 id="activation">Activation functions</h2>
+                        <br><pa><SS>Why Activation function ?</SS> as we seen that the outputs are calculated by weights and biases. these output are passed through the activation function to get the non linearity. it is a mathematical operation that is applied to the outputs of the nodes that results in effective learning. to understand it better let say we have are solving a classification problem in this case the out of the node will be a numerical value but as a classification problem we need to convert it to a class labels. so we apply the activation function such that output will be increased or decreased to get the class labels.</pa>
+                        <br><br><SS> Activation functions are classified based on whether it is applied on output or hidden layers and whether the problem statement is classification and regression</SS>
+                        <br><br><br>
+                        <dev class="image-container">
+                            <div class="image-item">
+                                <img src="assets/img/ANN/activation_function.jpg" alt="--image title--">
+                                <p class="p" class="image-description">fig 3 : Activation functions</p>
+                            </div>
+                       </div>
+                       <p><a href="https://arxiv.org/pdf/2109.14545">Activation functions</a></p>
+                       <p><a href="https://www.datacamp.com/tutorial/introduction-to-activation-functions-in-neural-networks">Activation functions</a></p>
+                       <p><SS></SS></p>
                 </div>
                 <aside class="comment-box">
                     <div class="project-info">
