@@ -23,7 +23,7 @@
         <div class="dropdown-content">
             <ul>
                 <a href="#nn"><li>Neural Network</li></a>
-                <a href="#"><li></li> </a>
+                <a href="#activation functions"><li>Activation functions</li> </a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
@@ -70,7 +70,7 @@
                         <br><pa> <SS>∑</SS> is mathematical operations</pa><br>
                         <br><pa>So we came across alot of thers like <SS>Activation function, Weights, Biases</SS> These are some of the important concepts to understand in forward propagation</pa><br>
                         
-                        <br><p><SS>Why we use weights? </SS> Weights are something that can be interrupted to get our desired output. you can also consider it as the set of values that can be multiplied to the input such that we can get our output. so we always try to change the weights until we get the perfect output. the final weights are used as the multiplicand to the new input to get the prediction result. As you can see in the frame one each node output can be calculated by multiplying that outputs to the weights. </p><br>
+                        <br><p><SS>Why we use weights? </SS> Weights are something that can be interrupted to get our desired output. you can also consider it as the set of values that can be multiplied to the input such that we can get our output. so we always try to change the weights until we get the perfect output. the final weights are used as the multiplicand to the new input to get the prediction result. As you can see in the frame one each node output can be calculated by multiplying that outputs to the weights. The weights are used so that the model can learn the correlation between the inputs and outputs.</p><br>
                         <dev class="image-container">
                             <div class="image-item">
                                 <img src="assets/img/ANN/nn2.jpg" alt="--image title--">
@@ -78,12 +78,15 @@
                             </div>
                         </dev>
                         <br><p><SS>Why are Bias?</SS> as wights, Bias in some value that is added to the weighted matrix to shift the output left or right. the bias is also updated every time to get the desired output.</p>
-                        <br><pa><SS>Why Activation function ?</SS> as we seen that the outputs are calculated by weights and biases. these output are passed through the activation function to get the non linearity.Soi basically An activation function decides what kind of data should move forward. This technique may help in efficient outputs by restricting use less data passthrough the nodes. it is a mathematical operation that is applied to the outputs of the nodes that results in effective learning. to understand it better let say we are solving a classification problem in this case the out of the node will be a numerical value but as a classification problem we need to convert it to a class labels. so we apply the activation function such that output will be increased or decreased to get the class labels. int his case sigma or tanh where it decide the output needs to be activated or remained same.</pa>
-                        <br><br><SS> Activation functions are classified based on whether it is applied on output or hidden layers and whether the problem statement is classification and regression</SS>
+                        <h2 id="activation functions">Activation Function</h2>
+                        <br><pa><strong>Why use Activation Function?</strong> The outputs, calculated using weights and biases, are passed through an activation function to introduce non-linearity. An activation function determines which data should proceed forward, enhancing output efficiency by limiting unnecessary data flow through nodes. It is a mathematical operation applied to node outputs that leads to effective learning. For better understanding, consider a classification problem where the node output is a numerical value. Activation functions help convert these numerical outputs into class labels. Functions like sigmoid or tanh adjust the output to determine if it should be activated or remain unchanged.</pa><br>
+                        <br><pa>Without an activation function, the model behaves like a linear regression model, producing only numerical outputs. This limitation makes it challenging to perform classification tasks and when dealing with datasets containing only positive values. By applying the ReLU activation function, we can effectively restrict negative values, ensuring more accurate and meaningful predictions.</pa><br>
+                        <br><pa>We apply an activation function at each node to ensure that outputs are activated, which enhances the model's ability to solve complex problems and capture non-linear relationships. <SS>Linear functions</SS> allow all data to pass through and are typically used in regression tasks. In contrast, <SS>non-linear functions</SS> introduce non-linearity, transforming outputs before they proceed. Examples include Softmax, Sigmoid, and ReLU.</pa><br>
+                        <br><br><SS> Activation functions are classified based on whether it is applied on output or hidden layers and whether the problem statement is classification or regression</SS>
                         <br><br><br>
                         <dev class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/ANN/activation_function.jpg" alt="--image title--">
+                                <img src="assets/img/ANN/af.png" alt="--image title--">
                                 <p class="p" class="image-description">fig 3 : Activation functions</p>
                             </div>
                        </div>
