@@ -16,14 +16,14 @@
             <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> /Forward Propagation<span></span>
         </div>
         <h1>Forward Propagation in Neural Networks</h1>
-        <p>This Blog is about In-depth understanding about feed forward Neural Networks. This include all the visual and mathematical representations that make understanding much easier. lets go through everything that require to predict outcome much accurately. </p>
+        <p>This Blog is about understanding of feed forward Neural Networks</p>
     </header>
     <div class="dropdown">
         <div class="dropdown-title">Contents</div>
         <div class="dropdown-content">
             <ul>
                 <a href="#nn"><li>Neural Network</li></a>
-                <a href="#activation"><li>Activation function</li> </a>
+                <a href="#"><li></li> </a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
                 <a href="#"><li></li></a>
@@ -42,7 +42,7 @@
                         <br><pa> So a neural network is basically the connections of nodes. where this nodes are grouped as layers. this layers are classified as input layers, hidden layers and output layers. the nodes in a input layer represents input features and the nodes in output layer represent the predicted output. But the nodes in the hidden layers has some suppurate functionality where it is responsible for the mathematical operations such as Matrix multiplication and activation functions. Each node in the hidden layer is capable of generating outputs by this operations. the nodes in one layer are connected to the nodes in the other layer. this connections are assigned with certain values this are known as the weights. this weights involve in the Matrix multiplication. Each node is assigned with a bias value. Bias is added to the Matrix multiplication to get the output. this output is then passed through the activation function to produce the final output of that particular node. so output of previous layer acts as the input to the next layer. The output of the last layer is the final output. </pa><br>
                         <div class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/ANN/NeuralN1.jpg" alt="--image title--">
+                                <img src="assets/img/ANN/nn1.jpg" alt="--image title--">
                                 <p class="p" class="image-description">fig 1 : Artificial Neural Network</p>
                             </div>
                         </div>
@@ -78,8 +78,7 @@
                             </div>
                         </dev>
                         <br><p><SS>Why are Bias?</SS> as wights, Bias in some value that is added to the weighted matrix to shift the output left or right. the bias is also updated every time to get the desired output.</p>
-                        <h2 id="activation">Activation functions</h2>
-                        <br><pa><SS>Why Activation function ?</SS> as we seen that the outputs are calculated by weights and biases. these output are passed through the activation function to get the non linearity. it is a mathematical operation that is applied to the outputs of the nodes that results in effective learning. to understand it better let say we have are solving a classification problem in this case the out of the node will be a numerical value but as a classification problem we need to convert it to a class labels. so we apply the activation function such that output will be increased or decreased to get the class labels.</pa>
+                        <br><pa><SS>Why Activation function ?</SS> as we seen that the outputs are calculated by weights and biases. these output are passed through the activation function to get the non linearity.Soi basically An activation function decides what kind of data should move forward. This technique may help in efficient outputs by restricting use less data passthrough the nodes. it is a mathematical operation that is applied to the outputs of the nodes that results in effective learning. to understand it better let say we are solving a classification problem in this case the out of the node will be a numerical value but as a classification problem we need to convert it to a class labels. so we apply the activation function such that output will be increased or decreased to get the class labels. int his case sigma or tanh where it decide the output needs to be activated or remained same.</pa>
                         <br><br><SS> Activation functions are classified based on whether it is applied on output or hidden layers and whether the problem statement is classification and regression</SS>
                         <br><br><br>
                         <dev class="image-container">
