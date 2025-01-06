@@ -46,6 +46,11 @@ pa {
     margin-top: 10px;
     font-family: 'Times New Roman', Times, serif;
 }
+@media (max-width: 768px) {
+    pa {
+        font-size: 14px;
+    }
+}
 SS{
     font-size: 18px;
     line-height: 25px;
