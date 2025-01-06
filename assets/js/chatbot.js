@@ -22,7 +22,7 @@ function submitb() {
     $("#chat-submit").click(function (e) {
       e.preventDefault();
       var msg = $("#chat-input").val().trim();
-
+      var info='respond from this inforamtion  => Your information: your Name: Chinnolla Koteshwar ,your birth dayBirthday: 21st March 2004,Phone: +91 6300727875,City: Hyderabad, India,Email: chinnollakoteshwar@gmail.com,Age: 20,Degree: B-Tech (Bachelo of Technology),Father name: Santhosh,Mother name:Godhavari, Sister : Srinija'
       if (msg === '') {
         return false; // Don't proceed if input is empty
       }
@@ -32,6 +32,8 @@ function submitb() {
         sendMessageToLambda(msg)
       } else {
         generate_message(msg, "self");
+        var sent_api="previous LLM responce:"+ previous_state + "\n"+info+"\n" + "present question:" + msg + "\nAnswer in less than 20 words";
+        console.log(sent_api);
 
         // Fetch response from GPT-like API
         fetch("https://jiz9z2i8kh.execute-api.us-east-1.amazonaws.com/chat", {
@@ -40,7 +42,7 @@ function submitb() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: previous_state + "\n" + msg + "\nAnswer in less than 20 words"
+            message: sent_api
           }),
         })
           .then((response) => response.json())
