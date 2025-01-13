@@ -498,9 +498,46 @@
                         <p>Principal component analysis is a Feature Extraction technique where Higher dimensional data is transformed into lower dimensional data with the most important information. here we are using covariance matrix to higher dimensional and getting eigen vector and racking the eigen values to select the eigen vectors . this is most effective reduction technique as it uses the covariance matrix which gives the correlation between the feature. </p>
                         <p>Before we get started, we shall take a quick look at the difference between covariance and variance. Variance measures the variation of a single random variable (like the height of a person in a population), whereas covariance is a measure of how much two random variables vary together (like the height of a person and the weight of a person in a population). The formula for variance is given by</p>
                         <p>$$\sigma^2_x = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$</p>
-    
-                        <p></p>
-                        <p></p>
+                        <p>and the formula for covariance is given by</p>
+                        <p>$$cov(x,y) = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})$$</p>
+                        <p><SS>Covariance : </SS>where x and y are two random variables, n is the number of observations, and x_i and y_i are the values of the random variables at observation i.so we are considering two features x and y from a set of features in the dataset and finding covariance between each pair of features which represents how this features vary together. <a>$$\text{Covariance varies between } -\infty \text{ and } \infty$$</a> which means cov(x,y) > 0 employs features related in same direction, cov(x,y) < 0 represents features releated in opposite direction and cov(x,y)=0 represents independent features. if the number of fetures are n then we form the matrix of size n x n by finding the covarince between each pair.</p>
+                        <p>$$\text{Covariance matrix}=\begin{bmatrix} \sigma_{xx} &amp; \sigma_{xy} \\ \sigma_{yx} &amp; \sigma_{yy} \end{bmatrix}$$</p>
+                        <p><a href="https://byjus.com/maths/covariance/">know more</a></p>
+                        <p><SS>Eigan values and Eigan vectors :</SS>Here we use Eigan values and Eigan vectors to reduce the Dimensionality of the covariance matrix. It helps in finding the important information out of all features in lower dimensional space. ⋋ represents Eigan value and X represents Eigan vector. ⋋ ranks the Eigan vectors such that higher the rank the more information the Eigan vector posses, Eigan vectors are the set of independent vectors.</p>
+                        <p>$$Ax=\lambda x$$</p>
+                        <p>$$(A-\lambda I)x=0$$</p>
+                        <p>$$det(A-\lambda I)=0$$</p>
+                        <p> we can find the eigen values and eigen vectors using this mathematically, for more info <a href="https://byjus.com/jee/eigenvalues-and-eigenvectors-problems-and-solutions/">Vist</a></p>
+                        <p><SS>Programmatically</SS></p>
+                        <div class="code-box" id="codeBox"><button class="copy-btn" onclick="copyCode()">Copy</button>
+                            <pre><code  class="language-python">import numpy as np
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+# Sample data
+data = {
+    'Feature1': [2.5, 0.5, 2.2, 1.9, 3.1, 2.3, 2.0, 1.0, 1.5, 1.1],
+    'Feature2': [2.4, 0.7, 2.9, 2.2, 3.0, 2.7, 1.6, 1.1, 1.6, 0.9],
+    'Feature3': [100, 102, 98, 101, 97, 105, 100, 104, 101, 102]
+}
+df = pd.DataFrame(data)
+
+# Standardizing the data
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(df)
+
+# Applying PCA
+pca = PCA(n_components=2)
+principal_components = pca.fit_transform(scaled_data)
+
+# Creating a DataFrame with the principal components
+pca_df = pd.DataFrame(data=principal_components, columns=['Principal Component 1', 'Principal Component 2'])
+
+print(pca_df)</code></pre></div>
+                        
+                        <p><SS>Standardizing</SS> basically transforms the data into a normal distribution, such that every feature has a mean of 0 and a standard deviation of 1 (making the values closer to 0), this ensures all features contribute equally. the features with large or small values are normalized ensuring every feature is on the same scale. <SS>This step is very essential before applying PCA</SS></p>
+                        <p> Here 3 features are transformed to 2 features by selecting n_components=2 as a hyperparameter.</p>
                         <p></p>
                         <h2>Model development</h2>
                         <p></p>
@@ -534,8 +571,10 @@
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", () => {
         const dropdowns = document.querySelectorAll(".dropdown");
 
         dropdowns.forEach(dropdown => {
@@ -552,5 +591,29 @@
             });
         });
     });
+    function copyCode() {
+        const codeBox = document.querySelector("#codeBox code");
+        const codeText = codeBox.innerText.trim(); // Get the code text
+        navigator.clipboard.writeText(codeText)
+            .then(() => alert("Code copied to clipboard!"))
+            .catch(err => alert("Failed to copy code: " + err));
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const title = dropdown.querySelector(".dropdown-title");
+
+        title.addEventListener("click", () => {
+            // Toggle active class for the clicked dropdown
+            dropdown.classList.toggle("active");
+
+            // Optionally close other dropdowns (uncomment below)
+            // dropdowns.forEach(d => {
+            //     if (d !== dropdown) d.classList.remove("active");
+            // });
+        });
+    });
+});
 
 </script>
