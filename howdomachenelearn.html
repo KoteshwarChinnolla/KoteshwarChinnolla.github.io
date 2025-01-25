@@ -598,22 +598,5 @@ print(pca_df)</code></pre></div>
             .then(() => alert("Code copied to clipboard!"))
             .catch(err => alert("Failed to copy code: " + err));
     }
-    document.addEventListener("DOMContentLoaded", () => {
-    const dropdowns = document.querySelectorAll(".dropdown");
-
-    dropdowns.forEach(dropdown => {
-        const title = dropdown.querySelector(".dropdown-title");
-
-        title.addEventListener("click", () => {
-            // Toggle active class for the clicked dropdown
-            dropdown.classList.toggle("active");
-
-            // Optionally close other dropdowns (uncomment below)
-            // dropdowns.forEach(d => {
-            //     if (d !== dropdown) d.classList.remove("active");
-            // });
-        });
-    });
-});
 
 </script>
