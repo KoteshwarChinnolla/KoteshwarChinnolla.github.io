@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chatbot</title>
+    <link rel="stylesheet" href="assets/css/chatUI.css">
+</head>
+<body>
+    <div id="overlay" class="blur-background">
+        <div class="name-entry">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="username" placeholder="Enter your name">
+            <button onclick="startChat()">Start Chat</button>
+        </div>
+    </div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="chatbot-selection">
+                <h3>Look at more Applications</h3>
+                <br>
+                <div class="chatbot-options">
+                    <button onclick="selectChatbot('AI Assistant')">AI Assistant</button>
+                    <button onclick="selectChatbot('Customer Support')">Customer Support</button>
+                    <button onclick="selectChatbot('Weather Bot')">Weather Bot</button>
+                </div>
+                <select id="chatbot-dropdown" class="mobile-dropdown" onchange="selectChatbot(this.value)">
+                    <option disabled selected>Look at more Applications</option>
+                    <option value="AI Assistant">AI Assistant</option>
+                    <option value="Customer Support">Customer Support</option>
+                    <option value="Weather Bot">Weather Bot</option>
+                </select>
+            </div>
+        </aside>
+        <main class="chatbox">
+            <div id="chat-window"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/chatUI.js"></script>
+</body>
+</html>
