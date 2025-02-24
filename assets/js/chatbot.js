@@ -1,3 +1,8 @@
+let name="";
+function generateUniqueId() {
+  return 'id-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+}
+let thread_id=generateUniqueId();
 function submitb() {
     // Submit the form
     document.getElementById('contactform').submit();
@@ -22,33 +27,33 @@ function submitb() {
     $("#chat-submit").click(function (e) {
       e.preventDefault();
       var msg = $("#chat-input").val().trim();
-      var info='respond from this inforamtion  => Your information: your Name: Chinnolla Koteshwar ,your birth dayBirthday: 21st March 2004,Phone: +91 6300727875,City: Hyderabad, India,Email: chinnollakoteshwar@gmail.com,Age: 20,Degree: B-Tech (Bachelo of Technology),Father name: Santhosh,Mother name:Godhavari, Sister : Srinija college name=Gokarajub Rangaraju Institute of Engineering and Technology,Branch: Electronics and Communication Engineering,Year of study: 4th year, goals: to become a AI/ML backend dev, skills= Machine Learning, Deep Learning, python, AWS, Docker, Java, ';
       if (msg === '') {
         return false; // Don't proceed if input is empty
       }
 
       if (INDEX == 2) {
         generate_message(msg, "self");
+        name = msg;
         sendMessageToLambda(msg)
       } else {
         generate_message(msg, "self");
-        var sent_api="previous LLM responce:"+ previous_state + "\n"+info+"\n" + "present question:" + msg + "\nAnswer in less than 20 words";
-        console.log(sent_api);
 
         // Fetch response from GPT-like API
-        fetch("https://jiz9z2i8kh.execute-api.us-east-1.amazonaws.com/chat", {
+        // fetch("https://jiz9z2i8kh.execute-api.us-east-1.amazonaws.com/chat", {
+        fetch("https://7us7agqoy0.execute-api.us-east-1.amazonaws.com/my_info", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: sent_api
+            message: msg,
+            name: String(name),
+            thread_id: String(thread_id)
           }),
         })
-          .then((response) => response.json())
+          .then((response) => response.text())
           .then((data) => {
-            generate_message(data.reply, "user");
-            previous_state += " " + data.reply; // Update conversation state
+            generate_message(data, "user"); // Update conversation state
           })
           .catch((error) => {
             generate_message("Error: Unable to connect.", "user");
@@ -71,7 +76,6 @@ function submitb() {
         .then((response) => response.json())
         .then((data) => {
           generate_message("thank you " + msg + ", you can proceed with the chat now !!", "user");
-          previous_state += "my name is " + msg; // Update conversation state
         })
         .catch((error) => {
           generate_message("error", "user");
