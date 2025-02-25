@@ -197,7 +197,7 @@ body {
     .chatbox {
         width: 100%;
         /* height: calc(100vh - 50px); */
-        height: 73vh;
+        height: 68vh;
         /* margin-top: 100px; */
     }
     #chat-window {
