@@ -203,7 +203,7 @@ body {
         padding: 20px;
         overflow-y: auto;
         background: white;
-        margin-bottom: 100px; /* Adjust this based on the height of .chat-input */
+        margin-bottom: 120px; /* Adjust this based on the height of .chat-input */
     }
     
     .chat-input {
