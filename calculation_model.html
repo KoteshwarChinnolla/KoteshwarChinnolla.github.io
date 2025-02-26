@@ -11,6 +11,13 @@
         <div class="name-entry">
             <h2>Enter Your Name</h2>
             <input type="text" id="username" placeholder="Enter your name">
+            <select id="chatbot-dropdown" class="mobile-dropdown-1" onchange="selectChatbot(this.value)">
+                <option value="none">Select Application</option>
+                <option value="Calculation">Calculation Bot</option>
+                <option value="Companion">Companion</option>
+            </select>
+            <br>
+            <br>
             <button onclick="startChat()">Start Chat</button>
         </div>
     </div>
@@ -20,15 +27,13 @@
                 <h3>Look at more Applications</h3>
                 <br>
                 <div class="chatbot-options">
-                    <button onclick="selectChatbot('AI Assistant')">AI Assistant</button>
-                    <button onclick="selectChatbot('Customer Support')">Customer Support</button>
-                    <button onclick="selectChatbot('Weather Bot')">Weather Bot</button>
+                    <button onclick="selectChatbot('Calculation')">Calculation Bot</button>
+                    <button onclick="selectChatbot('Companion')">Companion</button>
                 </div>
                 <select id="chatbot-dropdown" class="mobile-dropdown" onchange="selectChatbot(this.value)">
-                    <option disabled selected>Look at more Applications</option>
-                    <option value="AI Assistant">AI Assistant</option>
-                    <option value="Customer Support">Customer Support</option>
-                    <option value="Weather Bot">Weather Bot</option>
+                    <option disabled selected>Calculation Bot</option>
+                    <option value="Calculation">Calculation Bot</option>
+                    <option value="Companion">Companion</option>
                 </select>
             </div>
         </aside>
