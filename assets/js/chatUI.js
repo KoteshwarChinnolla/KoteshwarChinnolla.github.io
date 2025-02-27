@@ -49,7 +49,7 @@ function startChat() {
     return;
   }
   uname = username;
-
+  sendMessageToLambda(uname);
 
   document.getElementById("overlay").style.display = "none";
   document.querySelector(".container").classList.remove("hidden");
@@ -104,4 +104,22 @@ function sendMessage() {
     });
 
   inputField.value = "";
+}
+function sendMessageToLambda(msg) {
+  const url = "https://249ca2wwuf.execute-api.us-east-1.amazonaws.com/dev/";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded", // Lambda expects form-urlencoded data
+    },
+    body: `chatbot1=${encodeURIComponent(msg)}&type=chatbot`, // URL-encoded body
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("name saved");
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error); // Log fetch errors
+    });
 }
