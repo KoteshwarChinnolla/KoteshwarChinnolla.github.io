@@ -1,9 +1,13 @@
 let selectedChatbot = "AI Assistant";
+let Thread_id = generateUniqueId();
+let uname = "";
+let app_name = "";
+let fetch_link = "";
 
 function generateUniqueId() {
   return 'id-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 }
-let Thread_id = generateUniqueId();
+
 function selectChatbot(name) {
   selectedChatbot = name;
 
@@ -12,34 +16,36 @@ function selectChatbot(name) {
     fetch_link = "https://7us7agqoy0.execute-api.us-east-1.amazonaws.com/calculator";
   } else if (name === "Companion") {
     fetch_link = "https://7us7agqoy0.execute-api.us-east-1.amazonaws.com/my_info";
+  } else if (name === "programing_Assistant") {
+    fetch_link = "https://7us7agqoy0.execute-api.us-east-1.amazonaws.com/coding_assistance";
   }
 
   // Reset button styles
   const buttons = document.querySelectorAll(".chatbot-options button");
   buttons.forEach((button) => {
-    button.style.backgroundColor = "#34495e"; // Default color (dark blue)
+    button.style.backgroundColor = "#34495e"; // Default color
     button.style.color = "white";
     button.style.border = "none";
   });
 
   // Highlight the selected button
-  const selectedButton = [...buttons].find(button => button.textContent.includes(name));
-  if (selectedButton) {
-    selectedButton.style.backgroundColor = "#f39c12"; // Orange for selection
-    selectedButton.style.color = "black";
-    selectedButton.style.border = "2px solid #e67e22"; // Add border for better visibility
-  }
+  const selectedButton = [...buttons].find(button => 
+    button.textContent.trim().toLowerCase() === name.toLowerCase()
+  );
+  console.log("Selected Butten:", selectedButton);
 
-  alert("Selected: " + name);
+  if (selectedButton) {
+    selectedButton.style.backgroundColor = "#f39c12"; // Orange highlight
+    selectedButton.style.color = "black";
+    selectedButton.style.border = "2px solid #e67e22";
+  }
 }
 
-let uname = "";
-let app_name = "";
-let fetch_link = "";
 
 function startChat() {
   const username = document.getElementById("username").value.trim();
   const app = document.getElementById("chatbot-dropdown").value.trim();
+  
   if (!username) {
     alert("Please enter your name.");
     return;
@@ -48,6 +54,7 @@ function startChat() {
     alert("Please select an application");
     return;
   }
+  
   uname = username;
   sendMessageToLambda(uname);
 
@@ -81,6 +88,14 @@ function sendMessage() {
   const chatWindow = document.getElementById("chat-window");
   chatWindow.innerHTML += `<div  style="text-align: right; margin: 10px;"><b>You:</b> ${message}</div>`;
 
+  if (selectedChatbot === "Calculation" || selectedChatbot === "Companion") {
+    calculator_myinfo(message);
+  } else if (selectedChatbot === "programing_Assistant") {
+    programming_Bot(message);
+  }
+}
+
+function calculator_myinfo(message) {
   fetch(fetch_link, {
     method: "POST",
     headers: {
@@ -89,22 +104,91 @@ function sendMessage() {
     },
     body: JSON.stringify({
       message: message,
-      name: String(uname),
-      thread_id: String(Thread_id),
+      name: uname,
+      thread_id: Thread_id,
     }),
   })
     .then((response) => response.text())
     .then((data) => {
-      console.log("Success:", data);
       setTimeout(() => {
-        const botResponse = `<div style="text-align: left; margin: 10px;"><b>${selectedChatbot}:</b> <div style="background:radial-gradient(circle, #3c3b52 30%, #252233 100%); color: rgb(243, 243, 243); padding:25px; border-radius:10px;">${data}</div></div>`;
+        const chatWindow = document.getElementById("chat-window");
+        const botResponse = `<div style="text-align: left; margin: 10px;">
+          <b>${selectedChatbot}:</b> 
+          <div style="background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+                      color: rgb(243, 243, 243); padding:25px; border-radius:10px;">
+            ${data}
+          </div>
+        </div>`;
         chatWindow.innerHTML += botResponse;
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }, 1000);
-    });
+    })
+    .catch(error => console.error("Fetch error:", error));
+
+  document.getElementById("user-input").value = "";
+}
+
+let initial_input = "None";
+let update = "None";
+let documentation = "None";
+
+function programming_Bot(message) {
+  const chatWindow = document.getElementById("chat-window");
+  const inputField = document.getElementById("user-input");
+
+  if (initial_input === "None") {
+    initial_input = message;
+    fetchResponse(initial_input, "None", "None");
+  } else if (update === "None") {
+    update = ["yes", "y", "ok"].includes(message.toLowerCase()) ? "ok" : message;
+    fetchResponse(initial_input, update, "None");
+  } else if (documentation === "None") {
+    documentation = ["yes", "y", "ok"].includes(message.toLowerCase()) ? "ok" : "None";
+    fetchResponse(initial_input, update, documentation);
+    if (documentation !== "ok") resetChat();
+  }
 
   inputField.value = "";
 }
+
+function fetchResponse(initial_input, update, documentation) {
+  fetch(fetch_link, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify({
+      thread_id: Thread_id,
+      initial_input: initial_input,
+      update: update,
+      documentation: documentation,
+    }),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      setTimeout(() => {
+        const chatWindow = document.getElementById("chat-window");
+        chatWindow.innerHTML += `<div style="text-align: left; margin: 10px;">
+          <b>${selectedChatbot}:</b>
+          <div style="background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+                      color: rgb(243, 243, 243); padding:25px; border-radius:10px;">
+            ${data} 
+          </div>
+        </div>`;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 1000);
+    })
+    .catch(error => console.error("Fetch error:", error));
+}
+
+function resetChat() {
+  initial_input = "None";
+  update = "None";
+  documentation = "None";
+  Thread_id = generateUniqueId();
+}
+
 function sendMessageToLambda(msg) {
   const url = "https://249ca2wwuf.execute-api.us-east-1.amazonaws.com/dev/";
 
