@@ -138,20 +138,37 @@ function programming_Bot(message) {
 
   if (initial_input === "None") {
     initial_input = message;
-    fetchResponse(initial_input, "None", "None");
-  } else if (update === "None") {
-    update = ["yes", "y", "ok"].includes(message.toLowerCase()) ? "ok" : message;
-    fetchResponse(initial_input, update, "None");
-  } else if (documentation === "None") {
-    documentation = ["yes", "y", "ok"].includes(message.toLowerCase()) ? "ok" : "None";
-    fetchResponse(initial_input, update, documentation);
+    session="if you are ok with the problem statement Enter ok/yes/y. enter your request to change the problem statement";
+    fetchResponse(initial_input, "None", "None",session);
+  } 
+  else if (!["yes", "y", "ok"].includes(update.toLowerCase())) {
+    update = message;
+    if(["yes", "y", "ok"].includes(update.toLowerCase())) session="if you want to proceed with the documentation Enter ok/yes/y. enter \"stop\" to start fresh";
+    else session="if you are ok with the problem statement Enter ok/yes/y. enter your request to change the problem statement";
+    fetchResponse(initial_input, update, "None",session);
+  }else{
+
+    documentation = ["yes", "y", "ok"].includes(message.toLowerCase()) ? "ok" : "stop";
+    session="done with your response, thank you!!"
+    if(documentation === "stop") {
+      chatWindow.innerHTML += `<div style="text-align: left; margin: 10px;">
+      <b>${selectedChatbot}:</b>
+      <div style="background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+                  color: rgb(243, 243, 243); padding:25px; border-radius:10px;">
+        ${session} 
+      </div>
+    </div>`;
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+    }else fetchResponse(initial_input, update, documentation,session);
+
+
     if (documentation !== "ok") resetChat();
   }
 
-  inputField.value = "";
 }
 
-function fetchResponse(initial_input, update, documentation) {
+function fetchResponse(initial_input, update, documentation,session) {
+  const inputField = document.getElementById("user-input");
   fetch(fetch_link, {
     method: "POST",
     headers: {
@@ -176,10 +193,18 @@ function fetchResponse(initial_input, update, documentation) {
             ${data} 
           </div>
         </div>`;
+        chatWindow.innerHTML += `<div style="text-align: left; margin: 10px;">
+          <b>${selectedChatbot}:</b>
+          <div style="background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
+                      color: rgb(243, 243, 243); padding:25px; border-radius:10px;">
+            ${session} 
+          </div>
+        </div>`;
         chatWindow.scrollTop = chatWindow.scrollHeight;
       }, 1000);
     })
     .catch(error => console.error("Fetch error:", error));
+    inputField.value = "";
 }
 
 function resetChat() {
