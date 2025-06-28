@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification System - Redis Pub/Sub & SSE</title>
+    <link rel="stylesheet" href="assets/css/blogs.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        .section-title { color: #007bff; font-size: 1.5em; margin-top: 30px; }
+        .highlight { background: #e9ecef; border-left: 4px solid #007bff; padding: 10px 16px; margin: 16px 0; border-radius: 5px; }
+        ul { margin-left: 24px; }
+        .code-box { margin: 20px 0; }
+        .image-container { margin: 20px 0; }
+        .portfolio-description h2 { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span>Notification System</span>
+        </div>
+        <h1>Terminology of Live Scoring, Dashboards and Notification Systems</h1>
+        <p>Redis Pub/Sub, Dashboards, and Notification Systems explained with code and architecture.</p>
+    </header>
+    <div class="dropdown">
+        <div class="dropdown-title">Contents</div>
+        <div class="dropdown-content">
+            <ul>
+                <a href="#overview"><li>Overview</li></a>
+                <a href="#redis-config"><li>Redis Configuration</li></a>
+                <a href="#publisher"><li>Publisher</li></a>
+                <a href="#subscriber"><li>Subscriber</li></a>
+                <a href="#publishing-messages"><li>Publishing Messages</li></a>
+                <a href="#subscribing-channel"><li>Subscribing to Channel</li></a>
+                <a href="#sse"><li>SSE for Notifications</li></a>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <section class="portfolio-details">
+            <div class="container">
+                <div class="main-content">
+                    <div class="portfolio-description">
+                        <h2 id="overview" class="section-title">Overview</h2>
+                        <p>Pub/Sub is also known to be Publish and Subscribe topology where publishers are some one sending data and subscribers are some one receiving data. This can’t be used in bidirectional communication such as chat applications or important notification systems where the information needs to reliably reach the destination without any data loss.
+</p>
+                        <p>In Redis, publishers are not programmed to send their messages to specific subscribers. Rather, published messages are sent into channels, without knowledge of what (if any) subscribers there may be.
+</p>
+                        <p>Similarly, subscribers express interest in one or more channels and only receive messages that are of interest, without knowledge of what (if any) publishers there are.
+</p>
+                        <p>one major drawback of this pub/sub model is that it is not persisted, that means if a particular subscriber is offline during a period then the messages published at that instance are missed by the user.
+</p>
+                        <p>Also Redis pub sub will not work with multinode architecture, the reason behand it is due to its low availability and localisation of publisher and subscriber. the Redis connection factory is made for master node not with worker nodes. Redis pub sub is lightening fast coming to live applications due to its single node architecture.
+</p>
+
+                        <h2 id="redis-config" class="section-title">Redis Configuration</h2>
+                        <div class="highlight">
+                            <b>Connection and Template</b>
+                        </div>
+                        <div class="code-box" id="codeBox1"><button class="copy-btn" onclick="copyCode('codeBox1')">Copy</button>
+<pre><code class="language-java">@Bean
+public RedisConnectionFactory connectionFactory() {
+    return new LettuceConnectionFactory(new RedisStandaloneConfiguration("master", 6379));
+}
+@Bean
+RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory connectionFactory) {
+    RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
+    template.setConnectionFactory(connectionFactory);
+    return template;
+}
+</code></pre>
+                        </div>
+
+                        <h2 id="publisher" class="section-title">Publisher</h2>
+                        
+                        <p>Publishing of messages through the channel can be done using Redis Connection, Redis Template, or operations like <b>convertAndSend</b>.</p>    
+                        <div class="code-box" id="codeBox2"><button class="copy-btn" onclick="copyCode('codeBox2')">Copy</button>
+<pre><code class="language-java">RedisOperations operations = …
+Long numberOfClients = operations.convertAndSend(&lt;Message&gt;, &lt;Channel&gt;);
+</code></pre>
+                        </div>
+                        <p>
+                            Or else we can also create a bean using a custom-built MessagePublisher interface and a RedisMessagePublisher implementation. This way, we can have a generic message-publishing API, and have the Redis implementation take a redisTemplate and topic as constructor arguments:                        </p>
+                        <div class="code-box" id="codeBox3"><button class="copy-btn" onclick="copyCode('codeBox3')">Copy</button>
+<pre><code class="language-java">@Bean
+MessagePublisher redisPublisher() { 
+    return new RedisMessagePublisher(redisTemplate(), topic());
+}
+
+@Bean
+ChannelTopic topic() {
+    return new ChannelTopic("messageQueue");
+}
+</code></pre>
+                        </div>
+
+                        <h2 id="subscriber" class="section-title">Subscriber</h2>
+                        
+                            <p>First, we’ll define a MessageListenerAdapter bean which contains a custom implementation of the MessageListener interface called RedisMessageSubscriber.</p>
+                            <p>RedisMessageListenerContainer which provides asynchronous behavior for Redis message listeners. it handles handles the low level details of listening, converting and message dispatching.</p>  
+                            <p>Basically Listening of messages are done by Message Listener Adapter and single thread behaviour is achieved by  RedisMessageListenerContainer </p>
+                                                  
+                        <div class="code-box" id="codeBox4"><button class="copy-btn" onclick="copyCode('codeBox4')">Copy</button>
+<pre><code class="language-java">@Bean
+MessageListenerAdapter messageListener() { 
+    return new MessageListenerAdapter(new RedisMessageSubscriber());
+}
+
+@Bean
+RedisMessageListenerContainer redisContainer() {
+    RedisMessageListenerContainer container 
+      = new RedisMessageListenerContainer(); 
+    container.setConnectionFactory(connectionFactory); 
+    container.addMessageListener(messageListener(), topic()); 
+    return container; 
+}
+</code></pre>
+                        </div>
+
+                        <h2 id="publishing-messages" class="section-title">Publishing Messages</h2>
+                        <p>As i already mentioned we just required redisConnection or redisTemplte to convert and send message, this template request for Message to be published and on the topic the mssage needs to be published</p>
+
+                        <div class="code-box" id="codeBox5"><button class="copy-btn" onclick="copyCode('codeBox5')">Copy</button>
+<pre><code class="language-java">@Repository
+public interface MessagePublisher {
+    void publish(String message);
+}
+
+@Service
+public class RedisMessagePublisher implements MessagePublisher {
+
+    @Autowired
+    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+    @Autowired
+    private ChannelTopic topic;
+
+    public RedisMessagePublisher() {
+    }
+
+    public RedisMessagePublisher(
+      RedisTemplate&lt;String, Object&gt; redisTemplate, ChannelTopic topic) {
+      this.redisTemplate = redisTemplate;
+      this.topic = topic;
+    }
+
+    public void publish(String message) {
+        redisTemplate.convertAndSend(topic.getTopic(), message);
+    }
+}
+</code></pre>
+                        </div>
+                        <p>we are just doing this to have a Implementation consistency in future if the publish logic changes then the message published interface will not have any implementation failure, in future we can implement Redis or any other but we just need to call publish method from MessagePublisher interface.</p>
+                        <div class="highlight">
+                            <b>convertAndSend</b> is for serialisation<br>
+                            <b>topic</b> is the channel (e.g.,imagine just publishing the score of india vs pak match where score is the message and IndVsPak is the topic.).
+                        </div>
+
+                        <h2 id="subscribing-channel" class="section-title">Subscribing to Channel</h2>
+                        <p>we just implement the message Listener interface and use on Message method to perform some action on receiving the message like storing it in the database and broadcasting to the user via a SSE( server sent event). again tit can be Redis or some other we are just utilising the Message Listener  from adapter</p>
+                        <div class="code-box" id="codeBox6"><button class="copy-btn" onclick="copyCode('codeBox6')">Copy</button>
+<pre><code class="language-java">@Autowired
+private SseController sseController;
+
+@Service
+public class RedisMessageSubscriber implements MessageListener {
+
+    public static List&lt;String&gt; messageList = new ArrayList&lt;String&gt;();
+
+    public void onMessage(Message message, byte[] pattern) {
+        messageList.add(message.toString());
+        sseController.sendMessage(message.toString());
+    }
+}
+</code></pre>
+                        </div>
+
+                        <h2 id="sse" class="section-title">SSE for Sending Notifications</h2>
+                        <P>we have sseEmitter, on firt request ( if the client calls the /event endpoint) as emmiter is created that is assigned as SseEmitter, this SseEmitter is used to send message to the client.</P>
+                        <div class="code-box" id="codeBox7"><button class="copy-btn" onclick="copyCode('codeBox7')">Copy</button>
+<pre><code class="language-java">private final CopyOnWriteArrayList&lt;SseEmitter&gt; emitters = new CopyOnWriteArrayList&lt;&gt;();
+
+@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+public SseEmitter stream() {
+    SseEmitter emitter = new SseEmitter();
+    emitters.add(emitter);
+
+    emitter.onCompletion(() -> emitters.remove(emitter));
+    emitter.onTimeout(() -> emitters.remove(emitter));
+    emitter.onError((e) -> emitters.remove(emitter));
+
+    return emitter;
+}
+
+public void sendMessage(String message) {
+    for (SseEmitter emitter : emitters) {
+        try {
+            emitter.send(SseEmitter.event().data(message));
+        } catch (IOException e) {
+            emitters.remove(emitter);
+        }
+    }
+}
+</code></pre>
+                        </div>
+                        <div class="highlight">
+                            <b>SseEmitter</b> is created on first request to <code>/stream</code> endpoint.<br>
+                            <b>sendMessage()</b> broadcasts to all connected clients, removing any that fail.
+                        </div>
+                        <P>In sendMessage(), you iterate over emitters and remove any that fail. This is correct.However, you could improve safety by using CopyOnWriteArrayList iterators or by collecting stale emitters and removing them after iteration (to avoid ConcurrentModificationException if you ever switch to a different collection).</P>
+                    </div>
+                </div>
+                <aside class="comment-box">
+                    <div class="project-info">
+                        <al>Post your comment here</al><br><br>
+                        <SS>Your comments are most valuable. Please be responsible, everyone can view your comments 📩</SS><br><br>
+                        <input type="hidden" id="blog-id" value="3">
+                        <input type="text" id="name-input" style="height: 40px; width: 95%; font-size: 20px; border: 1px solid #c4b2b2; border-radius: 4px; padding: 8px; margin-bottom: 8px; font-family: Arial, sans-serif; font-size: 14px; " placeholder="Your Name" />
+                        <textarea id="suggestion-input" placeholder="Enter your comment here..."></textarea>
+                        <button type="submit" onclick="submitComment()">Submit</button>
+                        <ul id="comments-list" class="comments-list"></ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="#top" class="scroll-top">🔝</a>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="assets/js/commentbox.js"></script>
+    <script>
+        function copyCode(boxId) {
+            const codeBox = document.querySelector("#" + boxId + " code");
+            const codeText = codeBox.innerText.trim();
+            navigator.clipboard.writeText(codeText)
+                .then(() => alert("Code copied to clipboard!"))
+                .catch(err => alert("Failed to copy code: " + err));
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(dropdown => {
+                const title = dropdown.querySelector(".dropdown-title");
+                title.addEventListener("click", () => {
+                    dropdown.classList.toggle("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
