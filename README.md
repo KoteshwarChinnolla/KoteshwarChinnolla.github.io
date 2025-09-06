@@ -21,10 +21,16 @@ I’m passionate about **scalable systems, infrastructure automation, microservi
 
 ## 📊 GitHub Stats  
 
+## 📊 GitHub Stats  
+
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=KoteshwarChinnolla&show_icons=true&theme=tokyonight&hide_border=true)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=KoteshwarChinnolla&layout=compact&theme=tokyonight&hide_border=true)
+<a href="https://github.com/KoteshwarChinnolla">
+  <img src="https://github-readme-stats.vercel.app/api?username=KoteshwarChinnolla&show_icons=true&theme=tokyonight&hide_border=true" height="180px"/>
+</a>
+<a href="https://github.com/KoteshwarChinnolla">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KoteshwarChinnolla&layout=compact&theme=tokyonight&hide_border=true" height="180px"/>
+</a>
 
 </div>
 
@@ -54,3 +60,4 @@ I’m passionate about **scalable systems, infrastructure automation, microservi
 ---
 
 ⭐ **Fun Fact:** I enjoy solving **system design problems** & building **AI-powered DevOps workflows**.
+
