@@ -35,8 +35,8 @@ I’m passionate about building scalable systems, automating infrastructure, and
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&hide_border=true)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide_border=true)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=KoteshwarChinnolla&show_icons=true&theme=tokyonight&hide_border=true)  
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=KoteshwarChinnolla&layout=compact&theme=tokyonight&hide_border=true)
 
 </div>
 
@@ -66,4 +66,5 @@ I’m passionate about building scalable systems, automating infrastructure, and
 ---
 
 ⭐ **Fun fact:** I love solving system design problems and exploring AI-powered DevOps solutions.
+
 
