@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Kadam Bhav Rao
+# 👋 Hi, I'm Chinnolla Koteshwar 
 
 🚀 **DevOps Engineer | Java Backend Developer | AI & Machine Learning Enthusiast**  
 
@@ -15,7 +15,7 @@ I’m passionate about building scalable systems, automating infrastructure, and
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
 
-### ☕ Java & Backend Development
+### ☕ Backend and System Design 
 ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
@@ -44,27 +44,28 @@ I’m passionate about building scalable systems, automating infrastructure, and
 
 ## 📂 Featured Projects
 
-- 🏗️ **[Microservices with Spring Boot + Kafka](https://github.com/YOUR_GITHUB_USERNAME/PROJECT_NAME)**  
+- 🏗️ **[A Notification system with Spring Boot + Kafka + Redis](https://github.com/KoteshwarChinnolla/RealTime_Notification_system.git)**  
   Scalable event-driven microservices using Kafka, Redis, and PostgreSQL.
 
-- ☁️ **[Terraform AWS Infrastructure](https://github.com/YOUR_GITHUB_USERNAME/PROJECT_NAME)**  
+- ☁️ **[Terraform AWS Infrastructure](https://github.com/KoteshwarChinnolla/terraform-modules)**  
   Fully automated AWS setup with Terraform for a production-ready environment.
 
-- 🤖 **[Deep Learning Experiments](https://github.com/YOUR_GITHUB_USERNAME/PROJECT_NAME)**  
-  Implementations of CNNs, RNNs, and experiments with agentic AI frameworks.
+- 🤖 **[Deep Learning Experiments](https://github.com/KoteshwarChinnolla/AgenticAi_on_production)**  
+  Implementation Lang Chain and Lan Graph based agentic AI application 
 
 ---
 
 ## 📬 Let's Connect  
 
 <p align="center">
-<a href="https://www.linkedin.com/in/YOUR-LINKEDIN/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="mailto:YOUR_EMAIL@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-<a href="https://twitter.com/YOUR_TWITTER"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+<a href="https://in.linkedin.com/in/koteshwar-chinnolla-2065b4253"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:chinnollakoteshwar@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+<a href="https://x.com/Iam_Koteshwar"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
 </p>
 
 ---
 
 ⭐ **Fun fact:** I love solving system design problems and exploring AI-powered DevOps solutions.
+
 
 
