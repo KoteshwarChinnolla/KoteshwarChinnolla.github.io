@@ -21,6 +21,13 @@ I’m passionate about **scalable systems, infrastructure automation, microservi
 
 ## 📊 GitHub Stats  
 
+
+## 📈 GitHub Metrics
+
+<div align="center">
+  <img src="https://github.com/KoteshwarChinnolla/KoteshwarChinnolla/blob/main/github-metrics.svg" alt="GitHub Metrics" width="75%">
+</div>
+
 <div align="center">
 
 <a href="https://github.com/KoteshwarChinnolla">
@@ -61,5 +68,6 @@ I’m passionate about **scalable systems, infrastructure automation, microservi
 ---
 
 ⭐ **Fun Fact:** I enjoy solving **system design problems** & building **AI-powered DevOps workflows**.
+
 
 
