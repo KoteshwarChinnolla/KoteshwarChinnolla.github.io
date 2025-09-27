@@ -29,11 +29,11 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
+  --nav-color: #8872ff;  /* The default color of the main navmenu links */
   --nav-hover-color: #0563bb; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-mobile-background-color: #747474ad; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #00000000; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #000000; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #0563bb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
@@ -49,7 +49,7 @@
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #252525;
-  --contrast-color: #ffffff;
+  --contrast-color: #ffffff57;
 }
 
 /* Smooth scroll */
@@ -465,7 +465,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 30px 0;
+  padding: 00px 0;
   overflow: clip;
 }
 
@@ -521,35 +521,35 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 80px 0;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
+.hero-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-image {
+  flex: 0.75; /* 50% width */
+  height: 100vh;
+}
+
+.hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover; /* cover full area */
+  display: block;
 }
 
-.hero:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
+.hero-content {
+  flex: 1; /* 50% width */
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--background-color);
 }
 
 .hero h2 {
@@ -558,14 +558,14 @@ section,
   font-weight: 700;
 }
 
-.hero p {
-  margin: 10px 0 0 0;
-  font-size: 26px;
+.hero h4 {
+  margin-top: 10px;
+  font-size: 24px;
 }
 
-.hero p span {
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
+.hero p {
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 .hero .social-links {
@@ -576,7 +576,6 @@ section,
   font-size: 20px;
   display: inline-block;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
 }
@@ -585,15 +584,30 @@ section,
   color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
+/* 📱 Mobile: stack */
+@media (max-width: 992px) {
+  .hero-wrapper {
+    flex-direction: column;
+    margin-bottom: 20px
+  }
+
+  .hero-image {
+    height: 25vh;
+  }
+
+  .hero-content {
+    padding: 00px 20px;
+  }
+
   .hero h2 {
     font-size: 32px;
   }
 
   .hero p {
-    font-size: 20px;
+    font-size: 12px;
   }
 }
+
 
 /*--------------------------------------------------------------
 # About Section
