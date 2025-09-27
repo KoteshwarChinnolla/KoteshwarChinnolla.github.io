@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Details</title>
-    <link href="assets/img/OIP (1).jpeg" rel="icon">
-    <link href="assets/css/blogs.css" rel="stylesheet">
+    <link href="../assets/img/OIP (1).jpeg" rel="icon">
+    <link href="../assets/css/blogs.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-    <script src="assets/js/commentbox.js"></script>
+    <script src="../assets/js/commentbox.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="breadcrumbs">
-            <a href="index.html">Home</a> / <a href="testblog.html">Blogs</a> / <span>Chatbot</span>
+            <a href="../index.html">Home</a> / <a href="blog_home.html">Blogs</a> / <span>Chatbot</span>
         </div>
         <h1>YOUR COMPANION - an AI chatbot</h1>
         <p>In this blog,  Let's understand how i built the chatbot and deployed it into AWS cloud</p>
@@ -41,7 +41,7 @@
                         <p>Every thing until this is fine and works well on our local system. but real challenge occurs when we need to present the same thing to public Webpage. so here is where the Aws comes into picture and we need to deploy our chatbot in a real-time environment. firstly AWS Bedrocks and Langchain needs to be implemented with Fast API. then here comes Docker where a Docker image is bult for Fast API application . then this Docker Image is deployed into EC2 instance which is running on AWS. the public url given by EC2 then integrated to API gateway so we can push and get response. then API gateway deployed URL is then used in frontend application, to get responses. coming to the data storage this is basically through AWS Lambda and Dynamodb. Where API gateway link is generated to AWS Lambda and DynamoDB integration and used in frontend application.</p>
                         <div class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/chatbotblog/chatbotworkflow.png" alt="fig 1">
+                                <img src="../assets/img/chatbotblog/chatbotworkflow.png" alt="fig 1">
                                 <p class="image-description">fig 1 : work flow</p>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ if __name__ == "__main__":
                         <div class="image-container">
                             <div class="image-item">
                                 <video controls>
-                                    <source src="assets/img/chatbotblog/fastapi.mp4" type="video/mp4">
+                                    <source src="../assets/img/chatbotblog/fastapi.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                                 <p class="image-description">Follow the steps</p>
@@ -293,11 +293,11 @@ CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "5000"]</code></pr
                         <p> now connecting the instance then installing the docker on the instance, then running the pulling out the docker from the dockerHub then running the container on the instance.</p>
                         <div class="image-container">
                             <div class="image-item">
-                                <img src="assets/img/chatbotblog/connect docker.png" alt="fig 1">
+                                <img src="../assets/img/chatbotblog/connect docker.png" alt="fig 1">
                                 <p class="image-description">fig 1 : connect</p>
                             </div>
                             <div class="image-item">
-                                <img src="assets/img/chatbotblog/connect docker 2.png" alt="fig 1">
+                                <img src="../assets/img/chatbotblog/connect docker 2.png" alt="fig 1">
                                 <p class="image-description">fig 2 : connect to the instance</p>
                             </div>
                         </div>
