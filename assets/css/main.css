@@ -19,7 +19,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --background-color: #f8f9fa; /* Background color for the entire website, including individual sections */
   --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -40,13 +40,13 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f9f9;
+  --background-color: #f6fbff;
   --surface-color: #ffffff;
 }
 
 .dark-background {
   --background-color: #060606;
-  --default-color: #ffffff;
+  --default-color: #f8f9fa;
   --heading-color: #ffffff;
   --surface-color: #252525;
   --contrast-color: #ffffff57;
@@ -516,6 +516,7 @@ section,
   margin-bottom: 0;
 }
 
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -543,46 +544,106 @@ section,
   display: block;
 }
 
-.hero-content {
-  flex: 1; /* 50% width */
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--background-color);
-}
 
-.hero h2 {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 700;
-}
+        .hero-content {
+            flex: 1.25;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .hero h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+        }
+        
+        .typed-cursor {
+            color: #3498db;
+        }
+        
+        .hero p {
+            margin-bottom: 15px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-.hero h4 {
-  margin-top: 10px;
-  font-size: 24px;
-}
-
-.hero p {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-.hero .social-links {
-  margin-top: 25px;
-}
-
-.hero .social-links a {
-  font-size: 20px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-right: 20px;
-  transition: 0.3s;
-}
-
-.hero .social-links a:hover {
-  color: var(--accent-color);
-}
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .blogs-btn {
+            background-color: #2c3e50;
+        }
+        
+        .blogs-btn:hover {
+            background-color: #1a252f;
+        }
+        
+        /* Typed.js cursor animation */
+        .typed-cursor--blink {
+            animation: typedjsBlink 0.7s infinite;
+        }
+        
+        @keyframes typedjsBlink {
+            50% { opacity: 0.0; }
+        }
+        
 
 /* 📱 Mobile: stack */
 @media (max-width: 992px) {
@@ -597,46 +658,115 @@ section,
 
   .hero-content {
     padding: 00px 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
   }
 
   .hero h2 {
     font-size: 32px;
-  }
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
 
   .hero p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
 
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-.about .content h2 {
-  font-weight: 700;
-  font-size: 24px;
+/* About Section */
+.about {
+  padding: 60px 0;
 }
 
-.about .content ul {
+.about .section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about .section-title h2 {
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--primary-color);
+}
+
+.about .section-title .subtitle {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+/* Info Card */
+.info-card {
+  background: #fff;
+  border: #0563bb 1px solid;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card ul {
   list-style: none;
   padding: 0;
 }
 
-.about .content ul li {
-  margin-bottom: 20px;
+.info-card ul li {
+  margin-bottom: 15px;
+  font-size: 15px;
   display: flex;
   align-items: center;
 }
 
-.about .content ul strong {
-  margin-right: 10px;
+.info-card ul strong {
+  margin-right: 8px;
+  color: #333;
 }
 
-.about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
+.info-card ul i {
+  font-size: 18px;
+  margin-right: 10px;
   color: var(--accent-color);
-  line-height: 0;
+}
+
+/* Education Cards */
+.edu-card {
+  background: #fff;
+  border: #0563bb 1px solid;
+  padding: 25px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.edu-card:hover {
+  transform: translateY(-5px);
+}
+
+.edu-card h5 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.edu-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.edu-card ul li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.edu-card ul i {
+  font-size: 16px;
+  margin-right: 10px;
+  color: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
