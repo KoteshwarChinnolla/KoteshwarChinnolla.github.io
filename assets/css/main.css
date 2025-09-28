@@ -522,7 +522,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
 }
 
@@ -583,7 +583,7 @@ section,
         .social-links {
             display: flex;
             gap: 15px;
-            margin: 25px 0;
+            margin: 20px 0;
         }
         
         .social-links a {
@@ -592,8 +592,8 @@ section,
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: #3498db;
-            color: white;
+            background-color: #3498db00;
+            color: rgb(27, 145, 255);
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -601,6 +601,7 @@ section,
         
         .social-links a:hover {
             background-color: #2980b9;
+            color: #fff;
             transform: translateY(-3px);
         }
         
@@ -615,7 +616,7 @@ section,
             background-color: #3498db;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 20px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
@@ -663,19 +664,36 @@ section,
   }
 
   .hero h2 {
-    font-size: 32px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    font-size: 24px;
     }
 
   .hero p {
     font-size: 14px;
+  }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #3498db00;
+            color: rgb(255, 255, 255);
+            border: #00a2ff 2px solid;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            /* border: none; */
+            cursor: pointer;
+        }
+  .typed-cursor{
+    font-size: 16px;
   }
 }
 
 
 /* About Section */
 .about {
-  padding: 60px 0;
+  padding: 0px 0;
 }
 
 .about .section-title {
@@ -788,8 +806,8 @@ section,
 
 .container_contact .box:hover {
   transform: scale(1.05) rotateX(10deg) rotateY(5deg);
-  box-shadow: 0px 0px 40px 5px rgba(255, 187, 118, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 40px 5px rgba(255, 243, 71, 0.185);
+  border: 1px solid rgba(255, 238, 5, 0.486);
 }
 
 /* Card content */
@@ -932,8 +950,8 @@ section,
   transition: 300ms ease-in-out;
   position: absolute;
   text-align: center;
-  color: rgb(255, 254, 206);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.541);
+  color: rgb(255, 250, 206);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.438);
 }
 
 .title {
@@ -2510,12 +2528,6 @@ img {
   color: #ffffa0;
   background-color: #047dd3;
   z-index: 9999;
-  box-shadow: 0 0 20px 8px rgba(67, 166, 156, 0.429),
-      /* Bright blue outer glow */
-      0 0 30px 15px rgba(153, 162, 171, 0.308),
-      /* Soft pink inner glow */
-      0 0 10px 5px rgba(255, 255, 34, 0.368);
-    /* Light pink ambient glow */
 }
 .ag-timeline-card_meta-box {
   display: inline-block;
@@ -2534,7 +2546,7 @@ img {
   margin: -77px 0 0;
   background: radial-gradient(circle, #3c3b52 30%, #252233 100%);
   color: rgb(252, 238, 205);
-  border:3px solid #047dd3; 
+  border:3px solid #0498d38a; 
   border-radius: 10%;
   opacity: 0;
 
