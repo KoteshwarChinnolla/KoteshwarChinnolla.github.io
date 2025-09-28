@@ -763,7 +763,7 @@ section,
 /* Glass card */
 .container_contact .box {
   width: 80vw;
-  height: 30vh;
+  height: 25vh;
   padding: 2rem;
   margin-left: 30px;
   background: rgba(221, 128, 128, 0.08);
@@ -912,8 +912,8 @@ section,
 }
 
 .container_edu:active {
-  width: 340px;
-  height: 220px;
+  width: 330px;
+  height: 200px;
 }
 
 #card {
@@ -1613,6 +1613,101 @@ section,
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
+
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.slide-container{
+  /* max-width: 1120px; */
+  width: 100%;
+  padding: 40px 0;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.swiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: #4070F4;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+  margin-left: 20px;
+}
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: #4070F4;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-navBtn{
+    display: none;
+  }
+}
+.card {
+  background: #0a0c1d; /* black background */
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #06b6d4; /* accent */
+}
+
+.card-top p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-bottom p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 18px;
+}
+
+.card-image img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes logos visible on black bg */
+}
+
+
 .skills .progress {
   height: 60px;
   display: block;
