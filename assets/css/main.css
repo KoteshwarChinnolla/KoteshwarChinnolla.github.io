@@ -555,7 +555,7 @@ section,
         
         .hero h2 {
             font-size: 3rem;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: --heading-font;
             margin-bottom: 10px;
             color: #deeeff;
         }
@@ -2834,4 +2834,119 @@ img {
     width: 960px;
   }
 
+}
+
+/* Section Styling */
+.motivation-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+/* Notification Card (your base) */
+.notification {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 90%;
+  max-width: 28rem; /* wider for quotes */
+  min-height: 10rem;
+  background: #29292c;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+  --color: #32a6ff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Inner Card Layers */
+.notification:before {
+  position: absolute;
+  content: "";
+  inset: 0.0625rem;
+  border-radius: 0.9375rem;
+  background: #18181b;
+  z-index: 2;
+}
+
+.notification:after {
+  position: absolute;
+  content: "";
+  width: 0.25rem;
+  inset: 0.65rem auto 0.65rem 0.5rem;
+  border-radius: 0.125rem;
+  background: var(--gradient);
+  transition: transform 300ms ease;
+  z-index: 4;
+}
+
+.notification:hover:after {
+  transform: translateX(0.15rem);
+}
+
+/* Title */
+.notititle {
+  color: var(--color);
+  padding: 0.75rem 1.25rem 0.4rem 1.25rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notititle {
+  transform: translateX(0.15rem);
+}
+
+/* Body Text */
+.notibody {
+  color: #d1d5db;
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+
+.notification:hover .notibody {
+  transform: translateX(0.25rem);
+}
+
+/* Glow Effects */
+.notiglow,
+.notiborderglow {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle closest-side at center, white, transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.notiglow { z-index: 3; }
+.notiborderglow { z-index: 1; }
+
+.notification:hover .notiglow,
+.notification:hover .notiborderglow {
+  opacity: 0.12;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notification {
+    max-width: 22rem;
+    font-size: 14px;
+  }
+  .notititle {
+    font-size: 1rem;
+  }
+  .notibody {
+    font-size: 0.9rem;
+  }
 }
