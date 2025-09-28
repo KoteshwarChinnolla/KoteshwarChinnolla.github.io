@@ -2852,7 +2852,7 @@ img {
   position: relative;
   width: 90%;
   max-width: 28rem; /* wider for quotes */
-  min-height: 10rem;
+  /* min-height: rem; */
   background: #29292c;
   border-radius: 1rem;
   overflow: hidden;
