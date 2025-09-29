@@ -21,7 +21,7 @@
 :root { 
   --background-color: #070a13; /* Background color for the entire website, including individual sections */
   --default-color: #c5c5c5; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #dadada; /* Color for headings, subheadings and title throughout the website */
+  --heading-color: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -47,7 +47,7 @@
 .dark-background {
   --background-color: #060606;
   --default-color: #f8f9fa;
-  --heading-color: #ffffff;
+  --heading-color: #linear-gradient(90deg, #FFD700, #FFA500, #FFD700);;
   --surface-color: #252525;
   --contrast-color: #ffffff57;
 }
@@ -480,6 +480,8 @@ section,
 
 .section-title h2 {
   font-size: 32px;
+  font-family: var(--heading-font);
+  color: var(--heading-color);
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -489,6 +491,7 @@ section,
 .section-title h2:before {
   content: "";
   position: absolute;
+  color: var(--heading-color);
   display: block;
   width: 160px;
   height: 1px;
@@ -502,6 +505,7 @@ section,
 .section-title h2::after {
   content: "";
   position: absolute;
+  color: var(--heading-color);
   display: block;
   width: 60px;
   height: 3px;
@@ -553,13 +557,17 @@ section,
             justify-content: center;
         }
         
-        .hero h2 {
-            font-size: 3rem;
-            font-family: --heading-font;
-            margin-bottom: 10px;
-            color: #deeeff;
-        }
-        
+.hero h2 {
+    font-size: 3rem;
+    font-family: "Georgia", "Times New Roman", serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FFD700; /* Fallback for non-webkit browsers */
+    font-weight: bold;
+}
         .hero h4 {
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -663,10 +671,22 @@ section,
 
   }
 
-  .hero h2 {
+  /* .hero h2 {
     margin-top: 10px;
     font-size: 24px;
-    }
+    } */
+.hero h2 {
+    font-size: 1.7rem;
+    font-family: "Georgia", "Times New Roman", serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FFD700; /* Fallback for non-webkit browsers */
+    font-weight: bold;
+}
+
 
   .hero p {
     font-size: 14px;
@@ -704,7 +724,7 @@ section,
 .about .section-title h2 {
   font-weight: 700;
   font-size: 32px;
-  color: var(--primary-color);
+  color: var(--heading-color);
 }
 
 .about .section-title .subtitle {
@@ -1659,11 +1679,11 @@ section,
   }
 }
 .card {
-  background: #0a0c1d; /* black background */
+  background: radial-gradient(circle, #302f47 30%, #252233 100%);; /* black background */
   color: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1673,6 +1693,8 @@ section,
 
 .card:hover {
   transform: translateY(-6px);
+  background-color: #060606;
+
 }
 
 .card-title {
