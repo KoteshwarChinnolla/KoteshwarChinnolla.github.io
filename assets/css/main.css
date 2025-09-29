@@ -47,7 +47,7 @@
 .dark-background {
   --background-color: #060606;
   --default-color: #f8f9fa;
-  --heading-color: #linear-gradient(90deg, #FFD700, #FFA500, #FFD700);;
+  --heading-color: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);;
   --surface-color: #252525;
   --contrast-color: #ffffff57;
 }
@@ -601,7 +601,7 @@ section,
             width: 40px;
             height: 40px;
             background-color: #3498db00;
-            color: rgb(27, 145, 255);
+            color: rgb(212, 198, 0);
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -993,6 +993,29 @@ section,
     0 0 20px rgba(92, 103, 255, 0.3);
 }
 
+.indicator {
+  position: absolute;
+  top: 18px;
+  right: 55px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 243, 69, 0.671);
+  box-shadow: 0 0 10px rgba(251, 255, 0, 0.349);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px rgba(86, 255, 199, 0.473));
+}
+
+.indicator p {
+  position: absolute;
+  top: -5px;
+  right: -40px;
+  color: #eaff2b;
+  text-shadow:
+    0 0 10px rgba(92, 103, 255, 0.418),
+    0 0 20px rgba(92, 103, 255, 0.5);
+  font-size: 14px;
+  transition: 300ms ease-in-out;
+}
 .subtitle {
   position: absolute;
   bottom: 60px;
@@ -1705,9 +1728,13 @@ section,
 
 .card-top p {
   margin: 0;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  color: #D4AF37; /* Rich gold */
+  font-family: 'Playfair Display', serif; /* Elegant serif font */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
 }
+
 
 .card-bottom p {
   font-size: 14px;
@@ -1738,7 +1765,7 @@ section,
 }
 
 .skills .progress .skill {
-  color: var(--heading-color);
+  color: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
   padding: 0;
   margin: 0 0 6px 0;
   text-transform: uppercase;
