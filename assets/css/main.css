@@ -21,7 +21,7 @@
 :root { 
   --background-color: #070a13; /* Background color for the entire website, including individual sections */
   --default-color: #c5c5c5; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);; /* Color for headings, subheadings and title throughout the website */
+  --heading-color: linear-gradient(90deg, #FFD700, #FFA500, #FFD700); /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -970,8 +970,8 @@ section,
   transition: 300ms ease-in-out;
   position: absolute;
   text-align: center;
-  color: rgb(255, 250, 206);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.438);
+  color: linear-gradient(45deg, #00ffaa, #00a2ff);;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.247);
 }
 
 .title {
@@ -984,7 +984,7 @@ section,
   text-align: center;
   width: 100%;
   padding-top: 20px;
-  background: linear-gradient(45deg, #00ffaa, #00a2ff);
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 15px rgba(0, 255, 170, 0.3));
