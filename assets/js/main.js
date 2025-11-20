@@ -127,6 +127,8 @@
     });
   });
 
+  
+
   /**
    * Initiate glightbox
    */
@@ -329,7 +331,6 @@ var swiper = new Swiper(".slide-content", {
       agFlag || requestAnimationFrame(fnUpdateWindow);
       agFlag = true;
     }
-
 
   });
 })(jQuery);

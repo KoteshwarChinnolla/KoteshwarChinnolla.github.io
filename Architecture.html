@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scroll Pin Section</title>
+    <style>
+        :root {
+            --text-color: #111;
+            --bg-color: #b9b3a9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: 0.3s ease-out;
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+            overscroll-behavior: none;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        section {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 10vw;
+        }
+
+        section.intro {
+            background: #e8e3db;
+        }
+
+        section.outro {
+            background: #d1c9bc;
+        }
+
+        h1 {
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: absolute;
+            top: 10vw;
+            left: 10vw;
+            z-index: 4;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 16vw;
+            }
+        }
+
+        h2 {
+            font-size: 2rem;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            line-height: 1.5;
+            max-width: 500px;
+            margin-bottom: 1rem;
+        }
+
+        #sectionPin {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            left: 0;
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 0;
+        }
+
+        .pin-wrap {
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 50px 10vw;
+        }
+
+        .pin-wrap > * {
+            min-width: 80vw; /* Increased to show more of each image */
+            padding: 0 5vw;
+        }
+
+        .pin-wrap h2 {
+            min-width: 60vw; /* Text section can be narrower */
+        }
+
+        .pin-wrap img {
+            max-height: 80vh; /* Limit height but maintain aspect ratio */
+            width: auto; /* Maintain original aspect ratio */
+            max-width: 100%; /* Ensure it doesn't overflow container */
+            object-fit: contain; /* Show entire image without cropping */
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Make images responsive on smaller screens */
+        @media (max-width: 768px) {
+            .pin-wrap > * {
+                min-width: 90vw;
+            }
+            
+            .pin-wrap img {
+                max-height: 70vh;
+            }
+        }
+
+        .credit {
+            position: absolute;
+            bottom: 10vw;
+            right: 10vw;
+            width: 200px;
+            font-size: 0.9rem;
+        }
+
+        .credit a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <section id="sectionPin">
+            <div class="pin-wrap">
+                <h2>This are some of the system design architectures that I have worked on. Looking forward to working on more.</h2>
+                <img src="./assets/img/Kafka.png"
+                    alt="Beautiful landscape">
+                <img src="./assets/img/Redis.png"
+                    alt="Mountain view">
+                <img src="./assets/img/Securoty.png"
+                    alt="Forest scenery">
+            </div>
+        </section>
+    </div>
+
+    <!-- GSAP and ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initialize when the page is fully loaded
+        window.addEventListener("load", function () {
+            let pinWrap = document.querySelector(".pin-wrap");
+
+            // Calculate the total width needed to show all content
+            let totalWidth = 0;
+            const pinItems = document.querySelectorAll('.pin-wrap > *');
+
+            pinItems.forEach(item => {
+                // Get the actual width of each item including margins/padding
+                const style = window.getComputedStyle(item);
+                const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+                totalWidth += item.offsetWidth + margin;
+            });
+
+            // Add the padding from pin-wrap
+            const pinWrapStyle = window.getComputedStyle(pinWrap);
+            const pinWrapPadding = parseFloat(pinWrapStyle.paddingLeft) + parseFloat(pinWrapStyle.paddingRight);
+            totalWidth += pinWrapPadding;
+
+            const horizontalScrollLength = totalWidth - window.innerWidth;
+
+            // Pinning and horizontal scrolling
+            gsap.to(".pin-wrap", {
+                scrollTrigger: {
+                    trigger: "#sectionPin",
+                    pin: true,
+                    start: "top top",
+                    end: () => `+=${totalWidth + 100}`, // Add extra space to ensure all content is visible
+                    scrub: true,
+                    markers: false
+                },
+                x: -horizontalScrollLength,
+                ease: "none"
+            });
+
+            // Refresh ScrollTrigger on resize
+            window.addEventListener('resize', function () {
+                ScrollTrigger.refresh();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
