@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizontal Scroll Pin Section</title>
+    <title>Architecture Portfolio | Horizontal Scroll</title>
     <style>
         :root {
-            --text-color: #111;
-            --bg-color: #b9b3a9;
+            --bg-dark: #0a0a0a;
+            --text-light: #f5f5f7;
+            --gold-gradient: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            --blue-purple: linear-gradient(135deg, #007aff, #6610f2, #6f42c1);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -17,79 +20,42 @@
             box-sizing: border-box;
         }
 
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-color);
-            background: var(--bg-color);
-            transition: 0.3s ease-out;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-light);
+            background: var(--bg-dark);
             overflow-x: hidden;
-            max-width: 100%;
-            width: 100%;
             overscroll-behavior: none;
         }
 
-        .container {
-            width: 100%;
-        }
+        /* Smooth Scroll Helper */
+        .container { width: 100%; }
 
-        section {
-            min-height: 100vh;
-            width: 100%;
-            position: relative;
+        /* Intro Section */
+        .hero {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 50px 10vw;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        section.intro {
-            background: #e8e3db;
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -2px;
         }
 
-        section.outro {
-            background: #d1c9bc;
-        }
-
-        h1 {
-            font-size: 5rem;
-            line-height: 1;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            position: absolute;
-            top: 10vw;
-            left: 10vw;
-            z-index: 4;
-            overflow-wrap: break-word;
-            hyphens: auto;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 16vw;
-            }
-        }
-
-        h2 {
-            font-size: 2rem;
-            max-width: 400px;
-            margin-bottom: 2rem;
-        }
-
-        p {
-            line-height: 1.5;
-            max-width: 500px;
-            margin-bottom: 1rem;
-        }
-
+        /* The Horizontal Pinning Section */
         #sectionPin {
             height: 100vh;
             overflow: hidden;
             display: flex;
-            left: 0;
-            background: var(--text-color);
-            color: var(--bg-color);
-            padding: 0;
+            background: #050505;
         }
 
         .pin-wrap {
@@ -97,121 +63,152 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            padding: 50px 10vw;
+            padding: 0 10vw;
+            will-change: transform;
         }
 
-        .pin-wrap > * {
-            min-width: 80vw; /* Increased to show more of each image */
-            padding: 0 5vw;
+        /* Content Cards */
+        .content-card {
+            min-width: 70vw;
+            margin-right: 5vw;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .pin-wrap h2 {
-            min-width: 60vw; /* Text section can be narrower */
+        .text-section {
+            min-width: 40vw;
+        }
+
+        .text-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            line-height: 1.2;
+            background: var(--blue-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .img-container {
+            position: relative;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s ease;
+        }
+
+        .img-container:hover {
+            transform: translateY(-10px);
+            border-color: #FFA500;
         }
 
         .pin-wrap img {
-            max-height: 80vh; /* Limit height but maintain aspect ratio */
-            width: auto; /* Maintain original aspect ratio */
-            max-width: 100%; /* Ensure it doesn't overflow container */
-            object-fit: contain; /* Show entire image without cropping */
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 60vh;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
         }
 
-        /* Make images responsive on smaller screens */
+        /* Small caption for images */
+        .img-caption {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+        }
+
+        /* Responsive Tweaks */
         @media (max-width: 768px) {
-            .pin-wrap > * {
-                min-width: 90vw;
-            }
-            
-            .pin-wrap img {
-                max-height: 70vh;
-            }
+            .content-card { min-width: 85vw; }
+            .pin-wrap img { height: 45vh; }
+            .text-section { min-width: 80vw; }
         }
 
-        .credit {
-            position: absolute;
-            bottom: 10vw;
-            right: 10vw;
-            width: 200px;
-            font-size: 0.9rem;
-        }
-
-        .credit a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid;
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+            z-index: 1000;
+            width: 0%;
         }
     </style>
 </head>
 
 <body>
-    
+    <div class="progress-bar"></div>
+
     <div class="container">
+
         <section id="sectionPin">
             <div class="pin-wrap">
-                <h2>This are some of the system design architectures that I have worked on. Looking forward to working on more.</h2>
-                <img src="./assets/img/Kafka.png"
-                    alt="Beautiful landscape">
-                <img src="./assets/img/Redis.png"
-                    alt="Mountain view">
-                <img src="./assets/img/Securoty.png"
-                    alt="Forest scenery">
+                <div class="content-card text-section">
+                    <h2>Modern System Designs<br>Built for Scalability & Speed.</h2>
+                    <p style="color: #888;">Scroll down to explore the core infrastructures I've developed.</p>
+                </div>
+
+                <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Kafka.png" alt="Kafka Architecture">
+                        <div class="img-caption">Event Streaming with Kafka</div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Redis.png" alt="Redis Architecture">
+                        <div class="img-caption">Distributed Caching with Redis</div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Securoty.png" alt="Security Architecture">
+                        <div class="img-caption">Zero-Trust Security Framework</div>
+                    </div>
+                </div>
             </div>
         </section>
+        
     </div>
 
-    <!-- GSAP and ScrollTrigger CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
-        // Initialize when the page is fully loaded
         window.addEventListener("load", function () {
-            let pinWrap = document.querySelector(".pin-wrap");
+            const pinWrap = document.querySelector(".pin-wrap");
+            const horizontalScrollLength = pinWrap.scrollWidth - window.innerWidth;
 
-            // Calculate the total width needed to show all content
-            let totalWidth = 0;
-            const pinItems = document.querySelectorAll('.pin-wrap > *');
-
-            pinItems.forEach(item => {
-                // Get the actual width of each item including margins/padding
-                const style = window.getComputedStyle(item);
-                const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-                totalWidth += item.offsetWidth + margin;
-            });
-
-            // Add the padding from pin-wrap
-            const pinWrapStyle = window.getComputedStyle(pinWrap);
-            const pinWrapPadding = parseFloat(pinWrapStyle.paddingLeft) + parseFloat(pinWrapStyle.paddingRight);
-            totalWidth += pinWrapPadding;
-
-            const horizontalScrollLength = totalWidth - window.innerWidth;
-
-            // Pinning and horizontal scrolling
+            // Horizontal Scroll Timeline
             gsap.to(".pin-wrap", {
                 scrollTrigger: {
                     trigger: "#sectionPin",
                     pin: true,
                     start: "top top",
-                    end: () => `+=${totalWidth + 100}`, // Add extra space to ensure all content is visible
-                    scrub: true,
-                    markers: false
+                    end: () => `+=${pinWrap.scrollWidth}`,
+                    scrub: 1, // Smooth scrub for premium feel
+                    invalidateOnRefresh: true,
+                    onUpdate: (self) => {
+                        // Update progress bar
+                        gsap.to(".progress-bar", { width: `${self.progress * 100}%`, duration: 0.1 });
+                    }
                 },
                 x: -horizontalScrollLength,
                 ease: "none"
             });
 
-            // Refresh ScrollTrigger on resize
-            window.addEventListener('resize', function () {
-                ScrollTrigger.refresh();
-            });
+            // Refresh on resize for perfect alignment
+            window.addEventListener('resize', () => ScrollTrigger.refresh());
         });
     </script>
-
 </body>
-
 </html>
