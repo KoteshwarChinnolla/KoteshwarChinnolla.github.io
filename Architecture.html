@@ -69,7 +69,8 @@
 
         /* Content Cards */
         .content-card {
-            min-width: 70vw;
+            width: auto;
+            min-width: 80vw;
             margin-right: 5vw;
             display: flex;
             flex-direction: column;
@@ -92,10 +93,16 @@
             position: relative;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 0;
             backdrop-filter: blur(10px);
             transition: transform 0.4s ease;
+            width: auto;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .img-container:hover {
@@ -128,21 +135,69 @@
             .text-section { min-width: 80vw; }
         }
 
-        /* Scroll Progress Bar */
-        .progress-bar {
+        /* Fullscreen Modal */
+        .fullscreen-modal {
             position: fixed;
             top: 0;
             left: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-            z-index: 1000;
-            width: 0%;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .fullscreen-modal.active {
+            display: flex;
+        }
+
+        .fullscreen-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .fullscreen-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
 
 <body>
     <div class="progress-bar"></div>
+
+    <!-- Fullscreen Modal -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <div class="fullscreen-content">
+            <button class="back-button" id="backButton">&larr; Back</button>
+            <img class="fullscreen-img" id="fullscreenImg" src="" alt="">
+        </div>
+    </div>
 
     <div class="container">
 
@@ -152,7 +207,12 @@
                     <h2>Modern System Designs<br>Built for Scalability & Speed.</h2>
                     <p style="color: #888;">Scroll down to explore the core infrastructures I've developed.</p>
                 </div>
-
+                    <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Architecture/Notification.png" alt="Notifications Architecture">
+                        <div class="img-caption">Notification Microservice with SSE, Redis, and Kafka</div>
+                    </div>
+                </div>
                 <div class="content-card">
                     <div class="img-container">
                         <img src="./assets/img/Kafka.png" alt="Kafka Architecture">
@@ -175,7 +235,6 @@
                 </div>
             </div>
         </section>
-        
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -208,6 +267,46 @@
 
             // Refresh on resize for perfect alignment
             window.addEventListener('resize', () => ScrollTrigger.refresh());
+
+            // Fullscreen modal functionality
+            const modal = document.getElementById('fullscreenModal');
+            const modalImg = document.getElementById('fullscreenImg');
+            const backButton = document.getElementById('backButton');
+
+            // Add click event to all content cards that contain images
+            document.querySelectorAll('.content-card').forEach(card => {
+                const img = card.querySelector('img');
+                if (img) {
+                    card.addEventListener('click', function() {
+                        modalImg.src = img.src;
+                        modalImg.alt = img.alt;
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevent background scroll
+                    });
+                }
+            });
+
+            // Close modal on back button click
+            backButton.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+            });
+
+            // Close modal on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scroll
+                }
+            });
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restore scroll
+                }
+            });
         });
     </script>
 </body>
