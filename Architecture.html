@@ -89,35 +89,42 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .img-container {
-            position: relative;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 0;
-            backdrop-filter: blur(10px);
-            transition: transform 0.4s ease;
-            width: auto;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+/* Change this section in your <style> tag */
+.img-container {
+    position: relative;
+    background: transparent; /* Changed from var(--glass) */
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0;
+    /* backdrop-filter: blur(0px); */
+    transition: all 0.4s ease; /* Smooth transition for border and transform */
+    width: auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column; /* Align caption below image properly */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden; /* Keeps things clean */
+}
 
-        .img-container:hover {
-            transform: translateY(-10px);
-            border-color: #FFA500;
-        }
+.img-container:hover {
+    transform: translateY(-10px);
+    border-color: #FFA500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds depth without blur */
+}
 
-        .pin-wrap img {
-            height: 60vh;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            border-radius: 12px;
-            display: block;
-        }
+    .pin-wrap img {
+        height: 70vh;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 12px;
+        display: block;
+        /* Add these two lines below */
+        image-rendering: -webkit-optimize-contrast; 
+        transform: translateZ(0); /* Forces GPU rendering for sharpness */
+    }
 
         /* Small caption for images */
         .img-caption {
@@ -207,9 +214,21 @@
                     <h2>Modern System Designs<br>Built for Scalability & Speed.</h2>
                     <p style="color: #888;">Scroll down to explore the core infrastructures I've developed.</p>
                 </div>
+                <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Architecture/ecommerce.svg" alt="E-commerce Architecture">
+                        <div class="img-caption">E-commerce Platform with Microservices</div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="img-container">
+                        <img src="./assets/img/Architecture/Deepagents.svg" alt="Deep Agents Architecture">
+                        <div class="img-caption">Deep Learning Agents for Intelligent Decision-Making</div>
+                    </div>
+                </div>
                     <div class="content-card">
                     <div class="img-container">
-                        <img src="./assets/img/Architecture/Notification.png" alt="Notifications Architecture">
+                        <img src="./assets/img/Architecture/Notification.svg" alt="Notifications Architecture">
                         <div class="img-caption">Notification Microservice with SSE, Redis, and Kafka</div>
                     </div>
                 </div>
