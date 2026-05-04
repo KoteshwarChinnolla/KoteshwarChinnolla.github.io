@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApiSynIQ — Talk to Your APIs</title>
+    <link href="../assets/img/OIP (1).jpeg" rel="icon">
+    <link href="../assets/css/blogs.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/blogs-trnas.css">
+</head>
+<body>
+
+<header>
+    <div class="breadcrumbs">
+        <a href="../index.html">Home</a> / <a href="blog_home.html">Blogs</a> / <span>ApiSynIQ</span>
+    </div>
+    <h1><span class="accent">ApiSynIQ</span> — Talk to Your APIs. Stop Filling Forms.</h1>
+    <p>An open-source framework that lets users interact with your APIs through natural voice or text — no forms, no JSON wrangling, just intent.</p>
+    <div class="badge-row">
+        <span class="badge mit">MIT License</span>
+        <span class="badge go">Go · Gateway</span>
+        <span class="badge python">Python · Orchestrator</span>
+        <span class="badge java">Java · API Resolver</span>
+        <span class="badge grpc">gRPC · Transport</span>
+    </div>
+</header>
+
+<div class="page-wrap">
+
+    <div class="content">
+
+        <h1 id="what-is">What is ApiSynIQ?</h1>
+        <p class="p">
+            <strong style="color:#e6edf3">ApiSynIQ</strong> is an open-source framework that sits as a conversational layer
+            in front of your APIs. Instead of building complex frontend forms for every endpoint, your users simply speak
+            or type what they want — and ApiSynIQ figures out the intent, constructs the correct request payload, calls
+            the right endpoint, and returns a human-readable response.
+        </p>
+        <p class="p">
+            Say <em>"Book me a ticket to Mumbai for tomorrow"</em> or type <em>"Update my shipping address to…"</em> —
+            ApiSynIQ handles the rest. It works with voice, text, HTTP, and WebSocket out of the box.
+        </p>
+
+        <blockquote>
+            <p class="p">A conversational layer that sits in front of your APIs and makes them accessible to anyone, through any interface.</p>
+            <cite>— ApiSynIQ</cite>
+        </blockquote>
+
+        <h2>What it does for you</h2>
+        <table class="compare-table">
+            <thead>
+                <tr><th>❌ Without ApiSynIQ</th><th>✅ With ApiSynIQ</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>User fills a 10-field form</td><td>User says what they want</td></tr>
+                <tr><td>Developer wires up every UI field</td><td>ApiSynIQ infers params from intent</td></tr>
+                <tr><td>Static, brittle API calls</td><td>Semantic search finds the right endpoint</td></tr>
+                <tr><td>Voice? That's a separate project</td><td>Voice ↔ Text built in</td></tr>
+            </tbody>
+        </table>
+
+        <hr class="divider">
+
+        <!-- Architecture -->
+        <h1 id="architecture">Architecture</h1>
+        <p class="p">A user query travels through four purpose-built layers, each chosen for what it does best.</p>
+
+        <div class="image-container">
+            <div class="image-item">
+                <img src="../assets/img/Architecture/ProductionGrade.jpeg" alt="ApiSynIQ Production Architecture Diagram">
+                <p>Fig 1 — ApiSynIQ Production Grade Architecture</p>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- GO Gateway -->
+        <div class="section-card" id="gateway">
+            <span class="lang-pill pill-go">Go</span>
+            <div class="card-label">Layer 1</div>
+            <h2>GO Gateway — Handle Everything, Drop Nothing</h2>
+            <p class="p">
+                Every request — voice or text, HTTP or WebSocket — lands at the GO Gateway first.
+                Go was chosen deliberately: its goroutine model makes concurrent request handling nearly effortless,
+                making it the ideal reliable front door for high-throughput workloads.
+            </p>
+            <ul class="styled-list">
+                <li><SS>net/http</SS> — handles all standard HTTP requests with zero overhead</li>
+                <li><SS>gorilla/websocket</SS> — maintains persistent, streaming WebSocket connections so AI tokens flow to the client in real time, as they're generated</li>
+            </ul>
+            <p class="p">Once a request is accepted, it's dispatched to the AI Orchestrator over gRPC.</p>
+        </div>
+
+        <!-- AI Orchestrator -->
+        <div class="section-card" id="orchestrator">
+            <span class="lang-pill pill-python">Python</span>
+            <div class="card-label">Layer 2</div>
+            <h2>AI Orchestrator — The Brain</h2>
+            <p class="p">
+                Written in Python — when it comes to AI tooling, nothing else comes close.
+                This is where all the intelligence lives: routing, reasoning, context management, and tool execution.
+            </p>
+            <ul class="styled-list">
+                <li>Route user requests to the right AI model</li>
+                <li>Reason about which API endpoint best satisfies the user's intent</li>
+                <li>Pull relevant context and feed it to the model</li>
+                <li>Persist conversation history to the database</li>
+                <li>Manage LangChain and LangGraph agent logic</li>
+                <li>Define tools and wire them to deep agents and subagents</li>
+                <li>Transcribe voice → text and synthesize text → voice</li>
+                <li>Convert raw JSON schemas into Pydantic models for clean, typed API definitions</li>
+            </ul>
+
+            <p class="p" style="margin-top:16px"><strong style="color:#cdd9e5">How it queries the API catalogue</strong></p>
+            <div class="query-row">
+                <div class="query-card input">
+                    <div class="q-label">Input Query</div>
+                    <p>Used when the API expects a request body</p>
+                    <div class="methods">
+                        <span class="method-tag post">POST</span>
+                        <span class="method-tag put">PUT</span>
+                        <span class="method-tag patch">PATCH</span>
+                    </div>
+                </div>
+                <div class="query-card output">
+                    <div class="q-label">Output Query</div>
+                    <p>Used when the API returns data to interpret</p>
+                    <div class="methods">
+                        <span class="method-tag get">GET</span>
+                        <span class="method-tag del">DELETE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Resolver -->
+        <div class="section-card" id="resolver">
+            <span class="lang-pill pill-java">Java</span>
+            <div class="card-label">Layer 3</div>
+            <h2>API Resolver — The Memory</h2>
+            <p class="p">
+                Written in Java, which brings a mature, battle-tested ecosystem for database-heavy workloads.
+                This service is the RAG engine of ApiSynIQ — it stores every API's input and output descriptions
+                as vector embeddings in <SS>pgvector</SS> (PostgreSQL), and when the orchestrator needs to find
+                the right endpoint, it runs a semantic similarity search — not a brittle keyword lookup, but
+                genuine meaning-based retrieval.
+            </p>
+            <div class="feature-grid">
+                <div class="feature-item"><span class="fi-icon">⟷</span> Relational mappings between API parameters and natural language descriptions</div>
+                <div class="feature-item"><span class="fi-icon">{ }</span> Structured storage for every JSON schema an API accepts</div>
+                <div class="feature-item"><span class="fi-icon">⚙</span> All CRUD operations for the SDK</div>
+                <div class="feature-item"><span class="fi-icon">↑</span> Backend for SDK updates triggered through the UI</div>
+            </div>
+        </div>
+
+        <!-- Java Agent SDK -->
+        <div class="section-card" id="java-agent">
+            <span class="lang-pill pill-java">Java SDK</span>
+            <div class="card-label">Layer 4</div>
+            <h2>Java Agent SDK — The Connector</h2>
+            <p class="p">
+                The Java Agent is an annotation-based SDK that lets you describe your API endpoints, DTOs, and
+                parameters in plain language — right inside your existing Java code. No separate config files,
+                no external schema management. Just annotate, and ApiSynIQ knows everything it needs to route,
+                fill, and call your APIs intelligently.
+            </p>
+            <p class="p" style="color:#8b949e; font-size:13px">
+                Currently available for Java. Support for more languages is on the roadmap.
+            </p>
+        </div>
+
+        <!-- Annotations table -->
+        <h2 id="annotations" style="margin-top:28px"><al>Annotations at a glance</al></h2>
+        <table class="annotation-table">
+            <thead>
+                <tr>
+                    <th>Annotation</th>
+                    <th>Placed On</th>
+                    <th>Purpose</th>
+                    <th>Parameters</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@AIExposeController</td>
+                    <td>Controller class</td>
+                    <td>Gives ApiSynIQ a complete picture of all endpoints in the class — what they collectively do and why they exist.</td>
+                    <td>
+                        <div class="params">
+                            <span class="param-tag">name</span>
+                            <span class="param-tag">description</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@AIExposeDto</td>
+                    <td>DTO / request body class</td>
+                    <td>Describes a Data Transfer Object so the AI knows what it's filling — request body, input param, or nested object.</td>
+                    <td>
+                        <div class="params">
+                            <span class="param-tag">name</span>
+                            <span class="param-tag">description</span>
+                            <span class="param-tag">example</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@AIExposeEpHttp</td>
+                    <td>Endpoint method</td>
+                    <td>The richest annotation. Fully describes an endpoint — what it does, how to call it, when to use it, what it returns. Powers semantic search in the API Resolver.</td>
+                    <td>
+                        <div class="params">
+                            <span class="param-tag">name</span>
+                            <span class="param-tag">tags</span>
+                            <span class="param-tag">example</span>
+                            <span class="param-tag">pathParameters</span>
+                            <span class="param-tag">requestParameters</span>
+                            <span class="param-tag">headers</span>
+                            <span class="param-tag">variables</span>
+                            <span class="param-tag">autoExecute</span>
+                            <span class="param-tag">inputDescription</span>
+                            <span class="param-tag">returnDescription</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Describe</td>
+                    <td>Any variable or parameter</td>
+                    <td>A versatile, fine-grained annotation for any field — DTO variables, query params, path params, and more.</td>
+                    <td>
+                        <div class="params">
+                            <span class="param-tag">name</span>
+                            <span class="param-tag">description</span>
+                            <span class="param-tag">dataType</span>
+                            <span class="param-tag">defaultValue</span>
+                            <span class="param-tag">options</span>
+                            <span class="param-tag">autoExecute</span>
+                            <span class="param-tag">example</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p class="p">Keeping descriptions co-located with code means they stay in sync as your APIs evolve. No drift between docs and reality. When a field changes, the annotation changes with it.</p>
+            <cite>— ApiSynIQ Design Philosophy</cite>
+        </blockquote>
+
+        <!-- Annotation deep dives -->
+        <h2>Annotation Details</h2>
+        <div class="ann-dropdown">
+            <div class="ann-dropdown-title">@AIExposeController</div>
+            <div class="ann-dropdown-body">
+                <p class="p">Placed on top of a controller class. Gives ApiSynIQ a complete picture of all the endpoints in the class — what they collectively do and why they exist.</p>
+                <p class="p"><strong style="color:#cdd9e5">Parameters:</strong> &nbsp;<SS>name</SS> &nbsp; A short identifier for the controller. &nbsp;&nbsp; <SS>description</SS> &nbsp; What all the endpoints in this controller are for.</p>
+            </div>
+        </div>
+        <div class="ann-dropdown">
+            <div class="ann-dropdown-title">@AIExposeDto</div>
+            <div class="ann-dropdown-body">
+                <p class="p">Placed on a DTO class. Describes the object so the AI knows what it's filling — whether it's a request body, a general input parameter, or a nested object.</p>
+                <p class="p"><strong style="color:#cdd9e5">Parameters:</strong> &nbsp;<SS>name</SS> &nbsp; Identifier for the DTO. &nbsp;&nbsp; <SS>description</SS> &nbsp; What this object represents. &nbsp;&nbsp; <SS>example</SS> &nbsp; A sample filled object for context.</p>
+            </div>
+        </div>
+        <div class="ann-dropdown">
+            <div class="ann-dropdown-title">@AIExposeEpHttp</div>
+            <div class="ann-dropdown-body">
+                <p class="p">The richest annotation — placed on individual endpoint methods. Fully describes an endpoint: what it does, how to call it, when to use it, and what it returns. The <SS>inputDescription</SS> and <SS>returnDescription</SS> fields power the semantic search in the API Resolver.</p>
+                <p class="p"><strong style="color:#cdd9e5">Parameters:</strong> &nbsp;<SS>name</SS> · <SS>tags</SS> · <SS>example</SS> · <SS>pathParameters</SS> · <SS>requestParameters</SS> · <SS>headers</SS> · <SS>variables</SS> · <SS>autoExecute</SS> · <SS>inputDescription</SS> · <SS>returnDescription</SS></p>
+            </div>
+        </div>
+        <div class="ann-dropdown">
+            <div class="ann-dropdown-title">@Describe</div>
+            <div class="ann-dropdown-body">
+                <p class="p">A versatile annotation that can be placed on any variable — DTO fields, query parameters, path parameters, and more. Provides fine-grained context on what each individual field is, what it accepts, and how it behaves.</p>
+                <p class="p"><strong style="color:#cdd9e5">Parameters:</strong> &nbsp;<SS>name</SS> · <SS>description</SS> · <SS>dataType</SS> · <SS>defaultValue</SS> · <SS>options</SS> · <SS>autoExecute</SS> · <SS>example</SS></p>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <h2 id="code-example" style="margin-top:32px">Annotation Example</h2>
+        <div class="code-box" id="codeBox">
+            <div class="code-box-header">
+                <span class="code-box-lang">Java</span>
+                <button class="copy-btn" onclick="copyCode()">Copy</button>
+            </div>
+            <pre><code class="language-java">@AIExposeController(
+    name = "BookingController",
+    description = "Handles all ticket booking operations including creation, cancellation, and status checks."
+)
+@RestController
+@RequestMapping("/api/bookings")
+public class BookingController {
+
+    @AIExposeEpHttp(
+        name = "CreateBooking",
+        tags = {"booking", "create"},
+        inputDescription = "Creates a new ticket booking for a user given destination, date, and seat preference.",
+        returnDescription = "Returns the booking confirmation ID and seat details.",
+        example = "Book a window seat to Mumbai for tomorrow morning."
+    )
+    @PostMapping("/create")
+    public ResponseEntity&lt;BookingResponse&gt; createBooking(
+        @RequestBody @AIExposeDto(
+            name = "BookingRequest",
+            description = "Request body for creating a new booking.",
+            example = "{\"destination\": \"Mumbai\", \"date\": \"2025-04-01\", \"seat\": \"window\"}"
+        ) BookingRequest request) {
+        // ... booking logic
+    }
+}
+
+// DTO with @Describe on each field
+public class BookingRequest {
+
+    @Describe(
+        name = "destination",
+        description = "The city or station the user wants to travel to.",
+        dataType = "String",
+        example = "Mumbai"
+    )
+    private String destination;
+
+    @Describe(
+        name = "date",
+        description = "Travel date in YYYY-MM-DD format.",
+        dataType = "String",
+        example = "2025-04-01"
+    )
+    private String date;
+
+    @Describe(
+        name = "seat",
+        description = "Preferred seat type.",
+        dataType = "String",
+        options = {"window", "aisle", "middle"},
+        defaultValue = "aisle"
+    )
+    private String seat;
+}</code></pre>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Request Flow -->
+        <h1 id="request-flow">Request Flow — End to End</h1>
+        <p class="p">Here's how a user's query travels through the entire ApiSynIQ stack, from the moment they speak or type, to receiving a fully interpreted response.</p>
+
+        <div class="code-box" id="flowBox">
+            <div class="code-box-header">
+                <span class="code-box-lang">Flow Diagram</span>
+            </div>
+            <pre><code class="language-none">Users (voice / text)
+        │
+        ▼
+  [ GO Gateway ]  ←── concurrent HTTP + WebSocket handling
+        │  gRPC
+        ▼
+[ AI Orchestrator ]  ←── LangGraph agents, tool definitions, voice I/O
+        │                        │
+        │  gRPC (FETCH)          │  gRPC (SPEAK)
+        ▼                        ▼
+ [ API Resolver ]         [ TTS / Response ]
+ pgvector RAG search
+ Top chunks + URLs
+        │
+        ▼
+  Correct API called → Response interpreted → User gets an answer</code></pre>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Tech Stack -->
+        <h1 id="tech-stack">Tech Stack</h1>
+        <table class="stack-table">
+            <thead>
+                <tr><th>Layer</th><th>Language</th><th>Key Libraries</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Gateway</td><td>Go</td><td><SS>net/http</SS> &nbsp; <SS>gorilla/websocket</SS></td></tr>
+                <tr><td>AI Orchestrator</td><td>Python</td><td><SS>LangChain</SS> &nbsp; <SS>LangGraph</SS> &nbsp; <SS>Pydantic</SS> &nbsp; <SS>gRPC</SS></td></tr>
+                <tr><td>API Resolver</td><td>Java</td><td><SS>Spring</SS> &nbsp; <SS>pgvector</SS> &nbsp; <SS>gRPC</SS></td></tr>
+                <tr><td>Java Agent SDK</td><td>Java</td><td><SS>Custom Annotations</SS></td></tr>
+                <tr><td>Vector Store</td><td>PostgreSQL</td><td><SS>pgvector extension</SS></td></tr>
+                <tr><td>Transport</td><td>—</td><td><SS>gRPC</SS> &nbsp; <SS>Protobuf</SS></td></tr>
+            </tbody>
+        </table>
+
+        <hr class="divider">
+
+        <!-- Getting Started -->
+        <h1 id="getting-started">Getting Started</h1>
+        <blockquote>
+            <p class="p">Documentation and quickstart guides are coming soon. Watch this repo to be notified when they drop.</p>
+            <cite>In the meantime — explore the architecture, open issues with questions, or contribute ideas in the Discussions tab.</cite>
+        </blockquote>
+
+        <hr class="divider">
+
+        <!-- Contributing & License -->
+        <h1 id="contributing">Contributing</h1>
+        <p class="p">
+            ApiSynIQ is open source and contributions are very welcome. Whether it's a bug fix, a new tool integration,
+            or an improvement to the RAG pipeline — open a PR and let's build this together.
+        </p>
+
+        <h2>License</h2>
+        <p class="p"><a href="LICENSE" style="color:#58a6ff">MIT</a> — free to use, modify, and distribute.</p>
+
+    </div><!-- /.content -->
+
+    <!-- ── Sidebar ── -->
+    <div>
+        <!-- TOC -->
+        <nav class="toc" style="margin-bottom:20px">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#what-is">What is ApiSynIQ?</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#gateway">1 · GO Gateway</a></li>
+                <li><a href="#orchestrator">2 · AI Orchestrator</a></li>
+                <li><a href="#resolver">3 · API Resolver</a></li>
+                <li><a href="#java-agent">4 · Java Agent SDK</a></li>
+                <li><a href="#annotations">Annotations Table</a></li>
+                <li><a href="#code-example">Code Example</a></li>
+                <li><a href="#request-flow">Request Flow</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#contributing">Contributing</a></li>
+            </ul>
+        </nav>
+
+        <!-- Comment box -->
+        <div class="sidebar-card">
+            <al>Post your comment</al><br><br>
+            <SS>Your comments are most valuable. Please be responsible — everyone can view them 📩</SS>
+            <input type="hidden" id="blog-id" value="1">
+            <input type="text" id="name-input" placeholder="Your Name" />
+            <textarea id="suggestion-input" placeholder="Enter your comment here..."></textarea>
+            <button type="submit" onclick="submitComment()">Submit</button>
+            <ul id="comments-list" class="comments-list"></ul>
+        </div>
+    </div>
+
+</div><!-- /.page-wrap -->
+
+<footer>
+    <a href="#top" class="scroll-top">🔝</a>
+    <p style="margin-top:8px">Built for developers who believe APIs should talk back.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+<script>
+    function copyCode() {
+        const code = document.querySelector("#codeBox code");
+        navigator.clipboard.writeText(code.innerText.trim())
+            .then(() => alert("Code copied to clipboard!"))
+            .catch(err => alert("Failed to copy: " + err));
+    }
+
+    // Annotation dropdowns
+    document.querySelectorAll(".ann-dropdown-title").forEach(title => {
+        title.addEventListener("click", () => {
+            title.parentElement.classList.toggle("open");
+        });
+    });
+</script>
+</body>
+</html>
