@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { Mail, MapPin, Briefcase, GraduationCap, Award, Users, Github, Linkedin, Quote, Atom, Cpu, Bot, Rocket, BookOpen, Lightbulb, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Briefcase, GraduationCap, Award, Users, Github, Linkedin, Quote, Atom, Cpu, Bot, Rocket, BookOpen, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import koteshwarImg from "@/assets/koteshwar.jpeg";
 
@@ -8,50 +8,51 @@ const About = () => {
     {
       icon: Atom,
       kicker: "Chapter 01",
-      title: "It Started with Physics",
+      title: "A Curiosity That Refused to Stay Still",
       body: [
-        "Physics was always my strongest subject. I loved how motion, energy and electricity fit together — and I wanted to build things that used those rules.",
-        "That pulled me into Electronics and Communication Engineering, and then toward systems that can sense, think, and move in the real world.",
+        "Physics was always my strongest subject — not just in school, but in every competitive exam. More than the scores, I genuinely enjoyed understanding how motion, energy, and electricity behaved, and how they connected to each other.",
+        "That love for physics pointed me toward Electronics and Communication Engineering, and from there, toward building systems that can sense, process, and move intelligently in the real world.",
       ],
     },
     {
       icon: Cpu,
       kicker: "Chapter 02",
-      title: "Finding AI Inside ECE",
+      title: "Finding My Direction — AI Inside an ECE Degree",
       body: [
-        "By the end of my first semester, I knew AI and ML were what I wanted to chase. I joined the Advanced Academic Centre (AAC), a selective research group where students pick their own problems.",
-        "My first real project there was a demand forecasting model built on five years of wholesale market data. It was the first time my code actually did something useful — and that feeling stuck.",
+        "Engineering gave me more than a degree; it gave me a direction. By the end of my first semester, I knew AI and ML were where I wanted to go. That led me to the Advanced Academic Centre, a selective research center at our college where students work on real projects beyond the regular curriculum.",
+        "The people I met there were genuinely passionate, and the freedom to pick our own problems and build things that actually worked pushed me to go deeper than any classroom would have.",
+        "My first real project was a product demand prediction system. I collected actual wholesale market data spanning five years and built a model to forecast future demand patterns. It sounds straightforward now, but at the time it was the first moment I wrote real code that did something real. That feeling stayed with me.",
       ],
     },
     {
       icon: Bot,
       kicker: "Chapter 03",
-      title: "Hackathons and the First Robot",
+      title: "Hackathons, Mentorship, and the First Robot",
       body: [
-        "In my second year I went deeper into ML and DL — NLP pipelines, transformers, BERT classifiers, and OpenCV. I also made it into the top 100 coders batch at my college, training with the Smart Interviews team.",
-        "Four hackathons later, I had watched teams ship robots in 24 hours and met students already running startups. I came back from each one with a longer list of things to build.",
-        "By my third year, I was mentoring juniors at AAC and building my first robot — an A* based autonomous vehicle where the user picked a destination on a grid. It worked, but one question kept nagging me: why should a human have to think in grids?",
+        "In my second year, inside AAC, I was going deeper into ML and DL — NLP pipelines, transformer models, BERT-based classifiers, and OpenCV. My college also introduced a competitive coding program, and after multiple evaluation rounds I made it into the top 100 coders batch, training with the Smart Interviews team.",
+        "I participated in four hackathons, watched teams build autonomous and robotic systems in under 24 hours, met students already turning ideas into startups, and came back every time with a longer list of things I wanted to build.",
+        "By my third year, I had grown into a mentor role in AAC, guiding junior students through their first projects. Around the same time, microcontrollers and microprocessors entered my coursework. In my third year second semester, I built an A* algorithm-based autonomous vehicle — a grid-based system where a user manually selected a destination and the vehicle found the shortest path to get there. While I was deep in the path equations and hardware assembly, the limitation became obvious: why should a human have to think in grids? That question became the seed of everything that followed.",
       ],
     },
     {
       icon: Rocket,
       kicker: "Chapter 04",
-      title: "Talking to a Robot",
+      title: "Natural Language Meets Autonomous Motion",
       body: [
-        "That question pushed me into Agentic AI research in my final year. Making natural language reliably drive a physical system is harder than it sounds.",
-        "By my last semester I had it working: ROS for navigation, A* for paths, OpenCV for vision, and LangChain/LangGraph for the agent layer — all on a Raspberry Pi. A robot you could simply tell where to go.",
-        "The paper was accepted and presented at an IEEE conference. More than the publication, it taught me how to think like a researcher, not just a builder.",
+        "To answer it, I started researching Agentic AI in my fourth year first semester. It took time. Making natural language reliably control a physical system is harder than it sounds.",
+        "By my final semester, I had a working system: ROS for navigation, A* for pathfinding, OpenCV for vision, and LangChain and LangGraph for the agentic layer, all running on a Raspberry Pi. A robot that could take a spoken or typed instruction and actually go where it was told.",
+        "I wrote it up, submitted it, and had it accepted and presented at an IEEE conference. That paper taught me how to think like a researcher, not just a builder.",
       ],
     },
     {
       icon: Lightbulb,
       kicker: "Chapter 05",
-      title: "Industry, APISynIQ, and the Road to Grad School",
+      title: "Industry, APISynIQ, and the Research Question Ahead",
       body: [
-        "After graduating, I joined as an Associate Software Engineer working across AI and DevOps. Production work taught me the full stack: recommendation systems, AWS, Kubernetes, and Terraform. My open-source Terraform modules and Helm charts are in active use at the company.",
-        "But robots have no UI. No forms, no dropdowns — just raw natural language. The agent has to ask the right questions, map answers to API parameters, and submit. That gap is why I built APISynIQ.",
-        "APISynIQ is an open-source agent that turns natural language into correct API calls. In real use, one hard problem surfaced: long conversations still break structured outputs — wrong fields, ignored corrections, and cascading failures.",
-        "I am now researching this at the intersection of world models and reinforcement learning — teaching a model to represent structured output requirements internally and self-correct from feedback. It is early-stage work, and it is exactly what I want to pursue at the graduate level.",
+        "After graduation, I joined as an Associate Software Engineer working across AI and DevOps. Industry exposed me to the full stack of production systems: recommendation engines, AWS infrastructure, Kubernetes, and Terraform. I wrote open-source Terraform modules and Helm charts that are actively used in the organisation.",
+        "But robots have no frontend. No form fields, no dropdowns, no structured input layer. A robot must ask questions conversationally, interpret the answers, map them to the right API parameters, and submit — all from raw natural language. The entire burden of structure falls on the AI. That gap is what APISynIQ was built to close.",
+        "I built APISynIQ as an open-source AI agent that could take a natural language query and reliably map it to the correct API endpoint with the right parameters. Under real conditions, the hard problem surfaced: continuous conversation still caused malformed structured outputs. A field mapped to the wrong key, an ambiguous phrase taken literally, or a previous correction ignored could cascade into complete task failure.",
+        "I am currently researching this problem at the intersection of world models and reinforcement learning: how a model can build an internal representation of structured output requirements, generate outputs accordingly, and iteratively correct itself based on feedback signals. It is early-stage research, but I am convinced it points toward something meaningful, and I want to pursue it rigorously at the graduate level.",
       ],
     },
   ];
@@ -62,63 +63,47 @@ const About = () => {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* HERO */}
-        <section className="relative mb-24 overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-card via-background to-card p-6 md:p-12 lg:p-16">
-          {/* ambient glow */}
-          <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-[hsl(262,83%,58%)]/25 via-[hsl(292,84%,61%)]/20 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-tr from-[hsl(38,97%,64%)]/20 via-[hsl(292,84%,61%)]/15 to-transparent blur-3xl" />
-          {/* subtle grid */}
-          <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:42px_42px]" />
-
-          <div className="relative grid md:grid-cols-5 gap-10 md:gap-14 items-center">
-            <div className="md:col-span-2 animate-scale-in">
-              <div className="relative">
-                <div className="absolute -inset-3 bg-gradient-to-br from-[hsl(262,83%,58%)]/30 via-[hsl(292,84%,61%)]/30 to-[hsl(38,97%,64%)]/30 blur-2xl rounded-[2.5rem]" />
-                <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-border/60">
-                  <img src={koteshwarImg} alt="Chinnolla Koteshwar" className="w-full h-full object-cover object-top" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-white/90 font-medium">
-                    <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> Hyderabad · IN</span>
-                    <span>Grad School ’26</span>
-                  </div>
+        <section className="mb-24 grid md:grid-cols-5 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-2 animate-scale-in">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[hsl(262,83%,58%)]/20 via-[hsl(292,84%,61%)]/20 to-[hsl(38,97%,64%)]/20 blur-2xl rounded-[2.5rem]" />
+              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl">
+                <img src={koteshwarImg} alt="Chinnolla Koteshwar" className="w-full h-full object-cover object-top grayscale-[20%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-widest text-white/90 font-medium">
+                  <span>Hyderabad · IN</span>
+                  <span>Est. 2025</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="md:col-span-3 space-y-6 animate-slide-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 backdrop-blur px-3 py-1 text-xs font-medium tracking-wider uppercase text-muted-foreground">
-                <Sparkles className="w-3.5 h-3.5" />
-                Prospective Graduate Researcher · 2026
+          <div className="md:col-span-3 space-y-6 animate-slide-up">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground">— About</p>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+              Chinnolla{" "}
+              <span className="bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent italic font-serif">
+                Koteshwar
               </span>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight">
-                Hi, I’m{" "}
-                <span className="bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent italic font-serif">
-                  Koteshwar
-                </span>
-                .
-              </h1>
-
-              <p className="text-xl md:text-2xl text-foreground/85 leading-relaxed font-light">
-                I build <span className="font-medium text-foreground">agentic AI and robotic systems</span> — and I’m heading to grad school to push them further with <span className="font-medium text-foreground">world models and reinforcement learning</span>.
-              </p>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-                <span className="flex items-center gap-2 text-muted-foreground"><Briefcase className="w-4 h-4" /> Assoc. SE · Anasol</span>
-                <span className="flex items-center gap-2 text-muted-foreground"><GraduationCap className="w-4 h-4" /> B.Tech ECE · AI/ML Minor</span>
-                <span className="flex items-center gap-2 text-muted-foreground"><BookOpen className="w-4 h-4" /> IEEE Published</span>
-              </div>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a href="mailto:chinnollakoteshwar@gmail.com">
-                  <Button className="rounded-full px-6 group"><Mail className="mr-2 h-4 w-4" /> Reach Out <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Button>
-                </a>
-                <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="rounded-full px-6"><Github className="mr-2 h-4 w-4" /> GitHub</Button>
-                </a>
-                <a href="https://www.linkedin.com/in/koteshwar-chinnolla-2065b4253/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="rounded-full px-6"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</Button>
-                </a>
-              </div>
+            </h1>
+            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
+              Engineer, researcher, and lifelong tinkerer building systems that <span className="font-medium text-foreground">sense, reason, and act</span> — at the intersection of Agentic AI, robotics, and reinforcement learning.
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm">
+              <span className="flex items-center gap-2 text-muted-foreground"><MapPin className="w-4 h-4" /> Hyderabad, India</span>
+              <span className="flex items-center gap-2 text-muted-foreground"><Briefcase className="w-4 h-4" /> Associate SE — AI & DevOps · Anasol</span>
+              <span className="flex items-center gap-2 text-muted-foreground"><GraduationCap className="w-4 h-4" /> B.Tech ECE · Minor in AI/ML</span>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <a href="mailto:chinnollakoteshwar@gmail.com">
+                <Button className="rounded-full px-6"><Mail className="mr-2 h-4 w-4" /> Email</Button>
+              </a>
+              <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full px-6"><Github className="mr-2 h-4 w-4" /> GitHub</Button>
+              </a>
+              <a href="https://www.linkedin.com/in/koteshwar-chinnolla-2065b4253/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full px-6"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</Button>
+              </a>
             </div>
           </div>
         </section>
