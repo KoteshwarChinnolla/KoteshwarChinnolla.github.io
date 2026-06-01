@@ -14,6 +14,7 @@ import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import FloatingAboutButton from "./components/FloatingAboutButton";
+import FloatingDocsButton from "./components/FloatingDocsButton";
 import Footer from "./components/Footer";
 
 function ScrollToTop() {
@@ -36,6 +37,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <FloatingAboutButton />
+        <FloatingDocsButton />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projects" element={<Projects />} />
