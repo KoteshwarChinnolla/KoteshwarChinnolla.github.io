@@ -95,7 +95,7 @@ const FloatingDocsButton = () => {
           onClick={() => setOpen((o) => !o)}
           aria-label="Documents"
           aria-expanded={open}
-          className="group relative flex items-center gap-2 rounded-full bg-card/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-2xl ring-1 ring-border hover:ring-[hsl(262,83%,58%)]/60 transition-all hover:scale-105"
+          className="group relative flex items-center gap-3 rounded-full bg-card/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-2xl ring-1 ring-border hover:ring-[hsl(262,83%,58%)]/60 transition-all hover:scale-105"
         >
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] blur-md opacity-60 group-hover:opacity-90 transition-opacity" />
@@ -103,9 +103,9 @@ const FloatingDocsButton = () => {
               <FileText className="w-4 h-4 text-white" />
             </div>
           </div>
-          <div className="hidden sm:flex flex-col leading-tight text-left">
+          <div className="hidden sm:flex flex-col leading-tight">
             <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">Docs</span>
-            <span className="text-sm font-bold">Resume / CV</span>
+            <span className="text-sm font-bold">Resume/CV</span>
           </div>
         </button>
       </div>
