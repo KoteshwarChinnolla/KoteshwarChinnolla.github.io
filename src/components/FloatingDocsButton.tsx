@@ -33,7 +33,7 @@ const FloatingDocsButton = () => {
   }, [open]);
 
   return (
-    <div ref={ref} className="fixed bottom-5 left-5 z-50 md:bottom-8 md:left-8">
+    <div ref={ref} className="fixed bottom-5 right-5 z-50 md:bottom-8 md:right-8">
       <div className="absolute bottom-[72px] right-0 md:bottom-[96px] origin-bottom-right">
         {open && (
           <div className="absolute bottom-full right-0 mb-3 w-72 rounded-2xl bg-card/95 backdrop-blur-md shadow-2xl ring-1 ring-border p-3 animate-scale-in origin-bottom-right">
