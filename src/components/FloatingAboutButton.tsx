@@ -10,7 +10,7 @@ const FloatingAboutButton = () => {
     <Link
       to="/about"
       aria-label="About Koteshwar"
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-card/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-2xl ring-1 ring-border hover:ring-[hsl(38,92%,55%)]/60 transition-all hover:scale-105 md:bottom-8 md:right-8"
+      className="group fixed bottom-5 right-5 z-50 flex items-center gap-1 rounded-full bg-card/80 backdrop-blur-md pl-2 pr-4 py-2 shadow-2xl ring-1 ring-border hover:ring-[hsl(38,92%,55%)]/60 transition-all hover:scale-105 md:bottom-8 md:right-8"
     >
       <div className="relative">
         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] blur-md opacity-60 group-hover:opacity-90 transition-opacity" />
